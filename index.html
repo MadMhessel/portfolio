@@ -3,141 +3,272 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atmosphere — портфолио интерьеров</title>
-<meta name="description" content="Ремонт под ключ и дизайн‑проект. Посмотрите реализованные интерьеры и отправьте заявку.">
-<meta name="theme-color" content="#00302d">
+<title>Atmosphere — портфолио дизайнера интерьеров</title>
+<meta name="description" content="Дизайн и реализация интерьеров под ключ: от идеи до сдачи объекта. Посмотрите реализованные проекты и оставьте заявку на смету.">
+<meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
-<link rel="canonical" href="http://a1183990.xsph.ru/portfolio/">
-<link rel="stylesheet" href="css/atmosphere.css">
-<meta property="og:title" content="Atmosphere — портфолио интерьеров">
-<meta property="og:description" content="Ремонт под ключ и дизайн‑проект. Посмотрите реализованные интерьеры и отправьте заявку.">
-<meta property="og:image" content="http://a1183990.xsph.ru/portfolio/img/og-portfolio.jpg">
+<link rel="canonical" href="https://madmhessel.github.io/portfolio/">
+<meta property="og:title" content="Atmosphere — портфолио дизайнера интерьеров">
+<meta property="og:description" content="Спокойные интерьеры для жизни и бизнеса. Дизайн, комплектация и реализация под ключ.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://madmhessel.github.io/portfolio/">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og-portfolio.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="css/atmosphere.css" as="style">
+<link rel="stylesheet" href="css/atmosphere.css">
+<!-- fix: критические стили для быстрого рендера -->
+<style>
+:root{--c-bg:#f7f7f5;--c-surface:#ffffff;--c-text:#0d1514;--c-muted:#5b6b68;--c-primary:#0b5c55;--c-primary-hover:#0a4d48;--radius:16px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--maxw:1200px}
+body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text)}
+.container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--space-4)}
+.site-header{position:sticky;top:0;z-index:60;background:rgba(247,247,245,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,21,20,.08)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:72px}
+.brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;font-weight:600;color:var(--c-text)}
+.brand img{inline-size:140px}
+.nav-toggle{display:inline-flex;align-items:center;justify-content:center;inline-size:48px;block-size:48px;border-radius:50%;border:1px solid rgba(13,21,20,.1);background:var(--c-surface)}
+.nav-desktop{display:none;align-items:center;gap:var(--space-5)}
+.nav-desktop a{text-decoration:none;font-weight:500;color:var(--c-text)}
+.hero{display:grid;gap:var(--space-6);padding-block:var(--space-8);align-items:center}
+.hero-copy{display:grid;gap:var(--space-4);max-width:560px}
+.hero h1{margin:0;font-size:40px;line-height:1.1}
+.hero p{margin:0;color:var(--c-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:999px;border:1px solid rgba(13,21,20,.12);background:var(--c-surface);font-weight:600;text-decoration:none;color:var(--c-text)}
+.btn-primary{background:var(--c-primary);border-color:var(--c-primary);color:#fff}
+.portfolio-grid{display:grid;gap:var(--space-5)}
+.card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);display:grid;gap:var(--space-4);padding:var(--space-4)}
+.card .thumb{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:rgba(13,21,20,.05)}
+.card-title{margin:0;font-size:24px}
+.card-meta{margin:0;color:var(--c-muted)}
+@media (min-width:1024px){.nav-toggle{display:none}.nav-desktop{display:flex}.hero{grid-template-columns:1fr 1fr}}
+</style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Atmosphere — студия ремонта", "url": "http://a1183990.xsph.ru/portfolio/", "telephone": "+7 (999) 000-00-00", "address": {"@type": "PostalAddress", "addressLocality": "Нижний Новгород", "addressCountry": "RU"}}
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/","telephone":"+7 (999) 000-00-00","address":{"@type":"PostalAddress","addressLocality":"Нижний Новгород","addressCountry":"RU"}}
 </script>
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
 <header class="site-header">
-  <div class="row">
-    <a class="brand" href="./"><img src="img/logo.png" alt="Atmosphere — студия ремонта"></a>
+  <div class="container site-header__inner">
+    <a class="brand" href="./" aria-label="Atmosphere — на главную">
+      <img src="img/logo.png" alt="Atmosphere — студия дизайна" width="140" height="40" loading="lazy" decoding="async">
+    </a>
+    <!-- fix: обновленная навигация -->
     <nav class="nav-desktop" aria-label="Основная навигация">
-      <a href="./">Главная</a>
+      <a href="./">Портфолио</a>
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
       <a href="contact.html">Контакты</a>
     </nav>
-    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false">Меню</button>
+    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Открыть меню">
+      <span class="sr-only">Меню</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </div>
-  <nav id="navMobile" class="nav-mobile" aria-label="Мобильное меню" data-open="false">
-    <a href="./">Главная</a>
+  <nav id="navMobile" class="nav-mobile" data-open="false" aria-hidden="true" aria-label="Мобильное меню">
+    <a href="./">Портфолио</a>
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
+    <div class="quick-contacts">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
   </nav>
 </header>
+<div id="navOverlay" class="nav-overlay" data-active="false" aria-hidden="true"></div>
 <main id="main">
-  <section class="hero">
-    
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width: 900px) 1200px, 100vw">
-  <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Светлая гостиная" loading="eager" decoding="async" fetchpriority="high">
-</picture>
-    <div class="hero-text">
-      <h1>Спокойные интерьеры для жизни</h1>
-      <p>Проектируем и реализуем ремонт под ключ: сроки, смета и качество под контролем.</p>
-      <a class="btn btn-primary" href="contact.html#quote">Оставить заявку</a>
+  <section class="hero container">
+    <div class="hero-copy reveal-in">
+      <p class="subtitle">Дизайн и реализация интерьеров</p>
+      <h1>Создаём атмосферу, в которой хочется жить</h1>
+      <p>Я сопровождаю проект от идеи до финальной декорации: прозрачная смета, авторский надзор и предсказуемые сроки.</p>
+      <div>
+        <a class="btn btn-primary" href="contact.html#quote">Оставить заявку</a>
+      </div>
+      <div class="quick-contacts" aria-label="Быстрые контакты">
+        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+        <a href="tel:+79990000000">Позвонить</a>
+        <a href="mailto:hello@atmstr.ru">Почта</a>
+      </div>
+    </div>
+    <div class="hero-media reveal-in">
+      <picture>
+        <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:1024px) 540px, 100vw">
+        <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Современная гостиная студии Atmosphere" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
     </div>
   </section>
 
-  <section class="section container">
-    <h2 class="section-title">Избранные проекты</h2>
-    <div class="portfolio-grid">
+  <section class="section container reveal-in" aria-labelledby="projects">
+    <div>
+      <h2 class="section-title" id="projects">Избранные проекты</h2>
+      <p class="subtitle">Продуманная архитектура, натуральные материалы и контроль качества на каждом этапе.</p>
+    </div>
+    <div class="portfolio-grid" role="list">
+      <!-- fix: карточка проекта с аспектом 4:3 -->
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-01.html" aria-label="Интерьер 1 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Лаконичный интерьер квартиры" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Тёплая квартира в сканди стиле</h3>
+          <p class="card-meta">52 м² · 2025 · Нижний Новгород</p>
+        </div>
+      </article>
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-02.html" aria-label="Интерьер 2 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Минималистичная гостиная" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Минимализм для динамичной пары</h3>
+          <p class="card-meta">67 м² · 2024 · Москва</p>
+        </div>
+      </article>
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-03.html" aria-label="Интерьер 3 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1400.webp 1400w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, 90vw">
+            <img src="img/interior_03-1536.jpg" width="1536" height="1024" alt="Интерьер с яркими акцентами" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Яркие акценты в семейном доме</h3>
+          <p class="card-meta">120 м² · 2024 · Казань</p>
+        </div>
+      </article>
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-04.html" aria-label="Интерьер 4 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <img src="img/interior_04-1024.jpg" width="1024" height="1024" alt="Интерьер кухни-гостиной" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Эко-студия в новостройке</h3>
+          <p class="card-meta">45 м² · 2023 · Санкт-Петербург</p>
+        </div>
+      </article>
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-05.html" aria-label="Интерьер 5 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <img src="img/interior_05-1024.jpg" width="1024" height="1024" alt="Современная спальня" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Спокойная спальня с гардеробом</h3>
+          <p class="card-meta">36 м² · 2023 · Нижний Новгород</p>
+        </div>
+      </article>
+      <article class="card reveal-in" role="listitem">
+        <a class="thumb" href="proekt-06.html" aria-label="Интерьер 6 — подробнее">
+          <picture>
+            <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <img src="img/interior_06-1024.jpg" width="1024" height="1024" alt="Интерьер кабинета" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div>
+          <h3 class="card-title">Кабинет для работы и отдыха</h3>
+          <p class="card-meta">28 м² · 2022 · Москва</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-      <article class="card reveal">
-        <a class="thumb" href="proekt-01.html" aria-label="Открыть проект 1">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Интерьер 1" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 1</h3>
-        <p class="card-meta">52 м² · 2025</p>
+  <section class="section container testimonials reveal-in" aria-labelledby="reviews">
+    <div>
+      <h2 class="section-title" id="reviews">Отзывы клиентов</h2>
+      <p class="subtitle">Работаем прозрачно: фиксированная смета, регулярные отчёты и поддержка после сдачи объекта.</p>
+    </div>
+    <div class="testimonials-list">
+      <!-- fix: карточка отзыва -->
+      <article class="testimonial">
+        <p>«Проект превзошёл ожидания: за 4 месяца мы получили готовую квартиру с мебелью и декором. Все вопросы решались в чате, а на объект приезжали только на финальную приёмку.»</p>
+        <cite>Анна и Сергей, ЖК "Чкалов"</cite>
+        <p class="card-meta">Outcome: экономия 12% от сметы и сдача на 2 недели раньше срока.</p>
       </article>
-    
-      <article class="card reveal">
-        <a class="thumb" href="proekt-02.html" aria-label="Открыть проект 2">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Интерьер 2" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 2</h3>
-        <p class="card-meta">53 м² · 2025</p>
+      <article class="testimonial">
+        <p>«Команда предложила смелые решения по освещению и хранению, которые сделали офис уютным. Сотрудники и гости регулярно отмечают атмосферу пространства.»</p>
+        <cite>Ольга, руководитель HR Tech</cite>
+        <p class="card-meta">Outcome: рост времени пребывания клиентов в шоуруме на 18%.</p>
       </article>
-    
-      <article class="card reveal">
-        <a class="thumb" href="proekt-03.html" aria-label="Открыть проект 3">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1400.webp 1400w, img/interior_03-1536.webp 1536w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_03-1536.jpg" width="1536" height="1024" alt="Интерьер 3" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 3</h3>
-        <p class="card-meta">54 м² · 2025</p>
+      <article class="testimonial">
+        <p>«Смета оставалась прозрачной, а подрядчики соблюдали сроки. После сдачи проекта получили гайд по уходу и контакты поставщиков.»</p>
+        <cite>Дмитрий, собственник дома</cite>
+        <p class="card-meta">Outcome: гарантийное сопровождение и сервис через 6 месяцев без доплат.</p>
       </article>
-    
-      <article class="card reveal">
-        <a class="thumb" href="proekt-04.html" aria-label="Открыть проект 4">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_04-1024.jpg" width="1024" height="1024" alt="Интерьер 4" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 4</h3>
-        <p class="card-meta">55 м² · 2025</p>
+    </div>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="partners">
+    <h2 class="section-title" id="partners">Партнёры и подрядчики</h2>
+    <p class="subtitle">Работаем с проверенными брендами материалов, светотехники и мебели.</p>
+    <div class="logos" role="list">
+      <span role="listitem"><img src="img/logo-leroy.svg" alt="Leroy Merlin" loading="lazy" decoding="async" width="140" height="40"></span>
+      <span role="listitem"><img src="img/logo-ikea.svg" alt="IKEA" loading="lazy" decoding="async" width="140" height="40"></span>
+      <span role="listitem"><img src="img/logo-philips.svg" alt="Philips" loading="lazy" decoding="async" width="140" height="40"></span>
+      <span role="listitem"><img src="img/logo-tikkurila.svg" alt="Tikkurila" loading="lazy" decoding="async" width="140" height="40"></span>
+    </div>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="services">
+    <h2 class="section-title" id="services">Как проходит работа</h2>
+    <div class="grid">
+      <article class="card">
+        <h3 class="card-title">1. Исследование</h3>
+        <p>Интервью, замеры, техническое задание и смета с альтернативами по бюджету.</p>
       </article>
-    
-      <article class="card reveal">
-        <a class="thumb" href="proekt-05.html" aria-label="Открыть проект 5">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_05-1024.jpg" width="1024" height="1024" alt="Интерьер 5" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 5</h3>
-        <p class="card-meta">56 м² · 2025</p>
+      <article class="card">
+        <h3 class="card-title">2. Проектирование</h3>
+        <p>Планировки, визуализации, рабочие чертежи и подбор материалов с образцами.</p>
       </article>
-    
-      <article class="card reveal">
-        <a class="thumb" href="proekt-06.html" aria-label="Открыть проект 6">
-          
-<picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
-  <img src="img/interior_06-1024.jpg" width="1024" height="1024" alt="Интерьер 6" loading="lazy" decoding="async">
-</picture>
-        </a>
-        <h3 class="card-title">Интерьер 6</h3>
-        <p class="card-meta">57 м² · 2025</p>
+      <article class="card">
+        <h3 class="card-title">3. Реализация</h3>
+        <p>Авторский надзор, закупка и логистика, еженедельные отчёты и контроль качества.</p>
       </article>
-    
+    </div>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="contact-cta">
+    <div class="contact-cta">
+      <div>
+        <h2 class="section-title" id="contact-cta">Готовы обсудить ваш проект?</h2>
+        <p>Расскажите о задаче и получите расчёт сметы в течение 2 рабочих дней. Работаем по договору и с безналичной оплатой.</p>
+      </div>
+      <div class="quick-contacts">
+        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+        <a href="tel:+79990000000">Позвонить</a>
+        <a href="mailto:hello@atmstr.ru">Почта</a>
+      </div>
+      <a class="btn btn-primary" href="contact.html#quote">Запросить смету</a>
     </div>
   </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><strong>Atmosphere</strong><br>Студия дизайна и ремонта</div>
+    <div>
+      <strong>Atmosphere</strong><br>Студия дизайна и ремонта полного цикла
+      <div class="footer-cta">
+        <a class="btn btn-ghost" href="contact.html#quote">Оставить заявку</a>
+      </div>
+    </div>
     <nav aria-label="Нижняя навигация">
       <a href="privacy.html">Политика конфиденциальности</a>
       <a href="terms.html">Условия сотрудничества</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="about.html">О студии</a>
     </nav>
-    <div class="socials">
+    <div class="quick-contacts" aria-label="Контакты">
       <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
       <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
       <a href="tel:+79990000000">Позвонить</a>
@@ -145,7 +276,7 @@
     </div>
   </div>
 </footer>
+<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
 <script src="js/main.js" defer></script>
-
 </body>
 </html>

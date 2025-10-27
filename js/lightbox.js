@@ -3,7 +3,7 @@ if (document.querySelector('.gallery')) {
     .then(({ default: PhotoSwipeLightbox }) => {
       const lightbox = new PhotoSwipeLightbox({
         gallery: '.gallery',
-        children: 'a',
+        children: 'self',
         pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
       });
       lightbox.init();
