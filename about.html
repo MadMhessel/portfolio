@@ -3,68 +3,132 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>О студии Atmosphere</title>
-<meta name="description" content="Наш подход, услуги и принципы работы.">
-<meta name="theme-color" content="#00302d">
+<title>О студии Atmosphere — команда и подход</title>
+<meta name="description" content="Ведущий дизайнер Мария Дорошина рассказывает о миссии студии Atmosphere, подходе к проектам и ценностях работы с клиентами.">
+<meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
-<link rel="canonical" href="http://a1183990.xsph.ru/portfolio/about.html">
-<link rel="stylesheet" href="css/atmosphere.css">
-<meta property="og:title" content="О студии Atmosphere">
-<meta property="og:description" content="Наш подход, услуги и принципы работы.">
-<meta property="og:image" content="http://a1183990.xsph.ru/portfolio/img/og-portfolio.jpg">
+<link rel="canonical" href="https://madmhessel.github.io/portfolio/about.html">
+<meta property="og:title" content="О студии Atmosphere — команда и подход">
+<meta property="og:description" content="Миссия, процессы и ценности студии интерьеров Atmosphere.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://madmhessel.github.io/portfolio/about.html">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_01-1024.jpg">
+<link rel="preload" href="css/atmosphere.css" as="style">
+<link rel="stylesheet" href="css/atmosphere.css">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Atmosphere — студия ремонта", "url": "http://a1183990.xsph.ru/portfolio/", "telephone": "+7 (999) 000-00-00", "address": {"@type": "PostalAddress", "addressLocality": "Нижний Новгород", "addressCountry": "RU"}}
+{"@context":"https://schema.org","@type":"Organization","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/","logo":"https://madmhessel.github.io/portfolio/img/logo.png","sameAs":["https://wa.me/79990009999","https://t.me/yourstudio"]}
 </script>
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
 <header class="site-header">
-  <div class="row">
-    <a class="brand" href="./"><img src="img/logo.png" alt="Atmosphere — студия ремонта"></a>
+  <div class="container site-header__inner">
+    <a class="brand" href="./" aria-label="Atmosphere — на главную">
+      <img src="img/logo.png" alt="Atmosphere — студия дизайна" width="140" height="40" loading="lazy" decoding="async">
+    </a>
     <nav class="nav-desktop" aria-label="Основная навигация">
-      <a href="./">Главная</a>
+      <a href="./">Портфолио</a>
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
       <a href="contact.html">Контакты</a>
     </nav>
-    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false">Меню</button>
+    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Открыть меню">
+      <span class="sr-only">Меню</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </div>
-  <nav id="navMobile" class="nav-mobile" aria-label="Мобильное меню" data-open="false">
-    <a href="./">Главная</a>
+  <nav id="navMobile" class="nav-mobile" data-open="false" aria-hidden="true" aria-label="Мобильное меню">
+    <a href="./">Портфолио</a>
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
+    <div class="quick-contacts">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
   </nav>
 </header>
-<main id="main" class="container">
-  <section class="section">
-    <h1 class="section-title">О студии</h1>
-    <p>Мы создаём спокойные, функциональные интерьеры и реализуем их «под ключ». Работаем по прозрачной смете, соблюдаем сроки и контролируем качество на каждом этапе.</p>
-    <h2 class="section-title">Наш подход</h2>
-    <ul>
-      <li><strong>Планирование.</strong> Анализ потребностей, замеры, концепция и планировочные решения.</li>
-      <li><strong>Дизайн‑проект.</strong> Визуализации, спецификации, рабочая документация.</li>
-      <li><strong>Комплектация.</strong> Подбор материалов и мебели, логистика, учёт бюджета.</li>
-      <li><strong>Реализация.</strong> Авторский надзор, контроль сроков и качества, сдача объекта.</li>
+<div id="navOverlay" class="nav-overlay" data-active="false" aria-hidden="true"></div>
+<main id="main">
+  <section class="section container about-hero">
+    <div class="about-media reveal-in">
+      <img src="img/avatar-designer.svg" width="320" height="320" alt="Мария Дорошина, ведущий дизайнер студии Atmosphere" loading="lazy" decoding="async">
+    </div>
+    <div class="reveal-in">
+      <p class="subtitle">О студии Atmosphere</p>
+      <h1 class="section-title">Создаём интерьеры, которые помогают бизнесу и людям расти</h1>
+      <p>Меня зовут Мария Дорошина. Я основательница и ведущий дизайнер студии Atmosphere. Уже 8 лет мы проектируем и реализуем пространства — от компактных квартир до коммерческих объектов. Работаем прозрачно: фиксируем задачи, отвечаем за бюджет и сопровождаем клиентов после сдачи проекта.</p>
+      <div class="quick-contacts" aria-label="Быстрые контакты">
+        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+        <a href="tel:+79990000000">Позвонить</a>
+        <a href="mailto:hello@atmstr.ru">Почта</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Миссия и подход</h2>
+    <div class="grid">
+      <article class="card">
+        <!-- fix: раскрываем миссию студии -->
+        <h3 class="card-title">Понимать бизнес-задачу</h3>
+        <p>Начинаем с аналитики: интервью, аудит процессов, измерение маршрутов. Это помогает предложить решения, которые влияют на прибыль и комфорт.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Прозрачная смета</h3>
+        <p>Ведём бюджет в Notion и Airtable: клиент видит актуальные цены, статусы заказов и прогноз сроков.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Контроль качества</h3>
+        <p>Авторский надзор, чек-листы приёмки и фотоотчёты. После сдачи готовим регламент ухода и остаёмся на связи.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Чем мы отличаемся</h2>
+    <ul class="list-checked">
+      <li>Собственная база проверенных подрядчиков и поставщиков с фиксированными SLA.</li>
+      <li>Цифровые инструменты — Notion, Trello, Airtable — для прозрачности и совместной работы.</li>
+      <li>Фокус на экологичных материалах и энергоэффективных решениях.</li>
+      <li>Постпроектное сопровождение: корректировки, консультации и помощь в обслуживании.</li>
     </ul>
-    <h2 class="section-title">Услуги</h2>
-    <ul>
-      <li>Планировочные решения</li>
-      <li>Дизайн‑проект</li>
-      <li>Комплектация и авторский надзор</li>
-      <li>Ремонт под ключ</li>
-    </ul>
+  </section>
+
+  <section class="section container reveal-in">
+    <div class="contact-cta">
+      <div>
+        <h2 class="section-title">Готовы обсудить вашу задачу?</h2>
+        <p>Напишите нам и получите предложение по проекту с ориентировочным бюджетом и планом работ.</p>
+      </div>
+      <div class="quick-contacts">
+        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+        <a href="tel:+79990000000">Позвонить</a>
+        <a href="mailto:hello@atmstr.ru">Почта</a>
+      </div>
+      <a class="btn btn-primary" href="contact.html#quote">Запросить смету</a>
+    </div>
   </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><strong>Atmosphere</strong><br>Студия дизайна и ремонта</div>
+    <div>
+      <strong>Atmosphere</strong><br>Студия дизайна и ремонта полного цикла
+      <div class="footer-cta">
+        <a class="btn btn-ghost" href="contact.html#quote">Оставить заявку</a>
+      </div>
+    </div>
     <nav aria-label="Нижняя навигация">
       <a href="privacy.html">Политика конфиденциальности</a>
       <a href="terms.html">Условия сотрудничества</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="./">Портфолио</a>
     </nav>
-    <div class="socials">
+    <div class="quick-contacts" aria-label="Контакты">
       <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
       <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
       <a href="tel:+79990000000">Позвонить</a>
@@ -72,7 +136,7 @@
     </div>
   </div>
 </footer>
+<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
 <script src="js/main.js" defer></script>
-
 </body>
 </html>

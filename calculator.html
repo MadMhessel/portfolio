@@ -4,47 +4,67 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор стоимости ремонта</title>
-<meta name="description" content="Оцените ориентировочный бюджет по площади и уровню отделки.">
-<meta name="theme-color" content="#00302d">
+<meta name="description" content="Оцените ориентировочный бюджет ремонта: введите площадь и уровень отделки, чтобы получить расчёт.">
+<meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
-<link rel="canonical" href="http://a1183990.xsph.ru/portfolio/calculator.html">
-<link rel="stylesheet" href="css/atmosphere.css">
+<link rel="canonical" href="https://madmhessel.github.io/portfolio/calculator.html">
 <meta property="og:title" content="Калькулятор стоимости ремонта">
-<meta property="og:description" content="Оцените ориентировочный бюджет по площади и уровню отделки.">
-<meta property="og:image" content="http://a1183990.xsph.ru/portfolio/img/og-portfolio.jpg">
+<meta property="og:description" content="Вычислите примерный бюджет ремонта квартиры или офиса за пару кликов.">
 <meta property="og:type" content="website">
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Atmosphere — студия ремонта", "url": "http://a1183990.xsph.ru/portfolio/", "telephone": "+7 (999) 000-00-00", "address": {"@type": "PostalAddress", "addressLocality": "Нижний Новгород", "addressCountry": "RU"}}
-</script>
+<meta property="og:url" content="https://madmhessel.github.io/portfolio/calculator.html">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_04-1024.jpg">
+<link rel="stylesheet" href="css/atmosphere.css">
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
 <header class="site-header">
-  <div class="row">
-    <a class="brand" href="./"><img src="img/logo.png" alt="Atmosphere — студия ремонта"></a>
+  <div class="container site-header__inner">
+    <a class="brand" href="./" aria-label="Atmosphere — на главную">
+      <img src="img/logo.png" alt="Atmosphere — студия дизайна" width="140" height="40" loading="lazy" decoding="async">
+    </a>
     <nav class="nav-desktop" aria-label="Основная навигация">
-      <a href="./">Главная</a>
+      <a href="./">Портфолио</a>
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
       <a href="contact.html">Контакты</a>
     </nav>
-    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false">Меню</button>
+    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Открыть меню">
+      <span class="sr-only">Меню</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </div>
-  <nav id="navMobile" class="nav-mobile" aria-label="Мобильное меню" data-open="false">
-    <a href="./">Главная</a>
+  <nav id="navMobile" class="nav-mobile" data-open="false" aria-hidden="true" aria-label="Мобильное меню">
+    <a href="./">Портфолио</a>
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
+    <div class="quick-contacts">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
   </nav>
 </header>
+<div id="navOverlay" class="nav-overlay" data-active="false" aria-hidden="true"></div>
 <main id="main" class="container">
-  <section class="section">
-    <h1 class="section-title">Калькулятор</h1>
-    <p>Введите площадь и выберите уровень отделки — система рассчитает ориентировочную стоимость работ.</p>
+  <!-- fix: быстрый расчёт стоимости -->
+  <section class="section reveal-in">
+    <p class="subtitle">Быстрый расчёт</p>
+    <h1 class="section-title">Калькулятор стоимости</h1>
+    <p>Введите площадь и выберите уровень отделки — получите ориентировочную стоимость работ. После заполнения формы на странице <a href="contact.html#quote">Контакты</a> мы вышлем детальную смету.</p>
+    <div class="quick-contacts" aria-label="Быстрые контакты">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
     <form id="calc" class="form">
-      <label>Площадь (м²) <input type="number" id="area" min="10" required></label>
-      <label>Уровень отделки
-        <select id="level">
+      <label for="calcArea">Площадь (м²)
+        <input type="number" id="calcArea" min="10" required aria-required="true">
+      </label>
+      <label for="calcLevel">Уровень отделки
+        <select id="calcLevel">
           <option value="8000">Базовый — от 8 000 ₽/м²</option>
           <option value="12000">Комфорт — от 12 000 ₽/м²</option>
           <option value="17000">Премиум — от 17 000 ₽/м²</option>
@@ -52,18 +72,25 @@
       </label>
       <button class="btn btn-primary">Рассчитать</button>
     </form>
-    <p id="total" class="fs-3"></p>
-    <p class="muted">Расчёт носит ориентировочный характер и не является офертой. Точный бюджет фиксируется в смете после замеров и брифа.</p>
+    <p id="calcResult" class="subtitle" aria-live="polite"></p>
+    <p class="subtitle">Расчёт ориентировочный и не является офертой. Точный бюджет закрепляется в смете после замеров и брифа.</p>
   </section>
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><strong>Atmosphere</strong><br>Студия дизайна и ремонта</div>
+    <div>
+      <strong>Atmosphere</strong><br>Студия дизайна и ремонта полного цикла
+      <div class="footer-cta">
+        <a class="btn btn-ghost" href="contact.html#quote">Оставить заявку</a>
+      </div>
+    </div>
     <nav aria-label="Нижняя навигация">
       <a href="privacy.html">Политика конфиденциальности</a>
       <a href="terms.html">Условия сотрудничества</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="about.html">О студии</a>
     </nav>
-    <div class="socials">
+    <div class="quick-contacts" aria-label="Контакты">
       <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
       <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
       <a href="tel:+79990000000">Позвонить</a>
@@ -71,15 +98,15 @@
     </div>
   </div>
 </footer>
+<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
 <script src="js/main.js" defer></script>
-
 <script>
-document.getElementById('calc').addEventListener('submit', e=>{
-  e.preventDefault();
-  const area=+document.getElementById('area').value||0;
-  const rate=+document.getElementById('level').value||0;
-  document.getElementById('total').textContent =
-    'Оценка: ' + new Intl.NumberFormat('ru-RU').format(area*rate) + ' ₽';
+document.getElementById('calc').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const area = Number(document.getElementById('calcArea').value) || 0;
+  const rate = Number(document.getElementById('calcLevel').value) || 0;
+  const total = area * rate;
+  document.getElementById('calcResult').textContent = total > 0 ? `Оценка: ${new Intl.NumberFormat('ru-RU').format(total)} ₽` : '';
 });
 </script>
 </body>
