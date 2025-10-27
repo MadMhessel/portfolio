@@ -43,16 +43,37 @@ if(menuBtn && navMobile){
   navMobile.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => toggleMenu(false)));
 }
 
-/* fix: плавное появление блоков */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+/* fix: плавное появление блоков с поддержкой reduced motion */
+const revealElements = document.querySelectorAll('.reveal-in');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if(revealElements.length){
+  const showImmediately = () => {
+    revealElements.forEach((el) => el.classList.add('is-visible'));
+  };
+  if(reduceMotion.matches){
+    showImmediately();
+  }else{
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.2});
+    revealElements.forEach((el) => observer.observe(el));
+  }
+  const handleReduceChange = (event) => {
+    if(event.matches){
+      showImmediately();
     }
-  });
-}, {threshold:0.2});
-document.querySelectorAll('.reveal-in').forEach((el) => observer.observe(el));
+  };
+  if(typeof reduceMotion.addEventListener === 'function'){
+    reduceMotion.addEventListener('change', handleReduceChange);
+  }else if(typeof reduceMotion.addListener === 'function'){
+    reduceMotion.addListener(handleReduceChange);
+  }
+}
 
 /* fix: слайдер до/после с aria */
 document.querySelectorAll('.ba').forEach((wrapper) => {
@@ -99,6 +120,13 @@ phoneInputs.forEach((input) => {
 document.querySelectorAll('form[data-validate]').forEach((form) => {
   form.addEventListener('submit', () => {
     form.querySelectorAll('.error').forEach((error) => { error.textContent = ''; });
+    /* fix: аналитика отправки формы */
+    const formIdentifier = form.getAttribute('data-analytics-id') || form.id || form.getAttribute('name') || 'lead-form';
+    if(Array.isArray(window.dataLayer)){
+      window.dataLayer.push({event:'form_submit',formId:formIdentifier});
+    }else if(typeof window.gtag === 'function'){
+      window.gtag('event','form_submit',{form_id:formIdentifier});
+    }
   });
   form.addEventListener('invalid', (event) => {
     if(!(event.target instanceof HTMLElement)){return;}
@@ -115,5 +143,56 @@ document.querySelectorAll('form[data-validate]').forEach((form) => {
         errorContainer.textContent = '';
       }
     });
+  });
+});
+
+/* fix: плавающий CTA с локальным состоянием и компактным режимом */
+const CTA_STORAGE_KEY = 'ctaStickyDismissed';
+document.querySelectorAll('.cta-sticky').forEach((cta) => {
+  const action = cta.querySelector('.cta-sticky__action');
+  const closeBtn = cta.querySelector('.cta-sticky__close');
+  const setHidden = (hidden) => {
+    cta.dataset.hidden = hidden ? 'true' : 'false';
+  };
+  const rememberHidden = () => {
+    try{
+      localStorage.setItem(CTA_STORAGE_KEY, 'true');
+    }catch(error){
+      /* noop */
+    }
+  };
+  let dismissed = false;
+  try{
+    dismissed = localStorage.getItem(CTA_STORAGE_KEY) === 'true';
+  }catch(error){
+    dismissed = false;
+  }
+  setHidden(dismissed);
+
+  const hideCta = () => {
+    setHidden(true);
+    rememberHidden();
+  };
+
+  closeBtn?.addEventListener('click', () => {
+    hideCta();
+  });
+
+  const compactMedia = window.matchMedia('(max-width: 479px)');
+  const applyCompact = (matches) => {
+    cta.dataset.compact = matches ? 'true' : 'false';
+  };
+  applyCompact(compactMedia.matches);
+  const compactListener = (event) => applyCompact(event.matches);
+  if(typeof compactMedia.addEventListener === 'function'){
+    compactMedia.addEventListener('change', compactListener);
+  }else if(typeof compactMedia.addListener === 'function'){
+    compactMedia.addListener(compactListener);
+  }
+
+  action?.addEventListener('click', () => {
+    if(cta.dataset.compact === 'true'){
+      hideCta();
+    }
   });
 });

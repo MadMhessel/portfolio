@@ -82,7 +82,19 @@ main{display:block}
 .quick-contacts{display:flex;flex-wrap:wrap;gap:var(--space-3)}
 .quick-contacts a{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none}
 .quick-contacts a:hover,.quick-contacts a:focus-visible{background:rgba(255,255,255,.24)}
-.cta-sticky{position:fixed;bottom:var(--space-4);right:var(--space-4);z-index:55}
+/* fix: плавающая кнопка с компактным режимом */
+.cta-sticky{position:fixed;bottom:var(--space-4);right:var(--space-4);z-index:55;display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2);background:rgba(255,255,255,.92);border-radius:999px;box-shadow:var(--shadow-soft);transition:transform .2s ease,opacity .2s ease}
+.cta-sticky[data-hidden="true"]{opacity:0;pointer-events:none;transform:translateY(12px)}
+.cta-sticky__action{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4)}
+.cta-sticky__icon{display:inline-flex;align-items:center;justify-content:center;inline-size:20px;block-size:20px}
+.cta-sticky__icon svg{inline-size:20px;block-size:20px}
+.cta-sticky__label{white-space:nowrap}
+.cta-sticky__close{inline-size:36px;block-size:36px;border-radius:50%;border:1px solid rgba(13,21,20,.12);background:rgba(13,21,20,.04);display:inline-flex;align-items:center;justify-content:center;color:var(--c-text);transition:background .2s ease,color .2s ease}
+.cta-sticky__close:hover,.cta-sticky__close:focus-visible{background:rgba(13,21,20,.12);color:var(--c-primary)}
+.cta-sticky[data-compact="true"]{padding:var(--space-2);border-radius:50%}
+.cta-sticky[data-compact="true"] .cta-sticky__action{inline-size:56px;block-size:56px;justify-content:center;padding:var(--space-2)}
+.cta-sticky[data-compact="true"] .cta-sticky__label{display:none}
+.cta-sticky[data-compact="true"] .cta-sticky__close{display:none}
 
 /* fix: about и контент */
 .about-hero{display:grid;gap:var(--space-5);align-items:center}
@@ -120,8 +132,9 @@ main{display:block}
 
 /* fix: анимация появления */
 .reveal-in{opacity:0;transform:translateY(16px);transition:opacity .25s ease,transform .25s ease}
+/* fix: состояние после появления */
 .reveal-in.is-visible{opacity:1;transform:translateY(0)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal-in{transition:none;opacity:1;transform:none}.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal-in,.reveal-in.is-visible{transition:none;opacity:1;transform:none}.btn,.cta-sticky{transition:none}}
 
 /* fix: брейкпоинты */
 @media (min-width:768px){
