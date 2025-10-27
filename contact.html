@@ -12,7 +12,10 @@
 <meta property="og:description" content="Напишите в мессенджер или оставьте заявку — подготовим смету за два дня и свяжемся удобным способом.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/contact.html">
-<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_02-1024.jpg">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-contact.svg">
+<meta property="og:image:alt" content="Графика с призывом связаться со студией Atmosphere">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <!-- fix: структурированные данные для контактов -->
@@ -46,11 +49,31 @@
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
-    <div class="quick-contacts">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="dark">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </nav>
 </header>
@@ -59,11 +82,31 @@
   <section class="section container">
     <p class="subtitle">Свяжитесь удобным способом</p>
     <h1 class="section-title">Контакты студии Atmosphere</h1>
-    <div class="quick-contacts" aria-label="Быстрые контакты">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </section>
 
@@ -71,33 +114,33 @@
     <h2 class="section-title">Оставить заявку</h2>
     <form class="form" action="https://formsubmit.co/hello@atmstr.ru" method="POST" accept-charset="UTF-8" autocomplete="on" data-validate>
       <input type="hidden" name="_subject" value="Новая заявка с сайта Atmosphere">
-      <input type="hidden" name="_next" value="thanks.html">
+      <input type="hidden" name="_next" value="thanks.html?success=1">
       <div aria-live="polite" class="sr-only" id="formMessages">&nbsp;</div>
       <label for="fieldName">Имя и фамилия
-        <input id="fieldName" name="name" required aria-required="true" autocomplete="name">
+        <input id="fieldName" name="name" required aria-required="true" autocomplete="name" aria-describedby="error-name">
       </label>
-      <span class="error" data-error-for="name" aria-live="polite"></span>
+      <span class="error" data-error-for="name" id="error-name" aria-live="polite"></span>
       <label for="fieldPhone">Телефон
-        <input id="fieldPhone" name="phone" required aria-required="true" inputmode="tel" autocomplete="tel" pattern="^\+?\d[\d\s()\-]{7,}$" data-mask="phone" placeholder="+7 (999) 000-00-00">
+        <input id="fieldPhone" name="phone" required aria-required="true" inputmode="tel" autocomplete="tel" pattern="^\+?\d[\d\s()\-]{7,}$" data-mask="phone" placeholder="+7 (999) 000-00-00" aria-describedby="error-phone">
       </label>
-      <span class="error" data-error-for="phone" aria-live="polite"></span>
+      <span class="error" data-error-for="phone" id="error-phone" aria-live="polite"></span>
       <label for="fieldArea">Площадь проекта (м²)
-        <input id="fieldArea" type="number" name="area" min="10">
+        <input id="fieldArea" type="number" name="area" min="10" aria-describedby="error-area">
       </label>
-      <span class="error" data-error-for="area" aria-live="polite"></span>
+      <span class="error" data-error-for="area" id="error-area" aria-live="polite"></span>
       <label for="fieldCity">Город
-        <input id="fieldCity" name="city" autocomplete="address-level2">
+        <input id="fieldCity" name="city" autocomplete="address-level2" aria-describedby="error-city">
       </label>
-      <span class="error" data-error-for="city" aria-live="polite"></span>
+      <span class="error" data-error-for="city" id="error-city" aria-live="polite"></span>
       <label for="fieldComment">Комментарий
-        <textarea id="fieldComment" name="comment" rows="4"></textarea>
+        <textarea id="fieldComment" name="comment" rows="4" aria-describedby="error-comment"></textarea>
       </label>
-      <span class="error" data-error-for="comment" aria-live="polite"></span>
+      <span class="error" data-error-for="comment" id="error-comment" aria-live="polite"></span>
       <label class="checkbox" for="fieldConsent">
-        <input id="fieldConsent" type="checkbox" name="consent" required aria-required="true">
+        <input id="fieldConsent" type="checkbox" name="consent" required aria-required="true" aria-describedby="error-consent">
         Согласен на обработку персональных данных
       </label>
-      <span class="error" data-error-for="consent" aria-live="polite"></span>
+      <span class="error" data-error-for="consent" id="error-consent" aria-live="polite"></span>
       <!-- fix: сообщения валидации и отправка -->
       <button class="btn btn-primary" type="submit">Отправить</button>
     </form>
@@ -127,11 +170,31 @@
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
     </nav>
-    <div class="quick-contacts" aria-label="Контакты">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </div>
 </footer>
@@ -139,7 +202,9 @@
 <div class="cta-sticky" data-hidden="false">
   <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
     <span class="cta-sticky__icon" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <use href="img/icons.svg#icon-send" xlink:href="img/icons.svg#icon-send"></use>
+      </svg>
     </span>
     <span class="cta-sticky__label">Запросить смету</span>
   </a>
