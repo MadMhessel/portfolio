@@ -8,19 +8,23 @@
 <meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/proekt-01.html">
+<!-- fix: обновлённые OG-метаданные кейса -->
 <meta property="og:title" content="Тёплая квартира — кейс Atmosphere">
 <meta property="og:description" content="Детальный кейс: задача, роль, процесс и результат проекта 52 м².">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/proekt-01.html">
-<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_01-1024.jpg">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-proekt-01.svg">
+<meta property="og:image:alt" content="Тёплая гостиная квартиры в сканди-стиле">
+<meta property="og:locale" content="ru_RU">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://madmhessel.github.io/portfolio/"},{"@type":"ListItem","position":2,"name":"Тёплая квартира","item":"https://madmhessel.github.io/portfolio/proekt-01.html"}]}
 </script>
+<!-- fix: обновлённая схема InteriorDesign -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CreativeWork","name":"Тёплая квартира","datePublished":"2025-01-15","locationCreated":"Нижний Новгород","author":{"@type":"Organization","name":"Atmosphere"},"creator":{"@type":"Person","name":"Мария Дорошина"},"image":"https://madmhessel.github.io/portfolio/img/interior_01-1024.jpg","description":"Сканди-интерьер 52 м² с авторским надзором и экономией бюджета 12%","keywords":"интерьер, сканди, дизайн квартиры","genre":"InteriorDesign","about":"Жилой интерьер","inLanguage":"ru","url":"https://madmhessel.github.io/portfolio/proekt-01.html"}
+{"@context":"https://schema.org","@type":"InteriorDesign","name":"Тёплая квартира","dateCreated":"2025-01-15","datePublished":"2025-01-15","creator":{"@type":"Person","name":"Мария Дорошина"},"image":{"@type":"ImageObject","url":"https://madmhessel.github.io/portfolio/img/interior_01-1024.jpg"},"locationCreated":"Нижний Новгород","description":"Сканди-интерьер 52 м² с авторским надзором и экономией бюджета 12%","keywords":"интерьер, сканди, дизайн квартиры","inLanguage":"ru","url":"https://madmhessel.github.io/portfolio/proekt-01.html"}
 </script>
 </head>
 <body>
@@ -46,11 +50,32 @@
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
-    <div class="quick-contacts">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <!-- fix: иконки быстрых контактов в мобильном меню -->
+    <div class="quick-contacts" data-theme="dark">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </nav>
 </header>
@@ -106,16 +131,17 @@
       <a class="card gallery" role="listitem" href="img/interior_01-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         <span class="thumb">
           <picture>
-            <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
-            <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Гостиная проекта" loading="lazy" decoding="async">
+            <!-- fix: обновлённый srcset для responsive галереи -->
+            <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:1024px) 360px, 90vw">
+            <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Гостиная проекта" loading="lazy" decoding="async" srcset="img/interior_01-600.jpg 600w, img/interior_01-900.jpg 900w, img/interior_01-1024.jpg 1024w" sizes="(min-width:1024px) 360px, 90vw">
           </picture>
         </span>
       </a>
       <a class="card gallery" role="listitem" href="img/interior_02-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         <span class="thumb">
           <picture>
-            <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
-            <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Кухня проекта" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width:1024px) 360px, 90vw">
+            <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Кухня проекта" loading="lazy" decoding="async" srcset="img/interior_02-600.jpg 600w, img/interior_02-900.jpg 900w, img/interior_02-1024.jpg 1024w" sizes="(min-width:1024px) 360px, 90vw">
           </picture>
         </span>
       </a>
@@ -123,8 +149,8 @@
         <span class="thumb">
           <picture>
             <!-- fix: оптимизированные размеры изображения -->
-            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1536.webp 1536w" sizes="(min-width:768px) 360px, 90vw">
-            <img src="img/interior_03-900.jpg" width="900" height="600" alt="Спальня проекта" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, 90vw">
+            <img src="img/interior_03-900.jpg" width="900" height="600" alt="Спальня проекта" loading="lazy" decoding="async" srcset="img/interior_03-600.jpg 600w, img/interior_03-900.jpg 900w, img/interior_03-1536.jpg 1536w" sizes="(min-width:1024px) 360px, 90vw">
           </picture>
         </span>
       </a>
@@ -134,8 +160,9 @@
   <section class="section container reveal-in">
     <h2 class="section-title">До и После</h2>
     <div class="ba">
-      <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Интерьер до обновления" loading="lazy" decoding="async">
-      <img class="after" src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Интерьер после обновления" loading="lazy" decoding="async">
+      <!-- fix: srcset для блока до/после -->
+      <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Интерьер до обновления" loading="lazy" decoding="async" srcset="img/interior_01-600.jpg 600w, img/interior_01-900.jpg 900w, img/interior_01-1024.jpg 1024w" sizes="(min-width:1024px) 512px, 90vw">
+      <img class="after" src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Интерьер после обновления" loading="lazy" decoding="async" srcset="img/interior_02-600.jpg 600w, img/interior_02-900.jpg 900w, img/interior_02-1024.jpg 1024w" sizes="(min-width:1024px) 512px, 90vw">
       <label for="baRange01" class="sr-only">Сравнение До/После</label>
       <input id="baRange01" class="ba-range" type="range" min="0" max="100" value="50" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Сравнение До/После">
     </div>
@@ -165,11 +192,31 @@
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
     </nav>
-    <div class="quick-contacts" aria-label="Контакты">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </div>
 </footer>
@@ -177,7 +224,9 @@
 <div class="cta-sticky" data-hidden="false">
   <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
     <span class="cta-sticky__icon" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <use href="img/icons.svg#icon-send" xlink:href="img/icons.svg#icon-send"></use>
+      </svg>
     </span>
     <span class="cta-sticky__label">Запросить смету</span>
   </a>

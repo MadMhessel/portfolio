@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d403b"/>
+      <stop offset="1" stop-color="#78a399"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#g)" width="1200" height="630" rx="48"/>
+  <text x="600" y="270" fill="#f7f7f5" font-family="'Segoe UI',sans-serif" font-size="72" font-weight="700" text-anchor="middle">Проект 3</text>
+  <text x="600" y="350" fill="#d9ebe6" font-family="'Segoe UI',sans-serif" font-size="36" text-anchor="middle">Современный интерьер Atmosphere</text>
+</svg>

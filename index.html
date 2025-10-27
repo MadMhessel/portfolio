@@ -3,22 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atmosphere — портфолио дизайнера интерьеров</title>
-<meta name="description" content="Дизайн и реализация интерьеров под ключ: от идеи до сдачи объекта. Посмотрите реализованные проекты и оставьте заявку на смету.">
+<title>Atmosphere — портфолио студии дизайна интерьеров Марии Дорошиной</title>
+<meta name="description" content="Atmosphere — студия дизайна Марии Дорошиной. Авторские интерьеры квартир, офисов и коммерческих пространств, процесс работы, отзывы клиентов и прозрачные сметы.">
 <meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/">
-<meta property="og:title" content="Atmosphere — портфолио дизайнера интерьеров">
-<meta property="og:description" content="Спокойные интерьеры для жизни и бизнеса. Дизайн, комплектация и реализация под ключ.">
+<meta property="og:title" content="Atmosphere — портфолио студии дизайна интерьеров">
+<meta property="og:description" content="Современные экопространства, реализованные Марией Дорошиной и командой Atmosphere.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/">
-<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og-portfolio.jpg">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-index.svg">
+<meta property="og:image:alt" content="Графика с логотипом студии Atmosphere и слоганом об экодизайне">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <!-- fix: критические стили для быстрого рендера -->
 <style>
-:root{--c-bg:#f7f7f5;--c-surface:#ffffff;--c-text:#0d1514;--c-muted:#5b6b68;--c-primary:#0b5c55;--c-primary-hover:#0a4d48;--radius:16px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--maxw:1200px}
+:root{--c-bg:#f7f7f5;--c-surface:#ffffff;--c-text:#0d1514;--c-muted:#3d4b49;--c-primary:#0b5c55;--c-primary-hover:#0a4d48;--c-focus:#1aa599;--radius:16px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--maxw:1200px}
 body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text)}
 .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--space-4)}
 .site-header{position:sticky;top:0;z-index:60;background:rgba(247,247,245,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,21,20,.08)}
@@ -27,12 +30,12 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
 .brand img{inline-size:140px}
 .nav-toggle{display:inline-flex;align-items:center;justify-content:center;inline-size:48px;block-size:48px;border-radius:50%;border:1px solid rgba(13,21,20,.1);background:var(--c-surface)}
 .nav-desktop{display:none;align-items:center;gap:var(--space-5)}
-.nav-desktop a{text-decoration:none;font-weight:500;color:var(--c-text)}
+.nav-desktop a{text-decoration:none;font-weight:500;color:var(--c-text);padding:var(--space-2) 0;border-radius:6px}
 .hero{display:grid;gap:var(--space-6);padding-block:var(--space-8);align-items:center}
 .hero-copy{display:grid;gap:var(--space-4);max-width:560px}
 .hero h1{margin:0;font-size:40px;line-height:1.1}
 .hero p{margin:0;color:var(--c-muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:999px;border:1px solid rgba(13,21,20,.12);background:var(--c-surface);font-weight:600;text-decoration:none;color:var(--c-text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:999px;border:1px solid rgba(13,21,20,.16);background:var(--c-surface);font-weight:600;text-decoration:none;color:var(--c-text)}
 .btn-primary{background:var(--c-primary);border-color:var(--c-primary);color:#fff}
 .portfolio-grid{display:grid;gap:var(--space-5)}
 .card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);display:grid;gap:var(--space-4);padding:var(--space-4)}
@@ -42,7 +45,7 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
 @media (min-width:1024px){.nav-toggle{display:none}.nav-desktop{display:flex}.hero{grid-template-columns:1fr 1fr}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/","telephone":"+7 (999) 000-00-00","address":{"@type":"PostalAddress","addressLocality":"Нижний Новгород","addressCountry":"RU"}}
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/","telephone":"+7 (999) 000-00-00","image":"https://madmhessel.github.io/portfolio/img/og/og-index.svg","address":{"@type":"PostalAddress","addressLocality":"Нижний Новгород","addressCountry":"RU"},"founder":{"@type":"Person","name":"Мария Дорошина","jobTitle":"Основатель и ведущий дизайнер"},"sameAs":["https://www.behance.net/atmosphere","https://www.instagram.com/atmosphere"]}
 </script>
 </head>
 <body>
@@ -69,11 +72,31 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     <a href="calculator.html">Калькулятор</a>
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
-    <div class="quick-contacts">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="dark">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </nav>
 </header>
@@ -87,11 +110,31 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       <div>
         <a class="btn btn-primary" href="contact.html#quote">Оставить заявку</a>
       </div>
-      <div class="quick-contacts" aria-label="Быстрые контакты">
-        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-        <a href="tel:+79990000000">Позвонить</a>
-        <a href="mailto:hello@atmstr.ru">Почта</a>
+      <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
+        <a href="https://wa.me/79990009999" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+          </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+        </a>
+        <a href="https://t.me/yourstudio" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+          </svg>
+          <span class="quick-contacts__label">Telegram</span>
+        </a>
+        <a href="tel:+79990000000">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+          </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+        </a>
+        <a href="mailto:hello@atmstr.ru">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+          </svg>
+          <span class="quick-contacts__label">Почта</span>
+        </a>
       </div>
     </div>
     <div class="hero-media reveal-in">
@@ -110,9 +153,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     <div class="portfolio-grid" role="list">
       <!-- fix: карточка проекта с аспектом 4:3 -->
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-01.html" aria-label="Интерьер 1 — подробнее">
+        <a class="thumb" href="proekt-01.html" rel="bookmark" aria-label="Интерьер 1 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Лаконичный интерьер квартиры" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -122,9 +165,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-02.html" aria-label="Интерьер 2 — подробнее">
+        <a class="thumb" href="proekt-02.html" rel="bookmark" aria-label="Интерьер 2 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Минималистичная гостиная" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -134,10 +177,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-03.html" aria-label="Интерьер 3 — подробнее">
+        <a class="thumb" href="proekt-03.html" rel="bookmark" aria-label="Интерьер 3 — подробнее">
           <picture>
             <!-- fix: обновленный srcset для оптимизированных изображений -->
-            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_03-900.jpg" width="900" height="600" alt="Интерьер с яркими акцентами" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -147,9 +190,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-04.html" aria-label="Интерьер 4 — подробнее">
+        <a class="thumb" href="proekt-04.html" rel="bookmark" aria-label="Интерьер 4 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_04-1024.jpg" width="1024" height="1024" alt="Интерьер кухни-гостиной" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -159,9 +202,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-05.html" aria-label="Интерьер 5 — подробнее">
+        <a class="thumb" href="proekt-05.html" rel="bookmark" aria-label="Интерьер 5 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_05-1024.jpg" width="1024" height="1024" alt="Современная спальня" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -171,9 +214,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-06.html" aria-label="Интерьер 6 — подробнее">
+        <a class="thumb" href="proekt-06.html" rel="bookmark" aria-label="Интерьер 6 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w" sizes="(min-width:768px) 360px, 90vw">
+            <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w" sizes="(min-width:1024px) 360px, (min-width:768px) 45vw, 90vw">
             <img src="img/interior_06-1024.jpg" width="1024" height="1024" alt="Интерьер кабинета" loading="lazy" decoding="async">
           </picture>
         </a>
@@ -193,18 +236,36 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     <div class="testimonials-list">
       <!-- fix: карточка отзыва -->
       <article class="testimonial">
-        <p>«Проект превзошёл ожидания: за 4 месяца мы получили готовую квартиру с мебелью и декором. Все вопросы решались в чате, а на объект приезжали только на финальную приёмку.»</p>
-        <cite>Анна и Сергей, ЖК "Чкалов"</cite>
+        <div class="testimonial__header">
+          <span class="testimonial__avatar"><img src="img/clients/elena.svg" width="56" height="56" alt="Елена Кузнецова, клиент Atmosphere" loading="lazy" decoding="async"></span>
+          <div>
+            <cite>Елена Кузнецова</cite>
+            <p class="testimonial__role">Хозяйка квартиры в ЖК «Чкалов»</p>
+          </div>
+        </div>
+        <p>«Проект превзошёл ожидания: за четыре месяца мы получили готовую квартиру с мебелью и декором. Общались в чате и приезжали только на финальную приёмку.»</p>
         <p class="card-meta">Outcome: экономия 12% от сметы и сдача на 2 недели раньше срока.</p>
       </article>
       <article class="testimonial">
-        <p>«Команда предложила смелые решения по освещению и хранению, которые сделали офис уютным. Сотрудники и гости регулярно отмечают атмосферу пространства.»</p>
-        <cite>Ольга, руководитель HR Tech</cite>
+        <div class="testimonial__header">
+          <span class="testimonial__avatar"><img src="img/clients/sergey.svg" width="56" height="56" alt="Сергей Иванов, партнёр Atmosphere" loading="lazy" decoding="async"></span>
+          <div>
+            <cite>Сергей Иванов</cite>
+            <p class="testimonial__role">Сооснователь HR Tech, офис в Москва-Сити</p>
+          </div>
+        </div>
+        <p>«Команда предложила смелые решения по свету и хранению, которые сделали офис уютным. Сотрудники и гости регулярно отмечают атмосферу пространства.»</p>
         <p class="card-meta">Outcome: рост времени пребывания клиентов в шоуруме на 18%.</p>
       </article>
       <article class="testimonial">
-        <p>«Смета оставалась прозрачной, а подрядчики соблюдали сроки. После сдачи проекта получили гайд по уходу и контакты поставщиков.»</p>
-        <cite>Дмитрий, собственник дома</cite>
+        <div class="testimonial__header">
+          <span class="testimonial__avatar"><img src="img/clients/natalia.svg" width="56" height="56" alt="Наталия Петрова, заказчица загородного дома" loading="lazy" decoding="async"></span>
+          <div>
+            <cite>Наталия Петрова</cite>
+            <p class="testimonial__role">Владелица загородного дома</p>
+          </div>
+        </div>
+        <p>«Смета оставалась прозрачной, подрядчики соблюдали сроки. После сдачи проекта получили гайд по уходу и контакты поставщиков.»</p>
         <p class="card-meta">Outcome: гарантийное сопровождение и сервис через 6 месяцев без доплат.</p>
       </article>
     </div>
@@ -214,10 +275,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     <h2 class="section-title" id="partners">Партнёры и подрядчики</h2>
     <p class="subtitle">Работаем с проверенными брендами материалов, светотехники и мебели.</p>
     <div class="logos" role="list">
-      <span role="listitem"><img src="img/logo-leroy.svg" alt="Leroy Merlin" loading="lazy" decoding="async" width="140" height="40"></span>
-      <span role="listitem"><img src="img/logo-ikea.svg" alt="IKEA" loading="lazy" decoding="async" width="140" height="40"></span>
-      <span role="listitem"><img src="img/logo-philips.svg" alt="Philips" loading="lazy" decoding="async" width="140" height="40"></span>
-      <span role="listitem"><img src="img/logo-tikkurila.svg" alt="Tikkurila" loading="lazy" decoding="async" width="140" height="40"></span>
+      <span role="listitem"><img src="img/partners/leroy-color.svg" alt="Leroy Merlin" loading="lazy" decoding="async" width="160" height="80"></span>
+      <span role="listitem"><img src="img/partners/ikea-color.svg" alt="IKEA" loading="lazy" decoding="async" width="160" height="80"></span>
+      <span role="listitem"><img src="img/partners/philips-color.svg" alt="Philips" loading="lazy" decoding="async" width="160" height="80"></span>
+      <span role="listitem"><img src="img/partners/tikkurila-color.svg" alt="Tikkurila" loading="lazy" decoding="async" width="160" height="80"></span>
     </div>
   </section>
 
@@ -245,11 +306,31 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         <h2 class="section-title" id="contact-cta">Готовы обсудить ваш проект?</h2>
         <p>Расскажите о задаче и получите расчёт сметы в течение 2 рабочих дней. Работаем по договору и с безналичной оплатой.</p>
       </div>
-      <div class="quick-contacts">
-        <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-        <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-        <a href="tel:+79990000000">Позвонить</a>
-        <a href="mailto:hello@atmstr.ru">Почта</a>
+      <div class="quick-contacts" data-theme="dark">
+        <a href="https://wa.me/79990009999" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+          </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+        </a>
+        <a href="https://t.me/yourstudio" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+          </svg>
+          <span class="quick-contacts__label">Telegram</span>
+        </a>
+        <a href="tel:+79990000000">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+          </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+        </a>
+        <a href="mailto:hello@atmstr.ru">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+          </svg>
+          <span class="quick-contacts__label">Почта</span>
+        </a>
       </div>
       <a class="btn btn-primary" href="contact.html#quote">Запросить смету</a>
     </div>
@@ -269,11 +350,31 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
     </nav>
-    <div class="quick-contacts" aria-label="Контакты">
-      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
-      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
-      <a href="tel:+79990000000">Позвонить</a>
-      <a href="mailto:hello@atmstr.ru">Почта</a>
+    <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
+      <a href="https://wa.me/79990009999" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-whatsapp" xlink:href="img/icons.svg#icon-whatsapp"></use>
+        </svg>
+          <span class="quick-contacts__label">WhatsApp</span>
+      </a>
+      <a href="https://t.me/yourstudio" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-telegram" xlink:href="img/icons.svg#icon-telegram"></use>
+        </svg>
+          <span class="quick-contacts__label">Telegram</span>
+      </a>
+      <a href="tel:+79990000000">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-phone" xlink:href="img/icons.svg#icon-phone"></use>
+        </svg>
+          <span class="quick-contacts__label">Позвонить</span>
+      </a>
+      <a href="mailto:hello@atmstr.ru">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <use href="img/icons.svg#icon-mail" xlink:href="img/icons.svg#icon-mail"></use>
+        </svg>
+          <span class="quick-contacts__label">Почта</span>
+      </a>
     </div>
   </div>
 </footer>
@@ -281,7 +382,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
 <div class="cta-sticky" data-hidden="false">
   <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
     <span class="cta-sticky__icon" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <use href="img/icons.svg#icon-send" xlink:href="img/icons.svg#icon-send"></use>
+      </svg>
     </span>
     <span class="cta-sticky__label">Запросить смету</span>
   </a>
