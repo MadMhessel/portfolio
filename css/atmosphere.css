@@ -61,6 +61,10 @@ main{display:block}
 .card .thumb{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:rgba(13,21,20,.05)}
 .thumb.placeholder{aspect-ratio:4/3;border:2px dashed rgba(13,21,20,.2);background:rgba(13,21,20,.03);border-radius:var(--radius)}
 .card .thumb img{object-fit:cover;width:100%;height:100%}
+.case-hero{display:grid;gap:var(--space-5);background:var(--c-surface);padding:var(--space-5);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
+.case-hero__copy{display:grid;gap:var(--space-4)}
+.case-hero__media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:#fff}
+.case-hero__media img{width:100%;height:100%;object-fit:contain}
 .card-title{margin:0;font-size:24px}
 .card-meta{margin:0;color:var(--c-muted)}
 .case-story{display:grid;gap:var(--space-5);background:var(--c-surface);padding:var(--space-5);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
@@ -105,6 +109,7 @@ main{display:block}
 /* fix: блок планировки */
 .layout-gallery{display:grid;gap:var(--space-5);grid-template-columns:1fr}
 .layout-item{display:grid;gap:var(--space-2)}
+.layout-item img{border-radius:var(--radius);box-shadow:var(--shadow-soft);background:#fff}
 .layout-placeholder{aspect-ratio:4/3;border:2px dashed rgba(0,0,0,.2);border-radius:var(--radius);background:rgba(0,0,0,.03)}
 .layout-caption{margin-top:var(--space-2);color:var(--c-muted);font-size:15px}
 /* fix: плавающая кнопка с компактным режимом */
@@ -195,6 +200,7 @@ main{display:block}
   .hero-copy{order:2}
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .card{padding:var(--space-5)}
+  .case-hero{grid-template-columns:repeat(2,minmax(0,1fr));align-items:center}
   .testimonials-list{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (min-width:1280px){
