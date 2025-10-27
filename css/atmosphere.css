@@ -53,6 +53,8 @@ main{display:block}
 .btn-primary{background:var(--c-primary);border-color:var(--c-primary);color:#fff}
 .btn-primary:hover,.btn-primary:focus-visible{background:var(--c-primary-hover)}
 .btn-ghost{background:transparent;border-color:rgba(13,21,20,.2)}
+.site-footer .btn-ghost{color:var(--c-primary);background-color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.4)}
+.site-footer .btn-ghost:hover,.site-footer .btn-ghost:focus-visible{background-color:#fff;color:var(--c-primary-hover);outline:2px solid var(--c-focus);outline-offset:2px}
 
 /* fix: сетка проектов */
 .portfolio-grid{display:grid;gap:var(--space-5)}
