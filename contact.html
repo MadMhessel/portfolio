@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты студии Atmosphere</title>
+<meta name="description" content="Оставьте заявку, напишите в мессенджер или позвоните — ответим в течение дня.">
+<meta name="theme-color" content="#00302d">
+<link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
+<link rel="canonical" href="http://a1183990.xsph.ru/portfolio/contact.html">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="stylesheet" href="css/atmosphere.css">
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+<meta property="og:title" content="Контакты студии Atmosphere">
+<meta property="og:description" content="Оставьте заявку, напишите в мессенджер или позвоните — ответим в течение дня.">
+<meta property="og:image" content="http://a1183990.xsph.ru/portfolio/img/og-portfolio.jpg">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Atmosphere — студия ремонта", "url": "http://a1183990.xsph.ru/portfolio/", "telephone": "+7 (999) 000-00-00", "address": {"@type": "PostalAddress", "addressLocality": "Нижний Новгород", "addressCountry": "RU"}}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">К основному содержанию</a>
+<header class="site-header">
+  <div class="row">
+    <a class="brand" href="./"><img src="img/logo.png" alt="Atmosphere — студия ремонта"></a>
+    <nav class="nav-desktop" aria-label="Основная навигация">
+      <a href="./">Главная</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="about.html">О студии</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false">Меню</button>
+  </div>
+  <nav id="navMobile" class="nav-mobile" aria-label="Мобильное меню" data-open="false">
+    <a href="./">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="about.html">О студии</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+</header>
+<main id="main" class="container">
+  <section class="section">
+    <h1 class="section-title">Контакты</h1>
+    <p>
+      <a class="btn" href="https://wa.me/79990009999">WhatsApp</a>
+      <a class="btn" href="https://t.me/yourstudio">Telegram</a>
+      <a class="btn" href="tel:+79990000000">+7 (999) 000‑00‑00</a>
+      <a class="btn" href="mailto:hello@atmstr.ru">hello@atmstr.ru</a>
+    </p>
+  </section>
+
+  <section class="section" id="quote">
+    <h2 class="section-title">Оставить заявку</h2>
+    <form class="form" action="https://formsubmit.co/hello@atmstr.ru" method="POST" accept-charset="UTF-8" autocomplete="on">
+      <input type="hidden" name="_subject" value="Новая заявка с сайта Atmosphere">
+      <input type="hidden" name="_next" value="thanks.html">
+      <label>Имя и фамилия <input name="Имя" required></label>
+      <label>Телефон <input name="Телефон" required inputmode="tel" pattern="^[0-9+() \-]+$" autocomplete="tel"></label>
+      <label>Площадь проекта (м²) <input type="number" name="Площадь" min="10"></label>
+      <label>Город <input name="Город" autocomplete="address-level2"></label>
+      <label>Комментарий <textarea name="Комментарий" rows="4"></textarea></label>
+      <label><input type="checkbox" name="Согласие" required> Согласен на обработку персональных данных</label>
+      <button class="btn btn-primary" type="submit">Отправить</button>
+    </form>
+    <p class="muted">Нажимая «Отправить», вы принимаете <a href="privacy.html">Политику конфиденциальности</a>.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Наш адрес</h2>
+    <p>Нижний Новгород</p>
+    <a href="https://yandex.ru/maps/?text=Нижний%20Новгород" target="_blank" rel="noopener">
+      <img src="https://static-maps.yandex.ru/1.x/?ll=44.006516,56.326797&size=650,350&z=12&l=map&pt=44.006516,56.326797,pm2rdm" alt="Схема проезда: Нижний Новгород" width="650" height="350" loading="lazy" decoding="async">
+    </a>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>Atmosphere</strong><br>Студия дизайна и ремонта</div>
+    <nav aria-label="Нижняя навигация">
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="terms.html">Условия сотрудничества</a>
+    </nav>
+    <div class="socials">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
+  </div>
+</footer>
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+  const lightbox = new PhotoSwipeLightbox({ gallery: '.gallery', children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+  });
+  lightbox.init();
+</script>
+<script src="js/main.js" defer></script>
+
+</body>
+</html>

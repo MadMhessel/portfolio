@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О студии Atmosphere</title>
+<meta name="description" content="Наш подход, услуги и принципы работы.">
+<meta name="theme-color" content="#00302d">
+<link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
+<link rel="canonical" href="http://a1183990.xsph.ru/portfolio/about.html">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="stylesheet" href="css/atmosphere.css">
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+<meta property="og:title" content="О студии Atmosphere">
+<meta property="og:description" content="Наш подход, услуги и принципы работы.">
+<meta property="og:image" content="http://a1183990.xsph.ru/portfolio/img/og-portfolio.jpg">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Atmosphere — студия ремонта", "url": "http://a1183990.xsph.ru/portfolio/", "telephone": "+7 (999) 000-00-00", "address": {"@type": "PostalAddress", "addressLocality": "Нижний Новгород", "addressCountry": "RU"}}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">К основному содержанию</a>
+<header class="site-header">
+  <div class="row">
+    <a class="brand" href="./"><img src="img/logo.png" alt="Atmosphere — студия ремонта"></a>
+    <nav class="nav-desktop" aria-label="Основная навигация">
+      <a href="./">Главная</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="about.html">О студии</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false">Меню</button>
+  </div>
+  <nav id="navMobile" class="nav-mobile" aria-label="Мобильное меню" data-open="false">
+    <a href="./">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="about.html">О студии</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+</header>
+<main id="main" class="container">
+  <section class="section">
+    <h1 class="section-title">О студии</h1>
+    <p>Мы создаём спокойные, функциональные интерьеры и реализуем их «под ключ». Работаем по прозрачной смете, соблюдаем сроки и контролируем качество на каждом этапе.</p>
+    <h2 class="section-title">Наш подход</h2>
+    <ul>
+      <li><strong>Планирование.</strong> Анализ потребностей, замеры, концепция и планировочные решения.</li>
+      <li><strong>Дизайн‑проект.</strong> Визуализации, спецификации, рабочая документация.</li>
+      <li><strong>Комплектация.</strong> Подбор материалов и мебели, логистика, учёт бюджета.</li>
+      <li><strong>Реализация.</strong> Авторский надзор, контроль сроков и качества, сдача объекта.</li>
+    </ul>
+    <h2 class="section-title">Услуги</h2>
+    <ul>
+      <li>Планировочные решения</li>
+      <li>Дизайн‑проект</li>
+      <li>Комплектация и авторский надзор</li>
+      <li>Ремонт под ключ</li>
+    </ul>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>Atmosphere</strong><br>Студия дизайна и ремонта</div>
+    <nav aria-label="Нижняя навигация">
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="terms.html">Условия сотрудничества</a>
+    </nav>
+    <div class="socials">
+      <a href="https://wa.me/79990009999" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/yourstudio" rel="noopener">Telegram</a>
+      <a href="tel:+79990000000">Позвонить</a>
+      <a href="mailto:hello@atmstr.ru">Почта</a>
+    </div>
+  </div>
+</footer>
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+  const lightbox = new PhotoSwipeLightbox({ gallery: '.gallery', children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+  });
+  lightbox.init();
+</script>
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
