@@ -87,13 +87,20 @@ main{display:block}
 .contact-cta{background:var(--c-primary);color:#fff;border-radius:var(--radius);padding:var(--space-7);display:grid;gap:var(--space-4);box-shadow:var(--shadow-soft)}
 .contact-cta p{margin:0}
 .quick-contacts{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-.quick-contacts a{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;font-weight:600;text-decoration:none;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
-.quick-contacts a svg{inline-size:18px;block-size:18px}
+.quick-contacts a{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;font-weight:600;text-decoration:none;border:1px solid transparent;outline:2px solid transparent;outline-offset:2px;transition:background .2s ease,color .2s ease,border-color .2s ease,outline-color .2s ease,box-shadow .2s ease}
+.quick-contacts a svg{inline-size:20px;block-size:20px}
 .quick-contacts__label{font-size:15px}
-.quick-contacts[data-theme="light"] a{background:rgba(11,92,85,.12);color:var(--c-primary)}
-.quick-contacts[data-theme="light"] a:hover,.quick-contacts[data-theme="light"] a:focus-visible{background:rgba(11,92,85,.2);color:var(--c-primary)}
-.quick-contacts[data-theme="dark"] a{background:rgba(255,255,255,.16);color:#fff}
-.quick-contacts[data-theme="dark"] a:hover,.quick-contacts[data-theme="dark"] a:focus-visible{background:rgba(255,255,255,.28);box-shadow:0 12px 24px rgba(0,0,0,.18)}
+.quick-contacts[data-theme="light"] a{background:rgba(11,92,85,.2);color:var(--c-primary);border-color:rgba(11,92,85,.28)}
+.quick-contacts[data-theme="light"] a:hover,.quick-contacts[data-theme="light"] a:focus-visible{background:rgba(11,92,85,.32);color:var(--c-primary);border-color:rgba(11,92,85,.38)}
+.quick-contacts[data-theme="dark"] a{background:rgba(255,255,255,.24);color:#fff;border-color:rgba(255,255,255,.4)}
+.quick-contacts[data-theme="dark"] a:hover,.quick-contacts[data-theme="dark"] a:focus-visible{background:rgba(255,255,255,.32);border-color:rgba(255,255,255,.56)}
+.quick-contacts a:focus-visible{outline:2px solid var(--c-focus);box-shadow:0 0 0 2px rgba(26,165,153,.16)}
+
+/* fix: блок планировки */
+.layout-gallery{display:grid;gap:var(--space-5);grid-template-columns:1fr}
+.layout-item{display:grid;gap:var(--space-2)}
+.layout-placeholder{aspect-ratio:4/3;border:2px dashed rgba(0,0,0,.2);border-radius:var(--radius);background:rgba(0,0,0,.03)}
+.layout-caption{margin-top:var(--space-2);color:var(--c-muted);font-size:15px}
 /* fix: плавающая кнопка с компактным режимом */
 .cta-sticky{position:fixed;bottom:var(--space-4);right:var(--space-4);z-index:55;display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2);background:rgba(255,255,255,.96);border-radius:999px;box-shadow:0 18px 40px rgba(13,21,20,.24);border:1px solid rgba(13,21,20,.12);transition:transform .2s ease,opacity .2s ease}
 .cta-sticky[data-hidden="true"]{opacity:0;pointer-events:none;transform:translateY(12px)}
@@ -138,10 +145,11 @@ main{display:block}
 .site-footer{margin-top:var(--space-8);padding-block:var(--space-6);background:var(--c-text);color:#fff}
 .footer-grid{display:grid;gap:var(--space-4)}
 .footer-grid nav{display:grid;gap:var(--space-2)}
-.footer-grid a{text-decoration:none;color:rgba(255,255,255,.8)}
-.footer-grid a:hover,.footer-grid a:focus-visible{color:#fff}
+.footer-grid a{text-decoration:none;color:rgba(255,255,255,.8);outline-offset:2px}
+.footer-grid a:hover{color:rgba(255,255,255,.9)}
+.footer-grid a:focus-visible{color:rgba(255,255,255,.9);outline:2px solid var(--c-focus)}
 .footer-cta{margin-top:var(--space-4)}
-.footer-cta .quick-contacts a{background:rgba(255,255,255,.14)}
+.footer-cta .quick-contacts a{background:rgba(255,255,255,.24)}
 
 /* fix: анимация появления */
 .reveal-in{opacity:0;transform:translateY(16px);transition:opacity .25s ease,transform .25s ease}
@@ -156,6 +164,7 @@ main{display:block}
   .logos{grid-template-columns:repeat(4,minmax(120px,1fr))}
   .about-hero{grid-template-columns:auto 1fr}
   .case-story__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .layout-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (min-width:1024px){
   .site-header__inner{min-height:88px}
