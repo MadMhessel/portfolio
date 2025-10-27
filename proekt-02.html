@@ -52,7 +52,7 @@
     <p>Спокойная палитра, функциональная планировка, натуральные материалы. Роль студии: дизайн‑проект, комплектация, авторский надзор.</p>
     
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w, img/interior_02-1024.webp 1024w" sizes="(min-width: 900px) 1000px, 95vw">
+  <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width: 900px) 1000px, 95vw">
   <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Обложка проекта" loading="eager" decoding="async" fetchpriority="high">
 </picture>
     <ul>
@@ -79,7 +79,7 @@
       <a class="gallery" href="img/interior_01-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w, img/interior_01-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
+  <source type="image/webp" srcset="img/interior_01-600.webp 600w, img/interior_01-900.webp 900w, img/interior_01-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
   <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Фрагмент интерьера" loading="lazy" decoding="async">
 </picture>
       </a>
@@ -87,7 +87,7 @@
       <a class="gallery" href="img/interior_02-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w, img/interior_02-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
+  <source type="image/webp" srcset="img/interior_02-600.webp 600w, img/interior_02-900.webp 900w, img/interior_02-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
   <img src="img/interior_02-1024.jpg" width="1024" height="1024" alt="Фрагмент интерьера" loading="lazy" decoding="async">
 </picture>
       </a>
@@ -103,7 +103,7 @@
       <a class="gallery" href="img/interior_04-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w, img/interior_04-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
+  <source type="image/webp" srcset="img/interior_04-600.webp 600w, img/interior_04-900.webp 900w, img/interior_04-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
   <img src="img/interior_04-1024.jpg" width="1024" height="1024" alt="Фрагмент интерьера" loading="lazy" decoding="async">
 </picture>
       </a>
@@ -111,7 +111,7 @@
       <a class="gallery" href="img/interior_05-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w, img/interior_05-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
+  <source type="image/webp" srcset="img/interior_05-600.webp 600w, img/interior_05-900.webp 900w, img/interior_05-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
   <img src="img/interior_05-1024.jpg" width="1024" height="1024" alt="Фрагмент интерьера" loading="lazy" decoding="async">
 </picture>
       </a>
@@ -119,7 +119,7 @@
       <a class="gallery" href="img/interior_06-1024.jpg" data-pswp-width="1024" data-pswp-height="1024">
         
 <picture class="fit-cover">
-  <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w, img/interior_06-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
+  <source type="image/webp" srcset="img/interior_06-600.webp 600w, img/interior_06-900.webp 900w, img/interior_06-1024.webp 1024w" sizes="(min-width: 900px) 420px, 90vw">
   <img src="img/interior_06-1024.jpg" width="1024" height="1024" alt="Фрагмент интерьера" loading="lazy" decoding="async">
 </picture>
       </a>
@@ -152,13 +152,7 @@
     </div>
   </div>
 </footer>
-<script type="module">
-  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
-  const lightbox = new PhotoSwipeLightbox({ gallery: '.gallery', children: 'a',
-    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
-  });
-  lightbox.init();
-</script>
+<script type="module" src="js/lightbox.js"></script>
 <script src="js/main.js" defer></script>
 
 </body>
