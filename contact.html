@@ -4,17 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Контакты студии Atmosphere</title>
-<meta name="description" content="Свяжитесь с дизайнером студии Atmosphere: заявки через форму, звонок, WhatsApp или Telegram. Ответим в течение рабочего дня.">
+<meta name="description" content="Свяжитесь со студией Atmosphere: заявка на смету, телефон, WhatsApp и Telegram. Ответим в течение рабочего дня и подготовим персональное предложение.">
 <meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/contact.html">
 <meta property="og:title" content="Контакты студии Atmosphere">
-<meta property="og:description" content="Напишите в мессенджер или оставьте заявку — рассчитаем смету за 2 дня.">
+<meta property="og:description" content="Напишите в мессенджер или оставьте заявку — подготовим смету за два дня и свяжемся удобным способом.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/contact.html">
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_02-1024.jpg">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
+<!-- fix: структурированные данные для контактов -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://madmhessel.github.io/portfolio/"},{"@type":"ListItem","position":2,"name":"Контакты","item":"https://madmhessel.github.io/portfolio/contact.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ContactPage","@id":"https://madmhessel.github.io/portfolio/contact.html#page","name":"Контакты студии Atmosphere","url":"https://madmhessel.github.io/portfolio/contact.html","telephone":"+7-999-000-0000","email":"hello@atmstr.ru","contactType":"customer service","availableLanguage":["Russian"],"areaServed":"RU","sameAs":["https://wa.me/79990009999","https://t.me/yourstudio"]}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
@@ -128,7 +135,16 @@
     </div>
   </div>
 </footer>
-<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
+<!-- fix: плавающая кнопка с возможностью закрытия -->
+<div class="cta-sticky" data-hidden="false">
+  <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
+    <span class="cta-sticky__icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+    </span>
+    <span class="cta-sticky__label">Запросить смету</span>
+  </a>
+  <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
+</div>
 <script src="js/main.js" defer></script>
 </body>
 </html>

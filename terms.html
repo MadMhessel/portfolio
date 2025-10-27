@@ -98,7 +98,16 @@
     </div>
   </div>
 </footer>
-<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
+<!-- fix: плавающая кнопка с возможностью закрытия -->
+<div class="cta-sticky" data-hidden="false">
+  <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
+    <span class="cta-sticky__icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+    </span>
+    <span class="cta-sticky__label">Запросить смету</span>
+  </a>
+  <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
+</div>
 <script src="js/main.js" defer></script>
 </body>
 </html>

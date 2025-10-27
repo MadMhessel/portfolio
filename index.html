@@ -136,8 +136,9 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       <article class="card reveal-in" role="listitem">
         <a class="thumb" href="proekt-03.html" aria-label="Интерьер 3 — подробнее">
           <picture>
-            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1400.webp 1400w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, 90vw">
-            <img src="img/interior_03-1536.jpg" width="1536" height="1024" alt="Интерьер с яркими акцентами" loading="lazy" decoding="async">
+            <!-- fix: обновленный srcset для оптимизированных изображений -->
+            <source type="image/webp" srcset="img/interior_03-600.webp 600w, img/interior_03-900.webp 900w, img/interior_03-1536.webp 1536w" sizes="(min-width:1024px) 360px, 90vw">
+            <img src="img/interior_03-900.jpg" width="900" height="600" alt="Интерьер с яркими акцентами" loading="lazy" decoding="async">
           </picture>
         </a>
         <div>
@@ -276,7 +277,16 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     </div>
   </div>
 </footer>
-<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
+<!-- fix: плавающая кнопка с возможностью закрытия -->
+<div class="cta-sticky" data-hidden="false">
+  <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
+    <span class="cta-sticky__icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+    </span>
+    <span class="cta-sticky__label">Запросить смету</span>
+  </a>
+  <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
+</div>
 <script src="js/main.js" defer></script>
 </body>
 </html>

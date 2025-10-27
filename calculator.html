@@ -4,16 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор стоимости ремонта</title>
-<meta name="description" content="Оцените ориентировочный бюджет ремонта: введите площадь и уровень отделки, чтобы получить расчёт.">
+<meta name="description" content="Оцените ориентировочный бюджет интерьера: введите площадь, выберите уровень отделки и получите расчёт сметы для квартиры или офиса.">
 <meta name="theme-color" content="#0b5c55">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/calculator.html">
 <meta property="og:title" content="Калькулятор стоимости ремонта">
-<meta property="og:description" content="Вычислите примерный бюджет ремонта квартиры или офиса за пару кликов.">
+<meta property="og:description" content="Вычислите ориентировочную смету интерьера: площадь, уровень отделки и мгновенный расчёт бюджета.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/calculator.html">
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/interior_04-1024.jpg">
 <link rel="stylesheet" href="css/atmosphere.css">
+<!-- fix: структурированные данные для поисковых систем -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://madmhessel.github.io/portfolio/"},{"@type":"ListItem","position":2,"name":"Калькулятор","item":"https://madmhessel.github.io/portfolio/calculator.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://madmhessel.github.io/portfolio/calculator.html#page","name":"Калькулятор стоимости ремонта","url":"https://madmhessel.github.io/portfolio/calculator.html","description":"Оцените ориентировочный бюджет интерьера: введите площадь, выберите уровень отделки и получите расчёт сметы для квартиры или офиса.","isPartOf":{"@type":"WebSite","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/"}}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
@@ -98,7 +105,16 @@
     </div>
   </div>
 </footer>
-<a class="btn btn-primary cta-sticky" href="contact.html#quote">Запросить смету</a>
+<!-- fix: плавающая кнопка с возможностью закрытия -->
+<div class="cta-sticky" data-hidden="false">
+  <a class="btn btn-primary cta-sticky__action" href="contact.html#quote" aria-label="Запросить смету">
+    <span class="cta-sticky__icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 0 1 .74 1.67l-8 9a1 1 0 0 1-1.48 0l-8-9A1 1 0 0 1 4 6Zm0 3.2V18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.2l-7.24 7.26a2 2 0 0 1-2.76 0Z" fill="currentColor"/></svg>
+    </span>
+    <span class="cta-sticky__label">Запросить смету</span>
+  </a>
+  <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
+</div>
 <script src="js/main.js" defer></script>
 <script>
 document.getElementById('calc').addEventListener('submit', (event) => {
