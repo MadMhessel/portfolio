@@ -86,20 +86,22 @@
         <span class="contact-button__label">✉️ Почта</span>
       </a>
     </div>
-    <form id="calc" class="form">
+    <form id="calc" class="form" novalidate data-validate>
       <label for="calcArea">Площадь (м²)
-        <input type="number" id="calcArea" min="10" required aria-required="true">
+        <input type="number" id="calcArea" name="area" min="1" step="1" inputmode="numeric" required aria-required="true" aria-describedby="error-calc-area">
       </label>
+      <span class="error" data-error-for="area" id="error-calc-area" aria-live="polite"></span>
       <label for="calcLevel">Уровень отделки
-        <select id="calcLevel">
+        <select id="calcLevel" name="level" required aria-required="true" aria-describedby="error-calc-level">
           <option value="8000">Базовый — от 8 000 ₽/м²</option>
           <option value="12000">Комфорт — от 12 000 ₽/м²</option>
           <option value="17000">Премиум — от 17 000 ₽/м²</option>
         </select>
       </label>
-      <button class="btn btn-primary">Рассчитать</button>
+      <span class="error" data-error-for="level" id="error-calc-level" aria-live="polite"></span>
+      <button class="btn btn-primary" type="submit">Рассчитать</button>
     </form>
-    <p id="calcResult" class="subtitle" aria-live="polite"></p>
+    <p id="calcResult" class="subtitle" aria-live="polite">Введите площадь и выберите уровень отделки, чтобы увидеть расчёт.</p>
     <p class="subtitle">Расчёт ориентировочный и не является офертой. Точный бюджет закрепляется в смете после замеров и брифа.</p>
   </section>
 </main>
@@ -151,14 +153,5 @@
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
 <script src="js/main.js" defer></script>
-<script>
-document.getElementById('calc').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const area = Number(document.getElementById('calcArea').value) || 0;
-  const rate = Number(document.getElementById('calcLevel').value) || 0;
-  const total = area * rate;
-  document.getElementById('calcResult').textContent = total > 0 ? `Оценка: ${new Intl.NumberFormat('ru-RU').format(total)} ₽` : '';
-});
-</script>
 </body>
 </html>

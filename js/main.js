@@ -5,11 +5,15 @@ const navOverlay = document.getElementById('navOverlay');
 const focusableSelectors = 'a[href], button:not([disabled]), [tabindex="0"]';
 if(menuBtn && navMobile){
   menuBtn.type = 'button';
+  navMobile.setAttribute('role', navMobile.getAttribute('role') || 'dialog');
+  navMobile.setAttribute('aria-modal', 'false');
   const toggleMenu = (state) => {
     const willOpen = typeof state === 'boolean' ? state : navMobile.dataset.open !== 'true';
     navMobile.dataset.open = String(willOpen);
     menuBtn.setAttribute('aria-expanded', String(willOpen));
     navMobile.setAttribute('aria-hidden', String(!willOpen));
+    navMobile.setAttribute('aria-modal', String(willOpen));
+    menuBtn.setAttribute('aria-label', willOpen ? 'Закрыть меню' : 'Открыть меню');
     navOverlay?.setAttribute('data-active', String(willOpen));
     navOverlay?.setAttribute('aria-hidden', String(!willOpen));
     document.body.classList.toggle('no-scroll', willOpen);
@@ -118,33 +122,157 @@ phoneInputs.forEach((input) => {
 });
 
 document.querySelectorAll('form[data-validate]').forEach((form) => {
-  form.addEventListener('submit', () => {
-    form.querySelectorAll('.error').forEach((error) => { error.textContent = ''; });
-    /* fix: аналитика отправки формы */
+  form.setAttribute('novalidate', 'true');
+  const fields = Array.from(form.querySelectorAll('input, textarea, select')).filter((field) => field.name && field.type !== 'hidden');
+  const getErrorContainer = (field) => form.querySelector(`[data-error-for="${field.name}"]`);
+  const setFieldError = (field, message) => {
+    field.setCustomValidity(message || '');
+    if(message){
+      field.setAttribute('aria-invalid', 'true');
+    }else{
+      field.removeAttribute('aria-invalid');
+    }
+    const errorContainer = getErrorContainer(field);
+    if(errorContainer){
+      errorContainer.textContent = message || '';
+    }
+  };
+  const getFieldMessage = (field) => {
+    if(field.disabled){return '';}
+    const name = field.name;
+    if(field.type === 'checkbox'){
+      if(field.required && !field.checked){
+        return name === 'consent' ? 'Подтвердите согласие на обработку данных' : 'Подтвердите выбор этого поля';
+      }
+      return '';
+    }
+    const rawValue = field.value;
+    const value = typeof rawValue === 'string' ? rawValue.trim() : rawValue;
+    if(field.required && !value){
+      if(name === 'name'){return 'Введите имя и фамилию';}
+      if(name === 'phone'){return 'Укажите телефон для связи';}
+      if(name === 'area'){return form.id === 'calc' ? 'Укажите площадь помещения' : 'Укажите площадь проекта';}
+      if(name === 'level'){return 'Выберите уровень отделки';}
+      return 'Заполните поле';
+    }
+    if(!value){
+      return '';
+    }
+    if(name === 'phone'){
+      const digits = value.replace(/\D/g, '');
+      if(digits.length < 11){
+        return 'Введите телефон в формате +7 (999) 000-00-00';
+      }
+      return '';
+    }
+    if(name === 'area'){
+      if(field.validity.badInput){
+        return 'Введите числовое значение площади';
+      }
+      const numericValue = Number(value);
+      if(Number.isFinite(numericValue)){
+        if(field.min && numericValue < Number(field.min)){
+          return `Минимальная площадь — ${field.min} м²`;
+        }
+        if(field.step && Number(field.step) && numericValue % Number(field.step) !== 0){
+          return 'Введите целое значение площади';
+        }
+      }
+      return '';
+    }
+    return '';
+  };
+  const validateField = (field) => {
+    if(!field.name){return true;}
+    const message = getFieldMessage(field);
+    setFieldError(field, message);
+    return !message;
+  };
+  fields.forEach((field) => {
+    const eventName = field.type === 'checkbox' || field.tagName === 'SELECT' ? 'change' : 'input';
+    field.addEventListener(eventName, () => validateField(field));
+    field.addEventListener('blur', () => validateField(field));
+  });
+  form.addEventListener('reset', () => {
+    window.setTimeout(() => {
+      fields.forEach((field) => setFieldError(field, ''));
+    }, 0);
+  });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let firstInvalid = null;
+    fields.forEach((field) => {
+      const isValid = validateField(field);
+      if(!isValid && !firstInvalid){
+        firstInvalid = field;
+      }
+    });
+    if(firstInvalid){
+      firstInvalid.focus();
+      return;
+    }
     const formIdentifier = form.getAttribute('data-analytics-id') || form.id || form.getAttribute('name') || 'lead-form';
     if(Array.isArray(window.dataLayer)){
       window.dataLayer.push({event:'form_submit',formId:formIdentifier});
     }else if(typeof window.gtag === 'function'){
       window.gtag('event','form_submit',{form_id:formIdentifier});
     }
-  });
-  form.addEventListener('invalid', (event) => {
-    if(!(event.target instanceof HTMLElement)){return;}
-    const field = event.target;
-    const errorContainer = form.querySelector(`[data-error-for="${field.name}"]`);
-    if(errorContainer){
-      errorContainer.textContent = field.validationMessage;
+    const action = form.getAttribute('action');
+    if(action){
+      form.submit();
+    }else{
+      form.dispatchEvent(new CustomEvent('form:valid', {bubbles:true}));
     }
-  }, true);
-  form.querySelectorAll('input, textarea, select').forEach((field) => {
-    field.addEventListener('input', () => {
-      const errorContainer = form.querySelector(`[data-error-for="${field.name}"]`);
-      if(errorContainer){
-        errorContainer.textContent = '';
-      }
-    });
   });
 });
+
+const calculatorForm = document.getElementById('calc');
+if(calculatorForm){
+  const areaInput = calculatorForm.querySelector('#calcArea');
+  const levelSelect = calculatorForm.querySelector('#calcLevel');
+  const resultNode = document.getElementById('calcResult');
+  if(areaInput && levelSelect && resultNode){
+    const baseMessage = 'Введите площадь и выберите уровень отделки, чтобы увидеть расчёт.';
+    const currencyFormatter = new Intl.NumberFormat('ru-RU', {style:'currency', currency:'RUB', maximumFractionDigits:0});
+    const showMessage = (message) => {
+      resultNode.textContent = message;
+    };
+    const calculate = () => {
+      const areaValue = Number(areaInput.value);
+      const rateValue = Number(levelSelect.value);
+      if(!Number.isFinite(areaValue) || areaValue < 1){
+        showMessage('Введите площадь не менее 1 м², чтобы увидеть ориентировочную стоимость.');
+        return false;
+      }
+      if(!Number.isFinite(rateValue) || rateValue <= 0){
+        showMessage('Выберите уровень отделки, чтобы получить расчёт.');
+        return false;
+      }
+      const total = Math.round(areaValue * rateValue);
+      if(!Number.isFinite(total) || total <= 0){
+        showMessage('Введите корректные данные для расчёта.');
+        return false;
+      }
+      showMessage(`Ориентировочная смета: ${currencyFormatter.format(total)}`);
+      return true;
+    };
+    const handleLiveUpdate = () => {
+      if(!areaInput.value && !levelSelect.value){
+        showMessage(baseMessage);
+        return;
+      }
+      calculate();
+    };
+    areaInput.addEventListener('input', handleLiveUpdate);
+    levelSelect.addEventListener('change', handleLiveUpdate);
+    calculatorForm.addEventListener('form:valid', () => {
+      calculate();
+    });
+    calculatorForm.addEventListener('reset', () => {
+      window.setTimeout(() => showMessage(baseMessage), 0);
+    });
+  }
+}
 
 /* fix: плавающий CTA с локальным состоянием и компактным режимом */
 const CTA_STORAGE_KEY = 'ctaStickyDismissed';

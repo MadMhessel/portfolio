@@ -10,7 +10,7 @@ a,button{cursor:pointer}
 button{font:inherit;background:none;border:none}
 .no-scroll{overflow:hidden}
 .sr-only{position:absolute;inline-size:1px;block-size:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden}
-:focus-visible{outline:2px solid var(--c-focus);outline-offset:3px}
+:where(a,button,[role="button"],input,select,textarea,summary):focus-visible{outline:2px dashed #0b5c55;outline-offset:3px}
 
 /* fix: доступность и структура */
 .skip-link{position:absolute;top:-100%;left:var(--space-4);background:var(--c-primary);color:#fff;padding:var(--space-2) var(--space-4);border-radius:var(--space-2);transition:top .2s}
