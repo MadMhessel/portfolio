@@ -17,6 +17,7 @@
   <meta property="og:locale" content="ru_RU">
   <link rel="preload" href="css/atmosphere.css" as="style">
   <link rel="stylesheet" href="css/atmosphere.css">
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
@@ -63,60 +64,133 @@
     <a href="./">Портфолио</a> › <span aria-current="page">Квартира в ЖК «Зенит»</span>
   </nav>
 
-  <section class="section container reveal-in">
-    <p class="subtitle">Жилой проект</p>
-    <h1 class="section-title">Квартира в ЖК «Зенит»</h1>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">О проекте</h3>
-        <ul class="list-checked">
-          <li>Площадь: 68 м²</li>
-          <li>Город: Казань</li>
-          <li>Стиль: Современная геометрия</li>
-        </ul>
-        <p>Квартира спроектирована для пары, которая любит чистые линии и продуманное освещение. Мы объединили кухню и гостиную, добавили зеркальные поверхности и встроенное хранение, чтобы пространство оставалось лёгким.</p>
-      </article>
-      <figure class="card">
-        <img src="Render/JK%20Zenit/1.jpg" width="720" height="720" alt="Гостиная квартиры в ЖК «Зенит»" decoding="async">
-        <figcaption>Главный ракурс гостиной с геометричной подсветкой.</figcaption>
-      </figure>
+  <section class="section container case-overview reveal-in">
+    <div class="case-overview__head">
+      <h1 class="section-title">Квартира в ЖК «Зенит»</h1>
+      <p class="subtitle">Жилой проект · Казань · 68 м² · Смарт-освещение и комплектация</p>
     </div>
+    <dl class="case-overview__grid">
+      <div>
+        <dt>Клиент</dt>
+        <dd>Пара, ведущая активный образ жизни, которой нужна гибкая квартира с акцентом на технологичность.</dd>
+      </div>
+      <div>
+        <dt>Задача</dt>
+        <dd>Сохранить чистую геометрию интерьера, объединить кухню и гостиную и настроить многоуровневое освещение для работы и отдыха.</dd>
+      </div>
+      <div>
+        <dt>Формат работы</dt>
+        <dd>Исследование сценариев, планировка, подбор материалов, комплектация и авторский надзор.</dd>
+      </div>
+      <div>
+        <dt>Инструменты</dt>
+        <dd>Revit, Enscape, Trello, Notion, подрядчики по свету и мебели на заказ.</dd>
+      </div>
+    </dl>
   </section>
 
-  <section class="section container reveal-in">
-    <h2 class="section-title">Роль студии</h2>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">Задача</h3>
-        <p>Мы искали баланс между строгой геометрией и уютом. Для этого использовали контрасты светлых и тёмных поверхностей, добавили текстиль и продумали сценарии освещения для работы и отдыха.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Результат</h3>
-        <ul class="list-checked">
-          <li>Разработали планировочные решения и мебель на заказ.</li>
-          <li>Настроили систему освещения с диммированием по зонам.</li>
-          <li>Подготовили комплект документации для подрядчиков.</li>
+  <section class="section container case-story" aria-labelledby="case-story-zenit">
+    <h2 id="case-story-zenit" class="section-title">История проекта</h2>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zenit/1.jpg" alt="Гостиная квартиры в ЖК «Зенит»" width="720" height="720" loading="lazy" decoding="async">
+        <figcaption>Гостиная с геометричной подсветкой задаёт характер всей квартире.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Задача</h3>
+        <p>Клиенты просили сделать интерьер строгим, но уютным. Нужно было объединить кухню и гостиную, создать систему освещения с разными сценариями и предусмотреть скрытое хранение.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zenit/2.jpg" alt="Команда согласует материалы кухни" width="720" height="720" loading="lazy" decoding="async">
+        <figcaption>Согласовали отделку и оборудование с учётом поставок и бюджета.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Роль студии</h3>
+        <p>Мы проработали планировку, подобрали материалы и мебель на заказ, настроили систему смарт-освещения и подготовили документацию для подрядчиков. Команда контролировала монтаж и соблюдение геометрии линий.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zenit/3.jpg" alt="Коридор квартиры в ЖК «Зенит»" width="720" height="1280" loading="lazy" decoding="async">
+        <figcaption>Коридор с зеркалами расширяет пространство и отражает линии света.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Процесс</h3>
+        <ul class="steps-list">
+          <li>Собрали сценарии жизни пары и провели аудит исходной планировки.</li>
+          <li>Подготовили несколько вариантов зонирования и утвердили схему с открытой гостиной.</li>
+          <li>Разработали схему освещения с диммированием и управлением через приложение.</li>
+          <li>Сопровождали монтаж и проводили еженедельные проверки отделочных работ.</li>
         </ul>
-      </article>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zenit/thumbx_ru__aa28f70c613ce6cf84b1e50635909010_a3e6aca1.jpg" alt="Детали гостиной и ТВ-зоны" width="720" height="720" loading="lazy" decoding="async">
+        <figcaption>Детали гостиной выдержаны в единой палитре с мягкими акцентами.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Результат</h3>
+        <p>Интерьер получился графичным и тёплым: геометрия света подчёркивает архитектуру, а текстиль добавляет уюта. Клиенты отмечают, что система сценариев помогает быстро переключаться между работой и отдыхом.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="layout-plan">
+    <h2 id="layout-plan" class="section-title">Планировка и расстановка</h2>
+    <p class="subtitle">Схемы помогают понять, как работают открытая гостиная и приватные зоны.</p>
+    <div class="layout-gallery">
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Планировка квартиры в ЖК «Зенит», изображение появится позже"></div>
+        <figcaption>План открытой кухни-гостиной с барной стойкой.</figcaption>
+      </figure>
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Расстановка мебели и линий света, изображение появится позже"></div>
+        <figcaption>Сценарии освещения и расположение встроенного хранения.</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section container reveal-in">
     <h2 class="section-title">Галерея проекта</h2>
-    <div class="grid">
-      <figure class="card">
-        <img src="Render/JK%20Zenit/2.jpg" width="720" height="720" alt="Кухня с барной стойкой" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zenit/3.jpg" width="720" height="1280" alt="Коридор с подсветкой и зеркалами" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zenit/thumbx_ru__4023a31a7c050575ff89cdc38d6bd6a3_395d5422.jpg" width="720" height="720" alt="Спальня с мягкой подсветкой" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zenit/thumbx_ru__aa28f70c613ce6cf84b1e50635909010_a3e6aca1.jpg" width="720" height="720" alt="Детали гостиной и ТВ-зоны" loading="lazy" decoding="async">
-      </figure>
+    <div class="portfolio-grid" role="list">
+      <a class="card gallery" role="listitem" href="Render/JK%20Zenit/2.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zenit/2.jpg" width="720" height="720" alt="Кухня с барной стойкой" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zenit/3.jpg" data-pswp-width="720" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zenit/3.jpg" width="720" height="1280" alt="Коридор с подсветкой и зеркалами" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zenit/thumbx_ru__4023a31a7c050575ff89cdc38d6bd6a3_395d5422.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zenit/thumbx_ru__4023a31a7c050575ff89cdc38d6bd6a3_395d5422.jpg" width="720" height="720" alt="Спальня с мягкой подсветкой" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zenit/thumbx_ru__aa28f70c613ce6cf84b1e50635909010_a3e6aca1.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zenit/thumbx_ru__aa28f70c613ce6cf84b1e50635909010_a3e6aca1.jpg" width="720" height="720" alt="Детали гостиной и ТВ-зоны" loading="lazy" decoding="async">
+        </span>
+      </a>
     </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Итоги проекта</h2>
+    <ul class="list-checked">
+      <li>Реализовали гибкую планировку с открытой гостиной и скрытым хранением.</li>
+      <li>Настроили смарт-освещение с четырьмя сценариями для разных задач.</li>
+      <li>Передали комплект документации и чек-лист по эксплуатации системы.</li>
+    </ul>
+    <p><a class="btn btn-primary" href="contact.html#quote">Обсудить похожий проект</a></p>
   </section>
 
   <section class="section container reveal-in">
@@ -175,6 +249,7 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
+<script type="module" src="js/lightbox.js"></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -17,6 +17,7 @@
   <meta property="og:locale" content="ru_RU">
   <link rel="preload" href="css/atmosphere.css" as="style">
   <link rel="stylesheet" href="css/atmosphere.css">
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
@@ -63,69 +64,148 @@
     <a href="./">Портфолио</a> › <span aria-current="page">Квартира в комплексе «Академия Блохиной»</span>
   </nav>
 
-  <section class="section container reveal-in">
-    <p class="subtitle">Жилой проект</p>
-    <h1 class="section-title">Квартира в комплексе «Академия Блохиной»</h1>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">О проекте</h3>
-        <ul class="list-checked">
-          <li>Площадь: 96 м²</li>
-          <li>Город: Нижний Новгород</li>
-          <li>Стиль: Современная классика</li>
-        </ul>
-        <p>Для семейной квартиры мы собрали воздушную палитру с акцентом на натуральные текстуры. Планировка делит пространство на приватный блок и гостиную с кухней, а встроенные системы хранения освобождают общие зоны.</p>
-      </article>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/1.jpg" width="1280" height="720" alt="Гостиная и кухня квартиры в комплексе «Академия Блохиной»" decoding="async">
-        <figcaption>Главный ракурс гостиной и столовой группы.</figcaption>
-      </figure>
+  <section class="section container case-overview reveal-in">
+    <div class="case-overview__head">
+      <h1 class="section-title">Квартира в комплексе «Академия Блохиной»</h1>
+      <p class="subtitle">Жилой проект · Нижний Новгород · 96 м² · Авторский надзор и комплектация</p>
     </div>
+    <dl class="case-overview__grid">
+      <div>
+        <dt>Клиент</dt>
+        <dd>Семья с двумя детьми, которой нужен просторный и спокойный дом в центре города.</dd>
+      </div>
+      <div>
+        <dt>Задача</dt>
+        <dd>Создать светлое пространство с натуральными акцентами и продуманным хранением без перегрузки.</dd>
+      </div>
+      <div>
+        <dt>Формат работы</dt>
+        <dd>Интервью и аналитика, концепция, рабочая документация, комплектация и авторский надзор.</dd>
+      </div>
+      <div>
+        <dt>Инструменты</dt>
+        <dd>Revit, Enscape, Trello, Notion, проверенные подрядчики и шоурумы-партнёры.</dd>
+      </div>
+    </dl>
   </section>
 
-  <section class="section container reveal-in">
-    <h2 class="section-title">Роль студии</h2>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">Команда и подход</h3>
-        <p>Мы провели серию интервью с семьёй, чтобы учесть привычки всех жителей. На основе сценариев движения разработали планировку и подобрали материалы, которые поддерживают тёплую атмосферу и простоту ухода.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Что сделали</h3>
-        <ul class="list-checked">
-          <li>Разработали планировочные решения и схемы освещения.</li>
-          <li>Подобрали мебель и отделку с подтверждёнными сроками поставки.</li>
-          <li>Организовали авторский надзор и контроль монтажа.</li>
+  <section class="section container case-story" aria-labelledby="case-story-akademia">
+    <h2 id="case-story-akademia" class="section-title">История проекта</h2>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/Akademia%20Blohinoy/1.jpg" alt="Гостиная и кухня квартиры в комплексе «Академия Блохиной»" width="1280" height="720" loading="lazy" decoding="async">
+        <figcaption>Гостиная объединена со столовой и получает максимум естественного света.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Задача</h3>
+        <p>Заказчики хотели уютную квартиру, где можно собираться всей семьёй и принимать гостей. Нужно было разделить приватную и общественную зоны, убрать визуальный шум и предусмотреть сценарии освещения для разных настроений.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/Akademia%20Blohinoy/5.jpg" alt="Команда студии подбирает материалы для кухни" width="1280" height="720" loading="lazy" decoding="async">
+        <figcaption>Команда согласовывала отделку и мебель, чтобы сохранить лёгкость интерьера.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Роль студии</h3>
+        <p>Мы провели серию интервью с семьёй, сформировали сценарии жизни и подобрали материалы, устойчивые к активному использованию. Команда сопровождала проект: от чертежей и спецификаций до проверки смет подрядчиков и авторского надзора.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/Akademia%20Blohinoy/4.jpg" alt="Рабочая документация и образцы отделки" width="720" height="720" loading="lazy" decoding="async">
+        <figcaption>Собрали подборку материалов и согласовали нюансы подсветки с подрядчиками.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Процесс</h3>
+        <ul class="steps-list">
+          <li>Проанализировали исходную планировку и разработали три варианта зонирования.</li>
+          <li>Согласовали финальную концепцию с палитрой натуральных материалов и латунных акцентов.</li>
+          <li>Подготовили комплект рабочих чертежей и спецификаций для закупок.</li>
+          <li>Контролировали поставки и качество монтажа встроенных систем хранения.</li>
         </ul>
-      </article>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/Akademia%20Blohinoy/10.jpg" alt="Готовый холл с зеркалом и подсветкой" width="1280" height="720" loading="lazy" decoding="async">
+        <figcaption>Светлый холл связывает приватные комнаты и поддерживает единый стиль.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Результат</h3>
+        <p>Получилась воздушная квартира с логичным хранением: кухня-гостиная осталась свободной, а приватные комнаты получили индивидуальные акценты. Семья отметила, что теперь легко поддерживать порядок и менять сценарии света в течение дня.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="layout-plan">
+    <h2 id="layout-plan" class="section-title">Планировка и расстановка</h2>
+    <p class="subtitle">Посмотрите, как организованы функциональные зоны и маршруты семьи.</p>
+    <div class="layout-gallery">
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Планировка квартиры в комплексе «Академия Блохиной», изображение появится позже"></div>
+        <figcaption>Схема распределения кухни-гостиной и приватных комнат.</figcaption>
+      </figure>
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Расстановка мебели и света, изображение появится позже"></div>
+        <figcaption>Рабочие сценарии освещения и размещение систем хранения.</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section container reveal-in">
     <h2 class="section-title">Галерея проекта</h2>
-    <div class="grid">
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/3.jpg" width="1280" height="720" alt="Гостиная с мягким диваном и акцентной стеной" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/4.jpg" width="720" height="720" alt="Зона столовой с подвесным светильником" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/5.jpg" width="1280" height="720" alt="Кухня с островом и подсветкой" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/6.1.jpg" width="720" height="720" alt="Спальня с деревянными панелями" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/7.jpg" width="720" height="720" alt="Детская с рабочим местом у окна" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/10.jpg" width="1280" height="720" alt="Холл с зеркалом в полный рост" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/Akademia%20Blohinoy/11.1.jpg" width="1280" height="720" alt="Ванная комната с подсветкой" loading="lazy" decoding="async">
-      </figure>
+    <div class="portfolio-grid" role="list">
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/3.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/3.jpg" width="1280" height="720" alt="Гостиная с мягким диваном и акцентной стеной" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/4.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/4.jpg" width="720" height="720" alt="Столовая зона с подвесным светильником" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/5.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/5.jpg" width="1280" height="720" alt="Кухня с островом и подсветкой" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/6.1.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/6.1.jpg" width="720" height="720" alt="Спальня с мягким изголовьем и панелями" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/7.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/7.jpg" width="720" height="720" alt="Детская комната с рабочим местом у окна" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/10.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/10.jpg" width="1280" height="720" alt="Холл с зеркалом и подсветкой" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/Akademia%20Blohinoy/11.1.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/Akademia%20Blohinoy/11.1.jpg" width="1280" height="720" alt="Ванная комната с подсветкой ниши" loading="lazy" decoding="async">
+        </span>
+      </a>
     </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Итоги проекта</h2>
+    <ul class="list-checked">
+      <li>Собрали гармоничную палитру, которая поддерживает естественное освещение и визуальную лёгкость.</li>
+      <li>Настроили хранение в приватных комнатах и холле без утяжеления интерьера.</li>
+      <li>Сократили время согласований с подрядчиками благодаря подробной спецификации.</li>
+    </ul>
+    <p><a class="btn btn-primary" href="contact.html#quote">Обсудить похожий проект</a></p>
   </section>
 
   <section class="section container reveal-in">
@@ -184,6 +264,7 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
+<script type="module" src="js/lightbox.js"></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

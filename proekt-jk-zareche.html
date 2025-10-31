@@ -17,6 +17,7 @@
   <meta property="og:locale" content="ru_RU">
   <link rel="preload" href="css/atmosphere.css" as="style">
   <link rel="stylesheet" href="css/atmosphere.css">
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 </head>
 <body>
 <a class="skip-link" href="#main">К основному содержанию</a>
@@ -63,72 +64,153 @@
     <a href="./">Портфолио</a> › <span aria-current="page">Квартира в ЖК «Заречье»</span>
   </nav>
 
-  <section class="section container reveal-in">
-    <p class="subtitle">Жилой проект</p>
-    <h1 class="section-title">Квартира в ЖК «Заречье»</h1>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">О проекте</h3>
-        <ul class="list-checked">
-          <li>Площадь: 74 м²</li>
-          <li>Город: Нижний Новгород</li>
-          <li>Стиль: Сканди минимализм</li>
-        </ul>
-        <p>Мы создали уютную квартиру с тёплым светом и натуральными фактурами. Пространство объединяет кухню-гостиную и приватную зону, а мебель на заказ решает задачу хранения без перегрузки.</p>
-      </article>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-06.jpg" width="1280" height="1280" alt="Гостиная квартиры в ЖК «Заречье»" decoding="async">
-        <figcaption>Главный вид на гостиную с мягким диваном и панорамным окном.</figcaption>
-      </figure>
+  <section class="section container case-overview reveal-in">
+    <div class="case-overview__head">
+      <h1 class="section-title">Квартира в ЖК «Заречье»</h1>
+      <p class="subtitle">Жилой проект · Нижний Новгород · 74 м² · Авторский надзор и комплектация</p>
     </div>
+    <dl class="case-overview__grid">
+      <div>
+        <dt>Клиент</dt>
+        <dd>Семья с ребёнком, которая хотела тёплый интерьер и понятное хранение в городской квартире.</dd>
+      </div>
+      <div>
+        <dt>Задача</dt>
+        <dd>Объединить кухню и гостиную, сохранить приватные комнаты и предусмотреть встроенное хранение без визуальной перегрузки.</dd>
+      </div>
+      <div>
+        <dt>Формат работы</dt>
+        <dd>Исследование сценариев, планировка, подбор отделки и мебели, комплектация и авторский надзор.</dd>
+      </div>
+      <div>
+        <dt>Инструменты</dt>
+        <dd>Revit, Enscape, Trello, Notion, подрядчики застройщика и проверенные поставщики.</dd>
+      </div>
+    </dl>
   </section>
 
-  <section class="section container reveal-in">
-    <h2 class="section-title">Роль студии</h2>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">Подход</h3>
-        <p>Команда работала в связке с подрядчиками застройщика, чтобы адаптировать инженерные решения под новый сценарий жизни семьи. Мы контролировали отделку и помогали с подбором декора.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Что сделали</h3>
-        <ul class="list-checked">
-          <li>Спроектировали зонирование кухни-гостиной и спальни.</li>
-          <li>Подобрали отделку и мебель с акцентом на натуральные материалы.</li>
-          <li>Сопровождали монтаж и проверяли качество на каждом этапе.</li>
+  <section class="section container case-story" aria-labelledby="case-story-zareche">
+    <h2 id="case-story-zareche" class="section-title">История проекта</h2>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-06.jpg" alt="Гостиная квартиры в ЖК «Заречье»" width="1280" height="1280" loading="lazy" decoding="async">
+        <figcaption>Гостиная стала центром квартиры и связала кухню со столовой.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Задача</h3>
+        <p>Заказчики хотели атмосферу спокойствия и натуральных материалов. Нужно было объединить кухню и гостиную, добавить места для хранения и настроить свет, который работает и днём, и вечером.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-26.jpg" alt="Команда подбирает материалы для кухни" width="1280" height="720" loading="lazy" decoding="async">
+        <figcaption>Согласовывали отделку с учётом графика поставок и бюджета.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Роль студии</h3>
+        <p>Мы работали в связке с подрядчиками застройщика, адаптировали инженерные решения и проверяли качество отделки. Подобрали мебель и декор, чтобы сохранить лёгкость и тепло в интерьере.</p>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zareche/1.1.jpg" alt="Расстановка мебели в прихожей" width="720" height="720" loading="lazy" decoding="async">
+        <figcaption>Продумали хранение от прихожей до приватных комнат.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Процесс</h3>
+        <ul class="steps-list">
+          <li>Собрали сценарии семьи, сделали несколько планировочных концепций и утвердили финальную.</li>
+          <li>Подготовили каталог отделки, мебели и света с альтернативами по срокам поставки.</li>
+          <li>Согласовали инженерные изменения с застройщиком и контролировали монтаж.</li>
+          <li>Вели авторский надзор и еженедельные отчёты по бюджету и срокам.</li>
         </ul>
-      </article>
+      </div>
+    </article>
+
+    <article class="media-block reveal-in">
+      <figure class="media-block__img">
+        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-33.jpg" alt="Коридор квартиры с подсветкой" width="960" height="1280" loading="lazy" decoding="async">
+        <figcaption>Коридор с подсветкой и зеркалами поддерживает визуальную лёгкость.</figcaption>
+      </figure>
+      <div class="media-block__content">
+        <h3><span class="accent-bar"></span>Результат</h3>
+        <p>Интерьер получился тёплым и функциональным: встроенное хранение спрятано в нишах, а гостиная остаётся просторной. Семья отметила, что новая схема света и текстиль создают ощущение загородного дома.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section container reveal-in" aria-labelledby="layout-plan">
+    <h2 id="layout-plan" class="section-title">Планировка и расстановка</h2>
+    <p class="subtitle">Схемы, на которых видно разделение общих и приватных зон квартиры.</p>
+    <div class="layout-gallery">
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Планировка квартиры в ЖК «Заречье», изображение появится позже"></div>
+        <figcaption>План кухни-гостиной с интегрированным хранением.</figcaption>
+      </figure>
+      <figure class="layout-figure">
+        <div class="layout-placeholder" role="img" aria-label="Расстановка мебели и света, изображение появится позже"></div>
+        <figcaption>Расстановка мебели в спальнях и сценарии освещения.</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section container reveal-in">
     <h2 class="section-title">Галерея проекта</h2>
-    <div class="grid">
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-26.jpg" width="1280" height="720" alt="Кухня с островом и подсветкой" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-31.jpg" width="1280" height="720" alt="Зона отдыха у окна" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-14.jpg" width="960" height="1280" alt="Спальня с мягким освещением" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-27.jpg" width="960" height="1280" alt="Детская комната с рабочим местом" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-33.jpg" width="960" height="1280" alt="Коридор с подсветкой и зеркалом" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-40.jpg" width="960" height="1280" alt="Ванная комната в светлых тонах" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-45.jpg" width="960" height="1280" alt="Санузел с вертикальными зеркалами" loading="lazy" decoding="async">
-      </figure>
-      <figure class="card">
-        <img src="Render/JK%20Zareche/1.1.jpg" width="720" height="720" alt="Вид на прихожую и шкафы" loading="lazy" decoding="async">
-      </figure>
+    <div class="portfolio-grid" role="list">
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-07-20_17-49-26.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-26.jpg" width="1280" height="720" alt="Кухня с островом и подсветкой" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-07-20_17-49-31.jpg" data-pswp-width="1280" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-31.jpg" width="1280" height="720" alt="Зона отдыха у окна" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-09-26_11-33-14.jpg" data-pswp-width="960" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-14.jpg" width="960" height="1280" alt="Спальня с мягким освещением" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-09-26_11-33-27.jpg" data-pswp-width="960" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-27.jpg" width="960" height="1280" alt="Детская комната с рабочим местом" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-09-26_11-33-33.jpg" data-pswp-width="960" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-33.jpg" width="960" height="1280" alt="Коридор с подсветкой и зеркалом" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-09-26_11-33-40.jpg" data-pswp-width="960" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-40.jpg" width="960" height="1280" alt="Ванная комната в светлых тонах" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/photo_2025-09-26_11-33-45.jpg" data-pswp-width="960" data-pswp-height="1280">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/photo_2025-09-26_11-33-45.jpg" width="960" height="1280" alt="Санузел с вертикальными зеркалами" loading="lazy" decoding="async">
+        </span>
+      </a>
+      <a class="card gallery" role="listitem" href="Render/JK%20Zareche/1.1.jpg" data-pswp-width="720" data-pswp-height="720">
+        <span class="thumb">
+          <img src="Render/JK%20Zareche/1.1.jpg" width="720" height="720" alt="Вид на прихожую и шкафы" loading="lazy" decoding="async">
+        </span>
+      </a>
     </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Итоги проекта</h2>
+    <ul class="list-checked">
+      <li>Объединили кухню-гостиную и сохранили приватность спален без потери света.</li>
+      <li>Настроили систему хранения с мебелью на заказ и встроенными нишами.</li>
+      <li>Сократили число доработок на площадке благодаря авторскому надзору и ежедневной коммуникации.</li>
+    </ul>
+    <p><a class="btn btn-primary" href="contact.html#quote">Обсудить похожий проект</a></p>
   </section>
 
   <section class="section container reveal-in">
@@ -187,6 +269,7 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
+<script type="module" src="js/lightbox.js"></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
