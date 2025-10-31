@@ -324,3 +324,42 @@ document.querySelectorAll('.cta-sticky').forEach((cta) => {
     }
   });
 });
+
+/* no-upscale: ограничение макс. ширины реальным размером изображения */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('img[data-no-upscale]').forEach((img) => {
+    const apply = () => {
+      if(img.naturalWidth){
+        img.style.maxWidth = `${img.naturalWidth}px`;
+      }
+    };
+    if(img.complete){
+      apply();
+    }else{
+      img.addEventListener('load', apply, {once:true});
+    }
+  });
+
+  document.querySelectorAll('.ba .ba-media').forEach((box) => {
+    const before = box.querySelector('img.before');
+    const after = box.querySelector('img.after');
+
+    const applyBA = () => {
+      const wBefore = before?.naturalWidth || Infinity;
+      const wAfter = after?.naturalWidth || Infinity;
+      const w = Math.min(wBefore, wAfter);
+      if(Number.isFinite(w)){
+        box.style.maxWidth = `${w}px`;
+      }
+    };
+
+    [before, after].forEach((img) => {
+      if(!img){return;}
+      if(img.complete){
+        applyBA();
+      }else{
+        img.addEventListener('load', applyBA, {once:true});
+      }
+    });
+  });
+});
