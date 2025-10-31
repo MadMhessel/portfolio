@@ -3,7 +3,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text);text-rendering:optimizeLegibility}
-img{display:block;max-width:100%;height:auto;border-radius:inherit}
+img{display:block;max-width:100%;height:auto;border-radius:inherit;image-rendering:auto}
 picture{display:block}
 a{color:inherit}
 a,button{cursor:pointer}
@@ -23,6 +23,11 @@ main{display:block}
 .grid{display:grid;gap:var(--space-5)}
 /* fix: компактная сетка CTA на странице благодарности */
 .grid.thankyou-actions{gap:var(--space-3);max-width:320px;justify-items:flex-start}
+
+/* media: prevent aggressive stretching of content imagery */
+.card__media,.card.gallery,figure.card,.ba .ba-media{width:auto}
+img.fill-height,.card__media img,.gallery img,.card .thumb img{object-fit:contain}
+.media-max-1280{max-width:1280px}
 
 /* fix: шапка и навигация */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(247,247,245,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,21,20,.08)}
@@ -60,9 +65,11 @@ main{display:block}
 .portfolio-grid{display:grid;gap:var(--space-5)}
 .card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);display:grid;gap:var(--space-4);padding:var(--space-4);transition:box-shadow .2s ease,transform .2s ease}
 .card:focus-within{box-shadow:0 18px 42px rgba(13,21,20,.16);transform:translateY(-2px)}
-.card .thumb{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:rgba(13,21,20,.05)}
+.card .thumb{border-radius:var(--radius);overflow:hidden;background:rgba(13,21,20,.05)}
+.card:not(.gallery) .thumb{aspect-ratio:4/3}
+.card.gallery .thumb{display:flex;align-items:center;justify-content:center}
 .thumb.placeholder{aspect-ratio:4/3;border:2px dashed rgba(13,21,20,.2);background:rgba(13,21,20,.03);border-radius:var(--radius)}
-.card .thumb img{object-fit:cover;width:100%;height:100%}
+.card .thumb img{width:100%;height:auto}
 .case-hero{display:grid;gap:var(--space-5);background:var(--c-surface);padding:var(--space-5);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
 .case-hero__copy{display:grid;gap:var(--space-4)}
 .case-hero__media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:#fff}
@@ -182,8 +189,8 @@ main{display:block}
 
 /* fix: до/после */
 .ba{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
-.ba img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.ba .after{position:absolute;inset:0;clip-path:inset(0 0 0 50%)}
+.ba img{width:100%;height:auto;object-fit:contain;aspect-ratio:4/3}
+.ba .after{position:absolute;top:0;left:0;width:100%;height:100%;clip-path:inset(0 0 0 50%)}
 .ba-range{position:absolute;left:50%;bottom:var(--space-4);transform:translateX(-50%);width:min(480px,90%)}
 
 /* fix: футер */
