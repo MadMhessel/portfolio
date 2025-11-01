@@ -1,8 +1,12 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://static-maps.yandex.ru; font-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
 <title>Контакты студии Atmosphere</title>
 <meta name="description" content="Свяжитесь со студией Atmosphere: заявка на смету, телефон, WhatsApp и Telegram. Ответим в течение рабочего дня и подготовим персональное предложение.">
 <meta name="theme-color" content="#0b5c55">
@@ -12,7 +16,9 @@
 <meta property="og:description" content="Напишите в мессенджер или оставьте заявку — подготовим смету за два дня и свяжемся удобным способом.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/contact.html">
-<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-contact.svg">
+<meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-contact.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Графика с призывом связаться со студией Atmosphere">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:locale:alternate" content="en_US">
@@ -23,7 +29,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://madmhessel.github.io/portfolio/"},{"@type":"ListItem","position":2,"name":"Контакты","item":"https://madmhessel.github.io/portfolio/contact.html"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ContactPage","@id":"https://madmhessel.github.io/portfolio/contact.html#page","name":"Контакты студии Atmosphere","url":"https://madmhessel.github.io/portfolio/contact.html","telephone":"+7-999-000-0000","email":"hello@atmstr.ru","contactType":"customer service","availableLanguage":["Russian"],"areaServed":"RU","sameAs":["https://wa.me/79990009999","https://t.me/yourstudio"]}
+{"@context":"https://schema.org","@type":"ContactPage","@id":"https://madmhessel.github.io/portfolio/contact.html#page","name":"Контакты студии Atmosphere","url":"https://madmhessel.github.io/portfolio/contact.html","telephone":"+7 (902) 787-44-00","email":"atmstr@yandex.ru","contactType":"customer service","availableLanguage":["Russian"],"areaServed":"RU","sameAs":["https://wa.me/79027874400","https://t.me/atmstr"]}
 </script>
 </head>
 <body>
@@ -37,7 +43,7 @@
       <a href="./">Портфолио</a>
       <a href="calculator.html">Калькулятор</a>
       <a href="about.html">О студии</a>
-      <a href="contact.html">Контакты</a>
+      <a href="contact.html" aria-current="page">Контакты</a>
     </nav>
     <button id="menuBtn" class="nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Открыть меню">
       <span class="sr-only">Меню</span>
@@ -50,16 +56,16 @@
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener noreferrer" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/atmstr" target="_blank" rel="noopener noreferrer" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
-      <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
+      <a class="contact-button" href="tel:+79027874400" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
         <span class="contact-button__label">📞 Позвонить</span>
       </a>
-      <a class="contact-button" href="mailto:hello@atmstr.ru" title="Отправить письмо на почту" aria-label="Почта">
+      <a class="contact-button" href="mailto:atmstr@yandex.ru" title="Отправить письмо на почту" aria-label="Почта">
         <span class="contact-button__label">✉️ Почта</span>
       </a>
     </div>
@@ -71,16 +77,16 @@
     <p class="subtitle">Свяжитесь удобным способом</p>
     <h1 class="section-title">Контакты студии Atmosphere</h1>
     <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener noreferrer" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/atmstr" target="_blank" rel="noopener noreferrer" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
-      <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
+      <a class="contact-button" href="tel:+79027874400" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
         <span class="contact-button__label">📞 Позвонить</span>
       </a>
-      <a class="contact-button" href="mailto:hello@atmstr.ru" title="Отправить письмо на почту" aria-label="Почта">
+      <a class="contact-button" href="mailto:atmstr@yandex.ru" title="Отправить письмо на почту" aria-label="Почта">
         <span class="contact-button__label">✉️ Почта</span>
       </a>
     </div>
@@ -88,9 +94,11 @@
 
   <section class="section container" id="quote">
     <h2 class="section-title">Оставить заявку</h2>
-    <form class="form" action="https://formsubmit.co/hello@atmstr.ru" method="POST" accept-charset="UTF-8" autocomplete="on" novalidate data-validate>
+    <form class="form" action="https://formsubmit.co/atmstr@yandex.ru" method="POST" accept-charset="UTF-8" autocomplete="on" novalidate data-validate>
       <input type="hidden" name="_subject" value="Новая заявка с сайта Atmosphere">
       <input type="hidden" name="_next" value="thanks.html?success=1">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only">
       <div aria-live="polite" class="sr-only" id="formMessages">&nbsp;</div>
       <label for="fieldName">Имя и фамилия
         <input id="fieldName" type="text" name="name" required aria-required="true" autocomplete="name" aria-describedby="error-name">
@@ -126,7 +134,7 @@
   <section class="section container reveal-in">
     <h2 class="section-title">Наш адрес</h2>
     <p>Нижний Новгород · встречаемся по записи</p>
-    <a class="btn btn-ghost" href="https://yandex.ru/maps/?text=Нижний%20Новгород" target="_blank" rel="noopener">Открыть на карте</a>
+    <a class="btn btn-ghost" href="https://yandex.ru/maps/?text=Нижний%20Новгород" target="_blank" rel="noopener noreferrer">Открыть на карте</a>
     <figure class="reveal-in" aria-label="Схема проезда">
       <img src="https://static-maps.yandex.ru/1.x/?ll=44.006516,56.326797&size=650,350&z=12&l=map&pt=44.006516,56.326797,pm2rdm" alt="Карта маршрута" width="650" height="350" loading="lazy" decoding="async">
     </figure>
@@ -148,22 +156,22 @@
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener noreferrer" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/atmstr" target="_blank" rel="noopener noreferrer" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
-      <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
+      <a class="contact-button" href="tel:+79027874400" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
         <span class="contact-button__label">📞 Позвонить</span>
       </a>
-      <a class="contact-button" href="mailto:hello@atmstr.ru" title="Отправить письмо на почту" aria-label="Почта">
+      <a class="contact-button" href="mailto:atmstr@yandex.ru" title="Отправить письмо на почту" aria-label="Почта">
         <span class="contact-button__label">✉️ Почта</span>
       </a>
     </div>
     <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" rel="noopener" aria-label="Behance">Bē</a>
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener noreferrer" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
