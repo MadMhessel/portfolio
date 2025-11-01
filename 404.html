@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Страница не найдена — Atmosphere</title>
 <meta name="description" content="Запрошенная страница не найдена. Вернитесь на главную или свяжитесь с командой Atmosphere.">
+<meta name="theme-color" content="#0b5c55">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/404.html">
 <meta property="og:title" content="Страница не найдена — Atmosphere">
@@ -14,7 +16,6 @@
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-404.svg">
 <meta property="og:image:alt" content="Иллюстрация 404 для студии Atmosphere">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 </head>
@@ -42,10 +43,10 @@
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -63,10 +64,10 @@
   <h1 class="section-title">Страница не найдена</h1>
   <p>Ссылка устарела или содержит опечатку. Попробуйте вернуться на главную или свяжитесь с нами.</p>
   <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-    <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+    <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-    <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+    <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
     <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -94,10 +95,10 @@
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -108,8 +109,8 @@
       </a>
     </div>
     <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" rel="noopener" aria-label="Behance">Bē</a>
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
@@ -125,6 +126,8 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/nav.js" defer></script>
+<script type="module" src="js/effects.js" defer></script>
+<script type="module" src="js/cta.js" defer></script>
 </body>
 </html>

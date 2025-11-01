@@ -6,6 +6,8 @@
 <title>Калькулятор стоимости ремонта</title>
 <meta name="description" content="Оцените ориентировочный бюджет интерьера: введите площадь, выберите уровень отделки и получите расчёт сметы для квартиры или офиса.">
 <meta name="theme-color" content="#0b5c55">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/calculator.html">
 <meta property="og:title" content="Калькулятор стоимости ремонта">
@@ -15,7 +17,6 @@
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-calculator.svg">
 <meta property="og:image:alt" content="Графика калькулятора сметы студии Atmosphere">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <!-- fix: структурированные данные для поисковых систем -->
@@ -50,10 +51,10 @@
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -73,10 +74,10 @@
     <h1 class="section-title">Калькулятор стоимости</h1>
     <p>Введите площадь и выберите уровень отделки — получите ориентировочную стоимость работ. После заполнения формы на странице <a href="contact.html#quote">Контакты</a> мы вышлем детальную смету.</p>
     <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -87,12 +88,15 @@
       </a>
     </div>
     <form id="calc" class="form" novalidate data-validate>
+      <p class="sr-only" id="hint-calc">Все поля обязательны. После заполнения появится ориентировочный расчёт.</p>
       <label for="calcArea">Площадь (м²)
-        <input type="number" id="calcArea" name="area" min="1" step="1" inputmode="numeric" required aria-required="true" aria-describedby="error-calc-area">
+        <div class="sr-only" id="hint-calc-area">Введите целое число от 1 м² и больше.</div>
+        <input type="number" id="calcArea" name="area" min="1" step="1" inputmode="numeric" required aria-required="true" aria-describedby="hint-calc hint-calc-area error-calc-area">
       </label>
       <span class="error" data-error-for="area" id="error-calc-area" aria-live="polite"></span>
       <label for="calcLevel">Уровень отделки
-        <select id="calcLevel" name="level" required aria-required="true" aria-describedby="error-calc-level">
+        <div class="sr-only" id="hint-calc-level">Выберите базовый, комфорт или премиум уровень отделки.</div>
+        <select id="calcLevel" name="level" required aria-required="true" aria-describedby="hint-calc-level error-calc-level">
           <option value="8000">Базовый — от 8 000 ₽/м²</option>
           <option value="12000">Комфорт — от 12 000 ₽/м²</option>
           <option value="17000">Премиум — от 17 000 ₽/м²</option>
@@ -121,10 +125,10 @@
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -135,8 +139,8 @@
       </a>
     </div>
     <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" rel="noopener" aria-label="Behance">Bē</a>
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
@@ -152,6 +156,10 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/nav.js" defer></script>
+<script type="module" src="js/effects.js" defer></script>
+<script type="module" src="js/forms.js" defer></script>
+<script type="module" src="js/calculator.js" defer></script>
+<script type="module" src="js/cta.js" defer></script>
 </body>
 </html>

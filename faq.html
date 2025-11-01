@@ -6,6 +6,8 @@
 <title>FAQ — вопросы и ответы студии Atmosphere</title>
 <meta name="description" content="Частые вопросы о дизайне интерьера, этапах работы и стоимости услуг студии Atmosphere.">
 <meta name="theme-color" content="#0b5c55">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/faq.html">
 <meta property="og:title" content="FAQ — Atmosphere">
@@ -15,7 +17,6 @@
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-index.svg">
 <meta property="og:image:alt" content="Логотип студии Atmosphere на зелёном фоне">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 </head>
@@ -43,10 +44,10 @@
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -86,10 +87,10 @@
     <h2 class="section-title">Не нашли ответ?</h2>
     <p class="subtitle">Свяжитесь с нами удобным способом — подготовим персональную консультацию и расчёт проекта.</p>
     <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -117,10 +118,10 @@
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -132,6 +133,8 @@
     </div>
   </div>
 </footer>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/nav.js" defer></script>
+<script type="module" src="js/effects.js" defer></script>
+<script type="module" src="js/cta.js" defer></script>
 </body>
 </html>
