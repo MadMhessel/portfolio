@@ -3,35 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>О студии Atmosphere — ремонт под ключ в Нижнем Новгороде</title>
-<meta name="description" content="Atmosphere — студия ремонта под ключ: планировка, дизайн-проект, комплектация и контроль реализации. Честная смета, сроки и гарантия до 10 лет. Нижний Новгород.">
+<title>О студии Atmosphere — дизайн и ремонт квартир в Нижнем Новгороде</title>
+<meta name="description" content="Узнайте, как студия Atmosphere из Нижнего Новгорода проектирует и реализует дизайн и ремонт квартир: команда, подход, гарантии и способы связаться для расчёта сметы.">
 <meta name="theme-color" content="#0b5c55">
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/about.html">
-<meta property="og:title" content="О студии Atmosphere — ремонт под ключ в Нижнем Новгороде">
-<meta property="og:description" content="Atmosphere — студия ремонта под ключ: планировка, дизайн-проект, комплектация и контроль реализации. Честная смета и гарантия до 10 лет.">
+<meta property="og:title" content="О студии Atmosphere — дизайн и ремонт квартир в Нижнем Новгороде">
+<meta property="og:description" content="Студия Atmosphere из Нижнего Новгорода рассказывает о команде, подходе к дизайну и ремонту квартир, прозрачных сметах и гарантиях.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madmhessel.github.io/portfolio/about.html">
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-about.svg">
-<meta property="og:image:alt" content="Фирсова Елена — главный дизайнер студии Atmosphere">
+<meta property="og:image:alt" content="Мария Дорошина — основательница и главный дизайнер студии Atmosphere">
 <meta property="og:locale" content="ru_RU">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"ATMOSPHERE",
-  "url":"https://atmstr.ru",
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"Нижний Новгород",
-    "streetAddress":"ул. Воровского, д. 3"
-  },
-  "telephone":"+7 902 787 44 00",
-  "email":"atmstr@yandex.ru"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://madmhessel.github.io/portfolio/#website",
+      "name": "Atmosphere — дизайн и ремонт",
+      "url": "https://madmhessel.github.io/portfolio/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://madmhessel.github.io/portfolio/#organization",
+      "name": "Atmosphere",
+      "url": "https://madmhessel.github.io/portfolio/",
+      "telephone": "+7 902 787 44 00",
+      "email": "atmstr@yandex.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Нижний Новгород",
+        "streetAddress": "ул. Воровского, д. 3",
+        "addressCountry": "RU"
+      }
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://madmhessel.github.io/portfolio/about.html",
+      "name": "О студии Atmosphere",
+      "url": "https://madmhessel.github.io/portfolio/about.html",
+      "isPartOf": {
+        "@id": "https://madmhessel.github.io/portfolio/#website"
+      },
+      "mainEntity": {
+        "@id": "https://madmhessel.github.io/portfolio/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://madmhessel.github.io/portfolio/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://madmhessel.github.io/portfolio/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Портфолио",
+          "item": "https://madmhessel.github.io/portfolio/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "О студии",
+          "item": "https://madmhessel.github.io/portfolio/about.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -79,23 +124,90 @@
   <section class="section container about-hero">
     <div class="about-media reveal-in">
       <figure class="founder-photo">
-        <!-- TODO: добавить файл Render/photo_2025-11-01_20-10-54.jpg, проставить фактические размеры и синхронизировать портрет на странице команды -->
-        <img src="Render/photo_2025-11-01_20-10-54.jpg" width="TODO" height="TODO" alt="Дизайнер студии Atmosphere" loading="eager" decoding="async" fetchpriority="high">
+        <picture>
+          <source srcset="Render/JK Novay Kuznechiha/photo_2025-09-16_14-08-35.png" type="image/png">
+          <img src="Render/JK Novay Kuznechiha/photo_2025-09-16_14-08-35.png" width="1024" height="1536" alt="Мария Дорошина, основательница и главный дизайнер студии Atmosphere" loading="eager" decoding="async" fetchpriority="high">
+        </picture>
         <figcaption>Мария Дорошина — основательница и главный дизайнер студии Atmosphere.</figcaption>
       </figure>
     </div>
     <div class="reveal-in">
-      <p class="subtitle">Atmosphere — студия ремонта и дизайна интерьеров</p>
-      <h1 class="section-title">Ремонт квартир под ключ в Нижнем Новгороде</h1>
+      <p class="subtitle">Atmosphere — студия дизайна и ремонта полного цикла</p>
+      <h1 class="section-title">О студии Atmosphere</h1>
+      <p>Мы проектируем и реализуем современные интерьеры в Нижнем Новгороде: от аналитики и планировки до авторского надзора и комплектации. Команда берёт на себя смету, стройконтроль и передачу готового пространства заказчику.</p>
       <ul class="list-checked">
-        <li>Качественные материалы</li>
-        <li>Соблюдение сроков</li>
-        <li>Развёрнутая смета</li>
-        <li>Фото и видео отчёты</li>
+        <li>Честно считаем смету и фиксируем договорённости</li>
+        <li>Показываем прозрачный ход работ в фото и видео</li>
+        <li>Собираем команду подрядчиков и контролируем качество</li>
       </ul>
-      <p>План объекта (мебель, электрика, сантехника) · Базовый экспресс дизайн-проект с концептуальной визуализацией.</p>
       <a class="btn btn-primary" href="contact.html#quote">Запросить смету</a>
-      <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
+    </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Кто мы</h2>
+    <p>Atmosphere — студия из Нижнего Новгорода, которая объединяет дизайнеров, инженеров и прорабов для полного цикла ремонта. Мы проводим объект через все этапы: от диагностики пространства до финальной сдачи.</p>
+    <p>Работаем по договору, фиксируем ключевые решения в смете и оставляем заказчика в курсе прогресса — через еженедельные отчёты, фото и видео.</p>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Как мы работаем</h2>
+    <ul class="steps-list">
+      <li>Знакомимся, составляем бриф и детально измеряем объект.</li>
+      <li>Создаём планировочные решения, 3D-визуализации и рабочую документацию.</li>
+      <li>Комплектуем материалами и авторизованными подрядчиками.</li>
+      <li>Ведём стройконтроль, согласовываем этапы и закрываем проект актами.</li>
+    </ul>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Экспертиза и услуги</h2>
+    <ul class="list-checked">
+      <li>Инженерные и планировочные решения для квартир и частных домов</li>
+      <li>Дизайн-проект с визуализациями и рабочими чертежами</li>
+      <li>Комплектация мебелью, светом, отделкой и декором</li>
+      <li>Авторский надзор и управление подрядчиками</li>
+    </ul>
+    <p>Хотите подробности по пакетам и стоимости? <a href="calculator.html">Все услуги и пакеты</a> собраны в калькуляторе.</p>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Команда</h2>
+    <div class="grid">
+      <article class="card">
+        <h3 class="card-title">Мария Дорошина</h3>
+        <p>Основательница и главный дизайнер. Курирует концепции, согласует сметы и ведёт авторский надзор на объектах.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Максим Петров</h3>
+        <p>Руководитель строительства. Руководит подрядчиками, следит за сроками и качеством отделки.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Факты и гарантии</h2>
+    <div class="grid">
+      <article class="card">
+        <h3 class="card-title">Опыт</h3>
+        <p>Более 50 реализованных объектов в Нижнем Новгороде и области.</p>
+        <p>7 лет в проектировании жилых и коммерческих пространств.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Принципы</h3>
+        <p>Договорная ответственность и гарантия до 10 лет на работу подрядчиков.</p>
+        <p>Оплата поэтапно, подтверждаем каждый шаг отчётами и сметой.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container reveal-in">
+    <h2 class="section-title">Контакты</h2>
+    <p>Нижний Новгород, ул. Воровского, д. 3 · <a href="tel:+79027874400">+7 902 787-44-00</a> · <a href="mailto:atmstr@yandex.ru">atmstr@yandex.ru</a></p>
+    <p>Заполните форму на странице <a href="contact.html">контактов</a> или выберите удобный мессенджер ниже.</p>
+    <div class="contact-bar" aria-label="Контакт-бар студии Atmosphere">
+      <span class="contact-bar__label">Связаться:</span>
+      <div class="quick-contacts" data-theme="light">
         <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
           <span class="contact-button__label">💬 WhatsApp</span>
         </a>
@@ -111,85 +223,26 @@
       </div>
     </div>
   </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Кто мы и как работаем</h2>
-    <p>Atmosphere — студия ремонта и дизайна интерьеров. Работаем поэтапно и прозрачно: планировка, дизайн-проект, комплектация и контроль реализации. Отчётность, сроки и смета — под вашим контролем.</p>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Услуги и экспертиза</h2>
-    <ul class="list-checked">
-      <li>Планировка</li>
-      <li>Дизайн-проект</li>
-      <li>Комплектация</li>
-      <li>Полная комплектация объекта (материалы, мебель, декор)</li>
-    </ul>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Пакеты дизайн-проекта</h2>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">Технический</h3>
-        <p>1500 ₽/м²</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Концептуальный</h3>
-        <p>2700 ₽/м²</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Премиум</h3>
-        <p>3500 ₽/м²</p>
-      </article>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Atmosphere</strong><br>Студия дизайна и ремонта полного цикла
     </div>
-    <p>Развёрнутые составы пакетов — на основном сайте.</p>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Этапы работы</h2>
-    <p>Знакомство и бриф · Обмеры · План расстановки · 3D-визуализация · Комплектация · Рабочие чертежи · Реализация под контролем · Финальная фотосъёмка.</p>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Гарантии</h2>
-    <ul class="list-checked">
-      <li>Честная смета</li>
-      <li>Гарантия до 10 лет</li>
-      <li>Оплата по факту (поэтапно)</li>
-      <li>Фото/видео отчёты</li>
-    </ul>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Факты и команда</h2>
-    <div class="grid">
-      <article class="card">
-        <h3 class="card-title">Опыт</h3>
-        <p>+50 выполненных объектов</p>
-        <p>7 лет опыта</p>
-        <p>+100 довольных клиентов</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Команда</h3>
-        <p>Фирсова Елена — главный дизайнер, основатель.</p>
-        <p>Максим — главный прораб, отвечает за стройку и контроль качества.</p>
-      </article>
+    <nav aria-label="Нижняя навигация">
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="terms.html">Условия сотрудничества</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="./">Портфолио</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="social-links" data-theme="dark" aria-label="Социальные сети">
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
-  </section>
-
-  <section class="section container reveal-in">
-    <h2 class="section-title">Контакты</h2>
-    <p>г. Нижний Новгород, ул. Воровского, д. 3 · +7 (902) 787-44-00 · <a href="mailto:atmstr@yandex.ru">atmstr@yandex.ru</a></p>
-    <a class="btn btn-ghost" href="contact.html">Написать</a>
-  </section>
-
-  <section class="section container reveal-in">
-    <div class="contact-cta">
-      <div>
-        <h2 class="section-title">Запросите смету Atmosphere</h2>
-        <p>Подготовим развёрнутую смету и план работ с учётом сроков, бюджета и желаемого уровня комплектации.</p>
-      </div>
+    <div class="contact-bar contact-bar--footer" aria-label="Контакты студии Atmosphere">
+      <span class="contact-bar__label">Связаться:</span>
+      <a class="btn btn-ghost contact-bar__action" href="contact.html#quote">Запросить смету</a>
       <div class="quick-contacts" data-theme="dark">
         <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
           <span class="contact-button__label">💬 WhatsApp</span>
@@ -204,42 +257,6 @@
           <span class="contact-button__label">✉️ Почта</span>
         </a>
       </div>
-      <a class="btn btn-primary" href="contact.html#quote">Запросить смету</a>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <strong>Atmosphere</strong><br>Студия дизайна и ремонта полного цикла
-      <div class="footer-cta">
-        <a class="btn btn-ghost" href="contact.html#quote">Оставить заявку</a>
-      </div>
-    </div>
-    <nav aria-label="Нижняя навигация">
-      <a href="privacy.html">Политика конфиденциальности</a>
-      <a href="terms.html">Условия сотрудничества</a>
-      <a href="calculator.html">Калькулятор</a>
-      <a href="./">Портфолио</a>
-          <a href="faq.html">FAQ</a>
-    </nav>
-    <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
-        <span class="contact-button__label">💬 WhatsApp</span>
-      </a>
-      <a class="contact-button" href="https://t.me/atmstr" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
-        <span class="contact-button__label">✈️ Telegram</span>
-      </a>
-      <a class="contact-button" href="tel:+79027874400" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
-        <span class="contact-button__label">📞 Позвонить</span>
-      </a>
-      <a class="contact-button" href="mailto:atmstr@yandex.ru" title="Отправить письмо на почту" aria-label="Почта">
-        <span class="contact-button__label">✉️ Почта</span>
-      </a>
-    </div>
-    <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
