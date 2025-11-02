@@ -9,20 +9,41 @@ public_folder: "/img"
 collections:
   - name: site
     label: Настройки сайта
-    file: "data/site.json"
-    fields:
-      - {label: Цвет фона, name: theme.c_bg, widget: color}
-      - {label: Цвет текста, name: theme.c_text, widget: color}
-      - {label: Основной цвет, name: theme.c_primary, widget: color}
-      - {label: Телефон, name: contacts.phone, widget: string}
-      - {label: Email, name: contacts.email, widget: string}
-      - {label: WhatsApp (цифры), name: contacts.whatsapp, widget: string}
-      - {label: Telegram (ник), name: contacts.telegram, widget: string}
+    files:
+      - file: "data/site.json"
+        name: settings
+        label: Тема и контакты
+        format: json
+        fields:
+          - label: Тема
+            name: theme
+            widget: object
+            fields:
+              - { label: Цвет фона,         name: c_bg,            widget: color }
+              - { label: Цвет текста,       name: c_text,          widget: color }
+              - { label: Основной цвет,     name: c_primary,       widget: color }
+              - { label: Ховер основного,   name: c_primary_hover, widget: color, required: false }
+              - { label: Цвет фокуса,       name: c_focus,         widget: color, required: false }
+              - { label: Радиус,            name: radius,          widget: string, required: false }
+              - { label: Максимальная ширина, name: maxw,          widget: string, required: false }
+          - label: Контакты
+            name: contacts
+            widget: object
+            fields:
+              - { label: Телефон,   name: phone,    widget: string }
+              - { label: Email,     name: email,    widget: string }
+              - { label: WhatsApp,  name: whatsapp, widget: string, hint: "Только цифры, без +" }
+              - { label: Telegram,  name: telegram, widget: string, hint: "Ник без @" }
 
   - name: home
     label: Главная
-    file: "data/home.json"
-    fields:
-      - {label: Подзаголовок, name: hero_subtitle, widget: string}
-      - {label: Заголовок, name: hero_title, widget: string}
-      - {label: Текст кнопки, name: cta_text, widget: string}
+    files:
+      - file: "data/home.json"
+        name: home
+        label: Тексты главной
+        format: json
+        fields:
+          - { label: Подзаголовок (маленький текст над H1), name: hero_subtitle, widget: string }
+          - { label: Заголовок (H1),                        name: hero_title,    widget: string }
+          - { label: Текст кнопки,                          name: cta_text,      widget: string }
+
