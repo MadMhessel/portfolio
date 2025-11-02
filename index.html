@@ -6,6 +6,8 @@
 <title>Atmosphere — портфолио студии дизайна интерьеров Марии Дорошиной</title>
 <meta name="description" content="Atmosphere — студия дизайна Марии Дорошиной. Авторские интерьеры квартир, офисов и коммерческих пространств, процесс работы, отзывы клиентов и прозрачные сметы.">
 <meta name="theme-color" content="#0b5c55">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/">
 <meta property="og:title" content="Atmosphere — портфолио студии дизайна интерьеров">
@@ -15,7 +17,6 @@
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-index.svg">
 <meta property="og:image:alt" content="Графика с логотипом студии Atmosphere и слоганом об экодизайне">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
@@ -73,10 +74,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -99,10 +100,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         <a class="btn btn-primary" href="contact.html#quote">Оставить заявку</a>
       </div>
       <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-        <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+        <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
           <span class="contact-button__label">💬 WhatsApp</span>
         </a>
-        <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+        <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
           <span class="contact-button__label">✈️ Telegram</span>
         </a>
         <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -114,7 +115,11 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       </div>
     </div>
     <div class="hero-media reveal-in">
-      <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Современная гостиная" loading="eager" decoding="async" fetchpriority="high">
+      <picture>
+        <!-- TODO: заменить на оптимизированную версию геро-изображения (доступны jpg и webp) -->
+        <source type="image/webp" srcset="img/interior_01-1024.webp" sizes="(min-width: 1024px) 50vw, 100vw">
+        <img src="img/interior_01-1024.jpg" width="1024" height="1024" alt="Современная гостиная" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
     </div>
   </section>
 
@@ -125,49 +130,74 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
     </div>
     <div class="portfolio-grid" role="list">
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-akademia-blohinoy.html" rel="bookmark" aria-label="Квартира «Академия Блохиной» — подробнее">
-          <img src="Render/Akademia%20Blohinoy/1.png" width="960" height="640" alt="Квартира «Академия Блохиной» — превью" loading="lazy" decoding="async" data-no-upscale>
+        <a class="card-link" href="proekt-akademia-blohinoy.html" rel="bookmark" aria-label="Квартира «Академия Блохиной» — подробнее">
+          <div class="thumb">
+            <picture>
+              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
+              <img src="Render/Akademia%20Blohinoy/1.png" width="960" height="640" alt="Квартира «Академия Блохиной» — превью" loading="lazy" decoding="async" data-no-upscale>
+            </picture>
+          </div>
+          <div>
+            <h3 class="card-title">Квартира «Академия Блохиной»</h3>
+            <p class="card-meta">Нижний Новгород · 96 м²</p>
+          </div>
         </a>
-        <div>
-          <h3 class="card-title">Квартира «Академия Блохиной»</h3>
-          <p class="card-meta">Нижний Новгород · 96 м²</p>
-        </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-d-krutay.html" rel="bookmark" aria-label="Дом на улице Крутой — подробнее">
-          <img src="Render/d%20Krutay/гостиная%201.png" width="960" height="640" alt="Дом на улице Крутой — превью" loading="lazy" decoding="async" data-no-upscale>
+        <a class="card-link" href="proekt-d-krutay.html" rel="bookmark" aria-label="Дом на улице Крутой — подробнее">
+          <div class="thumb">
+            <picture>
+              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
+              <img src="Render/d%20Krutay/гостиная%201.png" width="960" height="640" alt="Дом на улице Крутой — превью" loading="lazy" decoding="async" data-no-upscale>
+            </picture>
+          </div>
+          <div>
+            <h3 class="card-title">Дом на улице Крутой</h3>
+            <p class="card-meta">Нижний Новгород · 142 м²</p>
+          </div>
         </a>
-        <div>
-          <h3 class="card-title">Дом на улице Крутой</h3>
-          <p class="card-meta">Нижний Новгород · 142 м²</p>
-        </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-jk-novay-kuznechiha.html" rel="bookmark" aria-label="ЖК «Новая Кузнечиха» — подробнее">
-          <img src="Render/JK%20Novay%20Kuznechiha/photo_2025-09-16_14-08-35.png" width="960" height="640" alt="ЖК «Новая Кузнечиха» — превью" loading="lazy" decoding="async" data-no-upscale>
+        <a class="card-link" href="proekt-jk-novay-kuznechiha.html" rel="bookmark" aria-label="ЖК «Новая Кузнечиха» — подробнее">
+          <div class="thumb">
+            <picture>
+              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
+              <img src="Render/JK%20Novay%20Kuznechiha/photo_2025-09-16_14-08-35.png" width="960" height="640" alt="ЖК «Новая Кузнечиха» — превью" loading="lazy" decoding="async" data-no-upscale>
+            </picture>
+          </div>
+          <div>
+            <h3 class="card-title">ЖК «Новая Кузнечиха»</h3>
+            <p class="card-meta">Нижний Новгород · 82 м²</p>
+          </div>
         </a>
-        <div>
-          <h3 class="card-title">ЖК «Новая Кузнечиха»</h3>
-          <p class="card-meta">Нижний Новгород · 82 м²</p>
-        </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-jk-zareche.html" rel="bookmark" aria-label="ЖК «Заречье» — подробнее">
-          <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-06.png" width="960" height="640" alt="ЖК «Заречье» — превью" loading="lazy" decoding="async" data-no-upscale>
+        <a class="card-link" href="proekt-jk-zareche.html" rel="bookmark" aria-label="ЖК «Заречье» — подробнее">
+          <div class="thumb">
+            <picture>
+              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
+              <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-06.png" width="960" height="640" alt="ЖК «Заречье» — превью" loading="lazy" decoding="async" data-no-upscale>
+            </picture>
+          </div>
+          <div>
+            <h3 class="card-title">ЖК «Заречье»</h3>
+            <p class="card-meta">Нижний Новгород · 74 м²</p>
+          </div>
         </a>
-        <div>
-          <h3 class="card-title">ЖК «Заречье»</h3>
-          <p class="card-meta">Нижний Новгород · 74 м²</p>
-        </div>
       </article>
       <article class="card reveal-in" role="listitem">
-        <a class="thumb" href="proekt-jk-zenit.html" rel="bookmark" aria-label="ЖК «Зенит» — подробнее">
-          <img src="Render/JK%20Zenit/1.png" width="960" height="640" alt="ЖК «Зенит» — превью" loading="lazy" decoding="async" data-no-upscale>
+        <a class="card-link" href="proekt-jk-zenit.html" rel="bookmark" aria-label="ЖК «Зенит» — подробнее">
+          <div class="thumb">
+            <picture>
+              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
+              <img src="Render/JK%20Zenit/1.png" width="960" height="640" alt="ЖК «Зенит» — превью" loading="lazy" decoding="async" data-no-upscale>
+            </picture>
+          </div>
+          <div>
+            <h3 class="card-title">ЖК «Зенит»</h3>
+            <p class="card-meta">Казань · 68 м²</p>
+          </div>
         </a>
-        <div>
-          <h3 class="card-title">ЖК «Зенит»</h3>
-          <p class="card-meta">Казань · 68 м²</p>
-        </div>
       </article>
     </div>
   </section>
@@ -240,10 +270,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
         <p>Расскажите о задаче и получите расчёт сметы в течение 2 рабочих дней. Работаем по договору и с безналичной оплатой.</p>
       </div>
       <div class="quick-contacts" data-theme="dark">
-        <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+        <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
           <span class="contact-button__label">💬 WhatsApp</span>
         </a>
-        <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+        <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
           <span class="contact-button__label">✈️ Telegram</span>
         </a>
         <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -273,10 +303,10 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -287,8 +317,8 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       </a>
     </div>
     <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" rel="noopener" aria-label="Behance">Bē</a>
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
@@ -304,6 +334,8 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/nav.js" defer></script>
+<script type="module" src="js/effects.js" defer></script>
+<script type="module" src="js/cta.js" defer></script>
 </body>
 </html>

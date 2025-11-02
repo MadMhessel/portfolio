@@ -96,10 +96,11 @@ img.fill-height,.card__media img,.gallery img,.card .thumb img{object-fit:contai
 
 /* fix: сетка проектов */
 .portfolio-grid{display:grid;gap:var(--space-5)}
-.card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);display:grid;gap:var(--space-4);padding:var(--space-4);transition:box-shadow .2s ease,transform .2s ease}
+.card{display:block;background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);transition:box-shadow .2s ease,transform .2s ease}
 .card figure{margin:0}
 figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
-.card:focus-within{box-shadow:0 18px 42px rgba(13,21,20,.16);transform:translateY(-2px)}
+.card:focus-within,.card-link:focus-visible{box-shadow:0 18px 42px rgba(13,21,20,.16);transform:translateY(-2px)}
+.card-link{display:grid;gap:var(--space-4);padding:var(--space-4);text-decoration:none;color:inherit;min-block-size:100%}
 .card .thumb{border-radius:var(--radius);overflow:hidden;background:rgba(13,21,20,.05)}
 .card:not(.gallery) .thumb{aspect-ratio:4/3}
 .card.gallery .thumb{display:flex;align-items:center;justify-content:center}
@@ -155,8 +156,17 @@ figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
 /* fix: секция контактов */
 .contact-cta{background:var(--c-primary);color:#fff;border-radius:var(--radius);padding:var(--space-7);display:grid;gap:var(--space-4);box-shadow:var(--shadow-soft)}
 .contact-cta p{margin:0}
+.contact-bar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);padding:var(--space-4) var(--space-5);border:1px solid var(--c-border-strong);border-radius:var(--radius);background:var(--c-surface);margin-top:var(--space-4)}
+.contact-bar__label{font-weight:600;letter-spacing:.01em}
+.contact-bar__action{min-inline-size:160px}
+.contact-bar .quick-contacts{gap:var(--space-4)}
+.contact-bar--footer{background:rgba(11,92,85,.12);border-color:rgba(255,255,255,.24);color:#fff;margin-top:var(--space-5)}
+.contact-bar--footer .contact-bar__label{color:#fff}
+.contact-bar--footer .btn-ghost{background-color:rgba(255,255,255,.9);color:var(--c-primary)}
+.contact-bar--footer .btn-ghost:hover,.contact-bar--footer .btn-ghost:focus-visible{background-color:#fff;color:var(--c-primary-hover)}
+.contact-bar--footer .quick-contacts{gap:var(--space-3)}
 .quick-contacts{display:flex;flex-wrap:wrap;gap:var(--space-16)}
-.contact-button{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-2) var(--space-4);border-radius:999px;font-weight:600;text-decoration:none;background:var(--c-primary);color:#fff;border:1px solid var(--c-primary);transition:background .2s ease,color .2s ease,transform .2s ease}
+.contact-button{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-2) var(--space-4);border-radius:999px;font-weight:600;text-decoration:none;background:var(--c-primary);color:#fff;border:1px solid var(--c-primary);transition:background .2s ease,color .2s ease,transform .2s ease;min-inline-size:44px;min-block-size:44px}
 .contact-button:hover,.contact-button:focus-visible{background:var(--c-primary-hover);color:#fff;outline:2px solid var(--c-focus);outline-offset:2px;transform:translateY(-1px)}
 .contact-button__label{font-size:15px;line-height:1.2;display:inline-flex;align-items:center;gap:var(--space-2)}
 .quick-contacts[data-theme="light"] .contact-button{background:rgba(11,92,85,.1);border-color:var(--c-primary);color:var(--c-primary)}

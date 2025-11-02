@@ -6,6 +6,8 @@
 <title>Контакты студии Atmosphere</title>
 <meta name="description" content="Свяжитесь со студией Atmosphere: заявка на смету, телефон, WhatsApp и Telegram. Ответим в течение рабочего дня и подготовим персональное предложение.">
 <meta name="theme-color" content="#0b5c55">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com; img-src 'self' data: https://static-maps.yandex.ru https://madmhessel.github.io; connect-src 'self' https://unpkg.com; font-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <link rel="icon" href="img/favicon.png" sizes="64x64" type="image/png">
 <link rel="canonical" href="https://madmhessel.github.io/portfolio/contact.html">
 <meta property="og:title" content="Контакты студии Atmosphere">
@@ -15,7 +17,6 @@
 <meta property="og:image" content="https://madmhessel.github.io/portfolio/img/og/og-contact.svg">
 <meta property="og:image:alt" content="Графика с призывом связаться со студией Atmosphere">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
 <!-- fix: структурированные данные для контактов -->
@@ -50,10 +51,10 @@
     <a href="about.html">О студии</a>
     <a href="contact.html">Контакты</a>
     <div class="quick-contacts" data-theme="dark">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -71,10 +72,10 @@
     <p class="subtitle">Свяжитесь удобным способом</p>
     <h1 class="section-title">Контакты студии Atmosphere</h1>
     <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -93,29 +94,35 @@
       <input type="hidden" name="_next" value="thanks.html?success=1">
       <div aria-live="polite" class="sr-only" id="formMessages">&nbsp;</div>
       <label for="fieldName">Имя и фамилия
-        <input id="fieldName" type="text" name="name" required aria-required="true" autocomplete="name" aria-describedby="error-name">
+        <span class="sr-only" id="hint-name">Введите полное имя, чтобы мы знали, как к вам обращаться.</span>
+        <input id="fieldName" type="text" name="name" required aria-required="true" autocomplete="name" aria-describedby="hint-name error-name">
       </label>
       <span class="error" data-error-for="name" id="error-name" aria-live="polite"></span>
       <label for="fieldPhone">Телефон
-        <input id="fieldPhone" type="tel" name="phone" required aria-required="true" inputmode="tel" autocomplete="tel" pattern="^\+?\d[\d\s()\-]{7,}$" data-mask="phone" placeholder="+7 (999) 000-00-00" aria-describedby="error-phone">
+        <span class="sr-only" id="hint-phone">Введите номер в формате +7 (999) 000-00-00 для обратной связи.</span>
+        <input id="fieldPhone" type="tel" name="phone" required aria-required="true" inputmode="tel" autocomplete="tel" pattern="^\+?\d[\d\s()\-]{7,}$" data-mask="phone" placeholder="+7 (999) 000-00-00" aria-describedby="hint-phone error-phone">
       </label>
       <span class="error" data-error-for="phone" id="error-phone" aria-live="polite"></span>
       <label for="fieldArea">Площадь проекта (м²)
-        <input id="fieldArea" type="number" name="area" min="1" step="1" inputmode="numeric" aria-describedby="error-area">
+        <span class="sr-only" id="hint-area">Укажите площадь проекта целым числом, если хотите получить предварительную смету.</span>
+        <input id="fieldArea" type="number" name="area" min="1" step="1" inputmode="numeric" aria-describedby="hint-area error-area">
       </label>
       <span class="error" data-error-for="area" id="error-area" aria-live="polite"></span>
       <label for="fieldCity">Город
-        <input id="fieldCity" type="text" name="city" autocomplete="address-level2" aria-describedby="error-city">
+        <span class="sr-only" id="hint-city">Укажите город, чтобы предложить подходящую команду.</span>
+        <input id="fieldCity" type="text" name="city" autocomplete="address-level2" aria-describedby="hint-city error-city">
       </label>
       <span class="error" data-error-for="city" id="error-city" aria-live="polite"></span>
       <label for="fieldComment">Комментарий
-        <textarea id="fieldComment" name="comment" rows="4" aria-describedby="error-comment"></textarea>
+        <span class="sr-only" id="hint-comment">Опишите задачи или вопросы, чтобы мы подготовили ответ.</span>
+        <textarea id="fieldComment" name="comment" rows="4" aria-describedby="hint-comment error-comment"></textarea>
       </label>
       <span class="error" data-error-for="comment" id="error-comment" aria-live="polite"></span>
       <div class="checkbox">
-        <input id="agree" type="checkbox" name="consent" required aria-required="true" aria-describedby="error-consent">
+        <input id="agree" type="checkbox" name="consent" required aria-required="true" aria-describedby="hint-consent error-consent">
         <label for="agree">Согласен на обработку персональных данных</label>
       </div>
+      <span class="sr-only" id="hint-consent">Необходимо подтвердить согласие на обработку данных для отправки формы.</span>
       <span class="error" data-error-for="consent" id="error-consent" aria-live="polite"></span>
       <!-- fix: сообщения валидации и отправка -->
       <button class="btn btn-primary" type="submit">Отправить</button>
@@ -148,10 +155,10 @@
           <a href="faq.html">FAQ</a>
     </nav>
     <div class="quick-contacts" data-theme="dark" aria-label="Контакты">
-      <a class="contact-button" href="https://wa.me/79990009999" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
+      <a class="contact-button" href="https://wa.me/79990009999" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
         <span class="contact-button__label">💬 WhatsApp</span>
       </a>
-      <a class="contact-button" href="https://t.me/yourstudio" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
+      <a class="contact-button" href="https://t.me/yourstudio" target="_blank" rel="noopener" title="Написать в Telegram" aria-label="Telegram">
         <span class="contact-button__label">✈️ Telegram</span>
       </a>
       <a class="contact-button" href="tel:+79990000000" title="Позвонить в студию Atmosphere" aria-label="Позвонить">
@@ -162,8 +169,8 @@
       </a>
     </div>
     <div class="social-links" data-theme="dark" aria-label="Социальные сети">
-      <a class="social-link" href="https://www.instagram.com/atmosphere" rel="noopener" aria-label="Instagram">IG</a>
-      <a class="social-link" href="https://www.behance.net/atmosphere" rel="noopener" aria-label="Behance">Bē</a>
+      <a class="social-link" href="https://www.instagram.com/atmosphere" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a class="social-link" href="https://www.behance.net/atmosphere" target="_blank" rel="noopener" aria-label="Behance">Bē</a>
     </div>
   </div>
 </footer>
@@ -179,6 +186,9 @@
   </a>
   <button class="cta-sticky__close" type="button" aria-label="Скрыть кнопку «Запросить смету»"><span aria-hidden="true">×</span></button>
 </div>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/nav.js" defer></script>
+<script type="module" src="js/effects.js" defer></script>
+<script type="module" src="js/forms.js" defer></script>
+<script type="module" src="js/cta.js" defer></script>
 </body>
 </html>
