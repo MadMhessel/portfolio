@@ -1,0 +1,28 @@
+backend:
+  # Для Netlify Identity + Git Gateway
+  name: git-gateway
+  branch: main
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: site
+    label: Настройки сайта
+    file: "data/site.json"
+    fields:
+      - {label: Цвет фона, name: theme.c_bg, widget: color}
+      - {label: Цвет текста, name: theme.c_text, widget: color}
+      - {label: Основной цвет, name: theme.c_primary, widget: color}
+      - {label: Телефон, name: contacts.phone, widget: string}
+      - {label: Email, name: contacts.email, widget: string}
+      - {label: WhatsApp (цифры), name: contacts.whatsapp, widget: string}
+      - {label: Telegram (ник), name: contacts.telegram, widget: string}
+
+  - name: home
+    label: Главная
+    file: "data/home.json"
+    fields:
+      - {label: Подзаголовок, name: hero_subtitle, widget: string}
+      - {label: Заголовок, name: hero_title, widget: string}
+      - {label: Текст кнопки, name: cta_text, widget: string}

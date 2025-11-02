@@ -1,0 +1,19 @@
+{
+  "theme": {
+    "c_bg": "#f7f7f5",
+    "c_surface": "#ffffff",
+    "c_text": "#0d1514",
+    "c_muted": "#3d4b49",
+    "c_primary": "#0b5c55",
+    "c_primary_hover": "#0a4d48",
+    "c_focus": "#1aa599",
+    "radius": "16px",
+    "maxw": "1200px"
+  },
+  "contacts": {
+    "phone": "+79027874400",
+    "email": "hello@atmstr.ru",
+    "whatsapp": "79027874400",
+    "telegram": "atmstr"
+  }
+}
