@@ -1,4 +1,5 @@
 // js/content.js
+import { fromData as renderBlocks, loadPageAST } from './blocks-core.js';
 async function loadJSON(path) {
   const tryPaths = [path, path.replace(/^\//, '')];
   for (const p of tryPaths) {
@@ -67,4 +68,25 @@ if (hero && home) {
       }
     }
   }
+}
+
+// 4) Блоки из AST per page
+function detectSlug() {
+  let pathname = location.pathname;
+  if (pathname.endsWith('/')) pathname += 'index.html';
+  const parts = pathname.split('/').filter(Boolean);
+  let last = parts.pop() || 'index.html';
+  if (!/\.html$/i.test(last)) last += '.html';
+  return last.replace(/\.html$/i, '') || 'index';
+}
+
+const pageRoot = document.querySelector('main') || document.body;
+const slug = detectSlug();
+try {
+  const ast = await loadPageAST(slug);
+  if (Array.isArray(ast) && ast.length) {
+    renderBlocks(ast, pageRoot);
+  }
+} catch (err) {
+  console.warn('content.js: failed to load AST', err);
 }
