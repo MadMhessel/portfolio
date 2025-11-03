@@ -1,3 +1,16 @@
+<script type="module">
+// Загружаем JSON
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Не нашёл ${path}`);
+  return await res.json();
+}
+
+const site = await loadJSON('/data/site.json').catch(() => loadJSON('data/site.json'));
+const home = await loadJSON('/data/home.json').catch(() => loadJSON('data/home.json'));
+
+// 1) Тема -> CSS переменные
+const toVar = {
 // js/content.js
 import { fromData as renderBlocks, loadPageAST } from './blocks-core.js';
 async function loadJSON(path) {
@@ -14,24 +27,6 @@ async function loadJSON(path) {
 // грузим данные (работает и с /data, и с data)
 const site = await loadJSON('/data/site.json');
 const home = await loadJSON('/data/home.json');
-
-// 1) Тема -> CSS custom properties
-const map = {
-  c_bg: '--c-bg',
-  c_surface: '--c-surface',
-  c_text: '--c-text',
-  c_muted: '--c-muted',
-  c_primary: '--c-primary',
-  c_primary_hover: '--c-primary-hover',
-  c_focus: '--c-focus',
-  radius: '--radius',
-  maxw: '--maxw'
-};
-if (site.theme) {
-  Object.entries(site.theme).forEach(([k, v]) => {
-    if (map[k] && v) document.documentElement.style.setProperty(map[k], String(v));
-  });
-}
 
 // 2) Контакты -> все повторяющиеся кнопки/ссылки
 function setHref(selector, value, prefix = '') {
@@ -55,6 +50,8 @@ if (hero && home) {
   if (sub && home.hero_subtitle) sub.textContent = home.hero_subtitle;
   if (h1 && home.hero_title) h1.textContent = home.hero_title;
   if (cta && home.cta_text) cta.textContent = home.cta_text;
+}
+</script>
 
   // hero image (если есть поле и <img> внутри .hero)
   {
