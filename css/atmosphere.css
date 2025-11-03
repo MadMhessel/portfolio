@@ -284,3 +284,16 @@ figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
   .portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero{gap:var(--space-32)}
 }
+
+/* Custom styles for the 'How it works' section */
+section[aria-labelledby="services"] {
+  background-color: var(--c-surface);
+  border-radius: var(--radius);
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+  box-shadow: var(--shadow-soft);
+}
+
+section[aria-labelledby="services"] .card p {
+  margin-block-start: 0;
+}
