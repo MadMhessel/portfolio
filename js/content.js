@@ -54,4 +54,17 @@ if (hero && home) {
   if (sub && home.hero_subtitle) sub.textContent = home.hero_subtitle;
   if (h1 && home.hero_title) h1.textContent = home.hero_title;
   if (cta && home.cta_text) cta.textContent = home.cta_text;
+
+  // hero image (если есть поле и <img> внутри .hero)
+  {
+    const heroEl = document.querySelector('.hero');
+    if (heroEl) {
+      const heroImg = heroEl.querySelector('img');
+      if (heroImg && home.hero_image) {
+        heroImg.src = home.hero_image;
+        heroImg.loading = 'lazy';
+        heroImg.decoding = 'async';
+      }
+    }
+  }
 }
