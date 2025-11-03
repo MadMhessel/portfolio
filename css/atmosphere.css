@@ -219,7 +219,7 @@ figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
 .form input:focus-visible,.form textarea:focus-visible,.form select:focus-visible{border-color:var(--c-primary)}
 .form textarea{min-height:136px;resize:vertical}
 .form .hint{color:var(--c-muted);font-weight:400}
-.error{color:#ff4d4f;font-size:14px;min-height:18px}
+.error{color:#ff4d4f;font-size:14px}
 .checkbox{display:flex;align-items:center;gap:var(--space-2);font-weight:500}
 .checkbox input{inline-size:20px;block-size:20px}
 .checkbox label{display:inline;font-weight:500;margin:0}
