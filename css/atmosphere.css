@@ -7,8 +7,8 @@
 
   --c-bg:#f7f7f5;
   --c-surface:#ffffff;
-  --c-text:#0d1514;
-  --c-muted:#3d4b49;
+  --c-text:#3d4b49;
+  --c-muted:#6e7372;
   --c-primary:#0b5c55;
   --c-primary-hover:#0a4d48;
   --c-focus:#0b5c55;
@@ -29,7 +29,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text);text-rendering:optimizeLegibility}
+body{margin:0;font:400 16px/1.7 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text);text-rendering:optimizeLegibility}
 img{display:block;max-inline-size:100%;block-size:auto;border-radius:inherit;image-rendering:auto}
 picture{display:block}
 a{color:inherit}
@@ -44,8 +44,8 @@ button{font:inherit;background:none;border:none}
 .skip-link:focus{top:var(--space-4)}
 main{display:block}
 .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--space-16)}
-.section{padding-block:clamp(2.5rem,3vw + 1rem,5rem)}
-.section-title{font-size:32px;line-height:1.25;margin:0 0 var(--space-24)}
+.section{padding-block:clamp(3.5rem,4vw + 1rem,7rem)}
+.section-title{font-size:32px;line-height:1.25;margin:0 0 var(--space-24);font-weight:600}
 :where(.section.container,.section .container) :where(.text,p),.about-body p,.about-intro p{max-inline-size:66ch;line-height:1.6;margin-block:var(--space-16)}
 h1.section-title{letter-spacing:.01em;margin-block:var(--space-16)}
 h1.section-title:first-child{margin-block-start:0}
