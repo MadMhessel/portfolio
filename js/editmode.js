@@ -1,172 +1,184 @@
-// js/editmode.js
+// js/editmode.js — INLINE EDIT MODE (без внешних запросов)
 const isIndex = /\/(index\.html)?$/.test(location.pathname);
-let site = { theme: {}, contacts: {} };
+let site = { theme:{}, contacts:{} };
 let home = {};
 
+const qs = new URLSearchParams(location.search);
+const EDIT_ON = qs.get('edit') === '1' || localStorage.getItem('atm_edit') === '1';
+if (EDIT_ON) localStorage.setItem('atm_edit','1');
+
 async function loadJSON(path){
-  try { const r = await fetch(path, {cache:'no-store'}); if (r.ok) return r.json(); } catch {}
+  try{ const r = await fetch(path,{cache:'no-store'}); if(r.ok) return r.json(); }catch{}
   return null;
 }
-function saveLocalFlag(on){ localStorage.setItem('atm_edit', on ? '1' : '0'); }
-
-function h(tag, attrs={}, ...children){
-  const el = document.createElement(tag);
-  Object.entries(attrs).forEach(([k,v])=>{
-    if (k==='style' && typeof v==='object') Object.assign(el.style, v);
-    else if (k.startsWith('on')) el.addEventListener(k.slice(2).toLowerCase(), v);
-    else el.setAttribute(k, v);
-  });
-  children.flat().forEach(c=> el.append(c?.nodeType ? c : document.createTextNode(c ?? '')));
-  return el;
-}
-
 function download(name, obj){
-  const blob = new Blob([JSON.stringify(obj, null, 2)], {type:'application/json'});
-  const a = h('a', {href: URL.createObjectURL(blob), download: name});
-  document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+  const blob = new Blob([JSON.stringify(obj,null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 0);
 }
-
 function applyTheme(){
   const map = {c_bg:'--c-bg', c_surface:'--c-surface', c_text:'--c-text', c_muted:'--c-muted',
                c_primary:'--c-primary', c_primary_hover:'--c-primary-hover', c_focus:'--c-focus',
                radius:'--radius', maxw:'--maxw'};
   Object.entries(site.theme||{}).forEach(([k,v])=>{
-    if (map[k] && v) document.documentElement.style.setProperty(map[k], String(v));
+    if(map[k] && v) document.documentElement.style.setProperty(map[k], String(v));
   });
 }
 function applyContacts(){
   const c = site.contacts||{};
-  const set = (sel, val, pfx='') => val && document.querySelectorAll(sel).forEach(a=> a.href = pfx + val);
-  set('a[href^="tel:"]', c.phone, 'tel:');
-  set('a[href^="mailto:"]', c.email, 'mailto:');
+  const set = (sel, val, pfx='') => val && document.querySelectorAll(sel).forEach(a => a.href = pfx+val);
+  set('a[href^="tel:"]',     c.phone,    'tel:');
+  set('a[href^="mailto:"]',  c.email,    'mailto:');
   set('a[href^="https://wa.me/"]', c.whatsapp, 'https://wa.me/');
-  set('a[href^="https://t.me/"]', c.telegram, 'https://t.me/');
+  set('a[href^="https://t.me/"]',  c.telegram, 'https://t.me/');
 }
-function bindHeroEditors(panel){
-  if (!isIndex) return;
-  const hero = document.querySelector('.hero'); if (!hero) return;
-  const sub = hero.querySelector('.subtitle');
-  const h1  = hero.querySelector('h1');
-  const cta = hero.querySelector('.btn.btn-primary, .btn-primary');
+function hi(el){ if(!el) return; el.style.outline='1px dashed rgba(11,92,85,.6)'; el.style.outlineOffset='2px'; }
+function bye(el){ if(!el) return; el.style.outline=''; el.style.outlineOffset=''; }
+function safeName(name){ return name.replace(/[^\w.\-]+/g, '_').toLowerCase(); }
+function suggestImagePath(file){ return `/img/uploads/${Date.now()}-${safeName(file.name)}`; }
 
-  const mkInput = (label, key, el) => {
-    const inp = h('input', {type:'text', value: home[key]||'', style:{width:'100%'}});
-    inp.addEventListener('input', ()=>{
-      home[key] = inp.value;
-      if (el) el.textContent = inp.value;
-    });
-    return h('label', {}, label, h('div', {}, inp));
+function buildChip(){
+  const wrap = Object.assign(document.createElement('div'), {id:'atm-inline-chip'});
+  Object.assign(wrap.style, {
+    position:'fixed', right:'12px', bottom:'12px', zIndex:9999, display:'grid', gap:'6px',
+    font:'13px/1.2 system-ui,Segoe UI,Arial'
+  });
+  const btn = (t, title)=>{ const b=document.createElement('button'); b.textContent=t; b.title=title||''; 
+    Object.assign(b.style,{padding:'8px 10px', border:'0', borderRadius:'10px', cursor:'pointer', background:'#0b5c55', color:'#fff'});
+    return b;
   };
 
-  // contenteditable on-page
-  if (sub){ sub.contentEditable = 'true'; sub.addEventListener('input', ()=> { home.hero_subtitle = sub.textContent; }); }
-  if (h1){  h1.contentEditable  = 'true'; h1.addEventListener('input',  ()=> { home.hero_title    = h1.textContent;  }); }
-  if (cta){ cta.addEventListener('input', ()=> { home.cta_text = cta.textContent; }); cta.contentEditable='true'; }
+  // POPUP "Тема"
+  const pop = document.createElement('div');
+  Object.assign(pop.style,{display:'none', position:'fixed', right:'12px', bottom:'60px', background:'#fff', color:'#111',
+    border:'1px solid #ddd', borderRadius:'10px', padding:'10px', boxShadow:'0 12px 30px rgba(0,0,0,.15)'});
+  const themeFields = [
+    ['c_bg','Фон', 'color'], ['c_text','Текст','color'], ['c_primary','Primary','color'],
+    ['c_primary_hover','Primary hover','color'], ['c_focus','Фокус','color'],
+    ['radius','Радиус','text'], ['maxw','Макс. ширина','text'],
+  ].map(([key,label,type])=>{
+    const row = document.createElement('label'); row.style.display='grid'; row.style.gridTemplateColumns='120px 1fr'; row.style.gap='8px'; row.style.alignItems='center';
+    row.textContent = label;
+    const input = document.createElement('input'); input.type = type; input.value = site.theme?.[key] || '';
+    input.addEventListener('input', ()=>{ site.theme[key]=input.value; applyTheme(); });
+    row.appendChild(document.createElement('span')); row.lastChild.replaceWith(input);
+    return row;
+  });
+  pop.append(...themeFields);
 
-  panel.append(
-    mkInput('Подзаголовок', 'hero_subtitle', sub),
-    mkInput('Заголовок (H1)', 'hero_title', h1),
-    mkInput('Текст кнопки', 'cta_text', cta),
-  );
-}
+  const bTheme = btn('🌈 Тема','Настроить цвета');
+  const bImg   = btn('🖼 Изображение','Заменить обложку на главной');
+  const bSave  = btn('💾 Скачать','Скачать site.json / home.json');
+  const bExit  = btn('✖ Выйти','Выйти из режима редактирования');
 
-function buildPanel(){
-  const root = h('div', {id:'atm-editor-root', style:{
-    position:'fixed', inset:'auto 16px 16px auto', zIndex:9999, font:'14px/1.4 system-ui,Segoe UI,Arial',
-  }});
+  bTheme.addEventListener('click', ()=> pop.style.display = pop.style.display==='none' ? 'block' : 'none');
 
-  const btn = h('button', {id:'atm-edit-btn', style:{
-    width:'48px', height:'48px', borderRadius:'50%', border:'0', cursor:'pointer',
-    background:'#0b5c55', color:'#fff', boxShadow:'0 4px 20px rgba(0,0,0,.25)'
-  }}, '✏️');
-  root.append(btn);
+  bImg.addEventListener('click', ()=>{
+    if (!isIndex) { alert('Картинку сейчас редактируем только на главной'); return; }
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = 'image/png,image/jpeg,image/webp';
+    input.onchange = () => {
+      const file = input.files?.[0]; if (!file) return;
+      if (file.size > 3 * 1024 * 1024) return alert('Файл слишком большой (макс. 3 МБ).');
+      if (!/image\/(png|jpeg|webp)/.test(file.type)) return alert('Поддерживаются PNG, JPG, WEBP.');
 
-  const sheet = h('div', {id:'atm-edit-sheet', style:{
-    display:'none', position:'fixed', right:'16px', bottom:'80px', width:'min(420px, 92vw)',
-    maxHeight:'70vh', overflow:'auto', background:'#fff', color:'#111',
-    border:'1px solid #ddd', borderRadius:'12px', padding:'16px', boxShadow:'0 12px 40px rgba(0,0,0,.2)'
-  }});
-  const tabs = h('div', {style:{display:'flex', gap:'8px', marginBottom:'8px'}},
-    h('button', {id:'tab-theme'}, 'Тема'),
-    h('button', {id:'tab-contacts'}, 'Контакты'),
-    ...(isIndex ? [h('button', {id:'tab-home'}, 'Главная')] : [])
-  );
-  const body = h('div', {id:'atm-edit-body', style:{display:'grid', gap:'8px'}});
+      // Превью на странице
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        let img = hero.querySelector('img');
+        if (!img) {
+          img = document.createElement('img');
+          img.alt = ''; img.style.maxWidth = '100%'; img.style.display = 'block';
+          hero.prepend(img);
+        }
+        img.src = URL.createObjectURL(file);
+      }
 
-  const actions = h('div', {style:{display:'flex', gap:'8px', marginTop:'8px', flexWrap:'wrap'}},
-    h('button', {id:'atm-dl', style:{background:'#eee', color:'#111'}}, 'Download JSON'),
-    h('button', {id:'atm-save', style:{display:'none'}}, 'Save (server)'),
-    h('button', {id:'atm-exit', style:{background:'#555'}}, 'Exit')
-  );
+      // Предлагаем путь и записываем его в данные
+      const path = suggestImagePath(file);
+      home.hero_image = path;
 
-  sheet.append(h('h3', {}, 'Редактор страницы'), tabs, body, actions);
-  root.append(sheet);
-  document.body.append(root);
+      alert(
+        'Изображение показано как превью.\n' +
+        'Чтобы картинка была на сайте после публикации:\n' +
+        '1) Скачайте обновлённый home.json (кнопка 💾 «Скачать»).\n' +
+        '2) Загрузите выбранный файл в репозиторий по пути:\n   ' + path + '\n' +
+        '3) Замените data/home.json в репозитории на скачанный.\n'
+      );
+    };
+    input.click();
+  });
 
-  btn.addEventListener('click', ()=> sheet.style.display = sheet.style.display==='none' ? 'block' : 'none');
-  document.getElementById('atm-exit').addEventListener('click', ()=> { sheet.style.display='none'; });
-  document.getElementById('atm-dl').addEventListener('click', ()=>{
+  bSave.addEventListener('click', ()=>{
     download('site.json', site);
     if (isIndex) download('home.json', home);
   });
 
-  // Try to detect Netlify Function (same-origin) -> then show Save
-  fetch('/.netlify/functions/save-data', {method:'OPTIONS'}).then(r=>{
-    if (r.ok) document.getElementById('atm-save').style.display = 'inline-block';
-  }).catch(()=>{});
-  document.getElementById('atm-save').addEventListener('click', async ()=>{
-    const res = await fetch('/.netlify/functions/save-data', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ site, home: isIndex ? home : null })
-    });
-    alert(res.ok ? 'Сохранено ✅' : 'Не удалось сохранить');
+  bExit.addEventListener('click', ()=>{
+    localStorage.removeItem('atm_edit');
+    location.href = location.pathname; // убрать ?edit=1
   });
 
-  // Tabs
-  const paintTheme = ()=>{
-    body.replaceChildren(
-      ...['c_bg','c_text','c_primary','c_primary_hover','c_focus','radius','maxw'].map(key=>{
-        const label = ({c_bg:'Цвет фона', c_text:'Цвет текста', c_primary:'Основной цвет',
-          c_primary_hover:'Hover', c_focus:'Фокус', radius:'Радиус', maxw:'Макс. ширина'})[key];
-        const input = h('input', {type: key.startsWith('c_') ? 'color':'text', value: site.theme?.[key]||''});
-        input.addEventListener('input', ()=>{
-          site.theme[key] = input.value;
-          applyTheme();
-        });
-        return h('label', {}, label, h('div', {}, input));
-      })
-    );
-  };
-  const paintContacts = ()=>{
-    body.replaceChildren(
-      ...[['phone','Телефон'],['email','Email'],['whatsapp','WhatsApp'],['telegram','Telegram']]
-      .map(([key,label])=>{
-        const input = h('input', {type:'text', value: site.contacts?.[key]||''});
-        input.addEventListener('input', ()=>{ site.contacts[key]=input.value; applyContacts(); });
-        return h('label', {}, label, h('div', {}, input));
-      })
-    );
-  };
-  const paintHome = ()=>{
-    body.replaceChildren(); bindHeroEditors(body);
-  };
-
-  document.getElementById('tab-theme').addEventListener('click', paintTheme);
-  document.getElementById('tab-contacts').addEventListener('click', paintContacts);
-  isIndex && document.getElementById('tab-home').addEventListener('click', paintHome);
-
-  // default tab
-  paintTheme();
+  wrap.append(pop, bTheme, bImg, bSave, bExit);
+  document.body.append(wrap);
 }
 
-(async function init(){
-  const flag = new URLSearchParams(location.search).get('edit') === '1' || localStorage.getItem('atm_edit')==='1';
-  if (!flag) return;
-  saveLocalFlag(true);
+async function init(){
+  if (!EDIT_ON) return;
 
-  const s = await loadJSON('data/site.json');  if (s) site = s;
-  const h = await loadJSON('data/home.json');  if (h) home = h;
+  // загрузить текущие данные
+  const s = await loadJSON('data/site.json'); if(s) site = s;
+  const h = await loadJSON('data/home.json'); if(h) home = h;
 
-  applyTheme(); applyContacts(); buildPanel();
-})();
+  applyTheme(); applyContacts(); buildChip();
+
+  // --- инлайн тексты на главной
+  if (isIndex) {
+    const hero = document.querySelector('.hero'); if (hero){
+      const sub = hero.querySelector('.subtitle');
+      const h1  = hero.querySelector('h1');
+      const cta = hero.querySelector('.btn.btn-primary, .btn-primary');
+
+      [sub,h1,cta].forEach(el=>{
+        if(!el) return;
+        hi(el); el.contentEditable = 'true';
+        el.addEventListener('focus', ()=>hi(el));
+        el.addEventListener('blur',  ()=>hi(el));
+      });
+
+      if (sub) sub.addEventListener('input', ()=> home.hero_subtitle = sub.textContent);
+      if (h1)  h1 .addEventListener('input', ()=> home.hero_title    = h1.textContent);
+      if (cta) cta.addEventListener('input', ()=> home.cta_text      = cta.textContent);
+    }
+  }
+
+  // --- правка контактов (Shift+клик)
+  document.querySelectorAll('.quick-contacts a[href]').forEach(a=>{
+    hi(a);
+    a.addEventListener('click', (e)=>{
+      if(!e.shiftKey) return; // обычный клик — как ссылка
+      e.preventDefault();
+      const href = a.getAttribute('href') || '';
+      let kind = href.startsWith('https://wa.me/') ? 'whatsapp'
+              : href.startsWith('https://t.me/')   ? 'telegram'
+              : href.startsWith('mailto:')         ? 'email'
+              : href.startsWith('tel:')            ? 'phone' : null;
+      if(!kind) return;
+      const current = (site.contacts?.[kind] || '').toString();
+      const next = prompt(`Новое значение для ${kind}:\n(только цифры для WhatsApp, ник без @ для Telegram)`, current);
+      if(next == null) return;
+      site.contacts = Object.assign({}, site.contacts, { [kind]: next.trim() });
+      applyContacts();
+    }, true);
+  });
+
+  // --- горячие клавиши (Cmd/Ctrl + S -> скачать JSON)
+  window.addEventListener('keydown', (e)=>{
+    if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase() === 's'){
+      e.preventDefault();
+      download('site.json', site);
+      if (isIndex) download('home.json', home);
+    }
+  });
+}
+init();
