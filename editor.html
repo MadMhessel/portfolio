@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Редактор сайта</title>
+
+  <!-- CSP только для этой страницы: разрешаем GitHub API -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 style-src 'self' 'unsafe-inline';
+                 script-src 'self';
+                 img-src 'self' data:;
+                 connect-src 'self' https://api.github.com;">
+
+  <style>
+    body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}
+    h1,h2{margin:0 0 12px}
+    fieldset{border:1px solid #ddd;padding:16px;border-radius:8px;margin:0 0 16px}
+    .row{display:grid;grid-template-columns:220px 1fr;gap:12px;align-items:center;margin:8px 0}
+    input[type="text"],input[type="password"]{width:100%;padding:8px 10px;border:1px solid #bbb;border-radius:6px}
+    input[type="color"]{height:36px;width:60px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .hint{color:#666;font-size:13px}
+    .ok{color:#0a6}.err{color:#c00}
+    .split{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:900px){.split{grid-template-columns:1fr 1fr}}
+    button{padding:10px 14px;border:0;border-radius:8px;background:#0b5c55;color:#fff;cursor:pointer}
+    button.ghost{background:#eee;color:#111}
+    .small{font-size:13px}
+  </style>
+</head>
+<body>
+  <h1>Редактор сайта</h1>
+  <p class="hint">Меняет <code>data/site.json</code> и <code>data/home.json</code>. Можно скачать файлы и загрузить в GitHub вручную или сохранить прямо в репозиторий по токену.</p>
+
+  <div class="split">
+    <section>
+      <fieldset>
+        <legend><strong>Тема (цвета)</strong></legend>
+        <div class="row"><label>Цвет фона</label>            <input id="c_bg" type="color"></div>
+        <div class="row"><label>Цвет текста</label>          <input id="c_text" type="color"></div>
+        <div class="row"><label>Основной цвет</label>        <input id="c_primary" type="color"></div>
+        <div class="row"><label>Hover основного</label>      <input id="c_primary_hover" type="color"></div>
+        <div class="row"><label>Фокус</label>                <input id="c_focus" type="color"></div>
+        <div class="row"><label>Радиус</label>               <input id="radius" type="text" placeholder="например: 16px"></div>
+        <div class="row"><label>Макс. ширина</label>         <input id="maxw" type="text" placeholder="например: 1200px"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><strong>Контакты</strong></legend>
+        <div class="row"><label>Телефон</label>     <input id="phone" type="text" placeholder="+79990000000"></div>
+        <div class="row"><label>Email</label>       <input id="email" type="text" placeholder="hello@atmstr.ru"></div>
+        <div class="row"><label>WhatsApp (цифры)</label> <input id="whatsapp" type="text" placeholder="79990009999"></div>
+        <div class="row"><label>Telegram (ник)</label>    <input id="telegram" type="text" placeholder="yourstudio"></div>
+      </fieldset>
+    </section>
+
+    <section>
+      <fieldset>
+        <legend><strong>Главная</strong></legend>
+        <div class="row"><label>Подзаголовок</label> <input id="hero_subtitle" type="text"></div>
+        <div class="row"><label>Заголовок (H1)</label> <input id="hero_title" type="text"></div>
+        <div class="row"><label>Текст кнопки</label> <input id="cta_text" type="text"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><strong>Сохранение</strong></legend>
+        <div class="actions">
+          <button id="btnDownload" class="ghost">Скачать JSON-файлы</button>
+          <span class="hint small">— затем загрузите в <em>data/site.json</em> и <em>data/home.json</em> через GitHub.</span>
+        </div>
+        <hr/>
+        <p class="hint small">Или сохраните прямо в репозиторий (нужен персональный токен владельца):</p>
+        <div class="row"><label>GitHub Token</label><input id="token" type="password" placeholder="fine-grained PAT (contents: read/write)"></div>
+        <div class="actions">
+          <button id="btnSave">Сохранить в GitHub</button>
+          <button id="btnTest" class="ghost small">Проверить соединение</button>
+        </div>
+        <p id="status" class="hint"></p>
+      </fieldset>
+    </section>
+  </div>
+
+  <script>
+    let site = { theme:{}, contacts:{} };
+    let home = {};
+
+    async function loadJSON(path){
+      try{
+        const r = await fetch(path,{cache:'no-store'});
+        if(!r.ok) throw 0;
+        return await r.json();
+      }catch{ return null; }
+    }
+    function $(id){ return document.getElementById(id); }
+    function set(id,v){ const el=$(id); if(el) el.value = v ?? ""; }
+    function get(id){ const el=$(id); return el ? el.value.trim() : ""; }
+
+    function download(name, obj){
+      const blob = new Blob([JSON.stringify(obj,null,2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = name; a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    (async () => {
+      const s = await loadJSON('data/site.json');  if (s) site = s;
+      const h = await loadJSON('data/home.json');  if (h) home = h;
+
+      set('c_bg',            site.theme.c_bg);
+      set('c_text',          site.theme.c_text);
+      set('c_primary',       site.theme.c_primary);
+      set('c_primary_hover', site.theme.c_primary_hover);
+      set('c_focus',         site.theme.c_focus);
+      set('radius',          site.theme.radius);
+      set('maxw',            site.theme.maxw);
+
+      set('phone',    site.contacts.phone);
+      set('email',    site.contacts.email);
+      set('whatsapp', site.contacts.whatsapp);
+      set('telegram', site.contacts.telegram);
+
+      set('hero_subtitle', home.hero_subtitle);
+      set('hero_title',    home.hero_title);
+      set('cta_text',      home.cta_text);
+    })();
+
+    function collect(){
+      site = {
+        theme: {
+          c_bg:            get('c_bg'),
+          c_text:          get('c_text'),
+          c_primary:       get('c_primary'),
+          c_primary_hover: get('c_primary_hover'),
+          c_focus:         get('c_focus'),
+          radius:          get('radius'),
+          maxw:            get('maxw')
+        },
+        contacts: {
+          phone:    get('phone'),
+          email:    get('email'),
+          whatsapp: get('whatsapp'),
+          telegram: get('telegram')
+        }
+      };
+      home = {
+        hero_subtitle: get('hero_subtitle'),
+        hero_title:    get('hero_title'),
+        cta_text:      get('cta_text')
+      };
+    }
+
+    $('btnDownload').addEventListener('click', () => {
+      collect();
+      download('site.json', site);
+      download('home.json', home);
+      $('status').textContent = 'Файлы скачаны. Загрузите их в папку data/ в репозитории.';
+      $('status').className = 'hint ok';
+    });
+
+    const owner='MadMhessel', repo='portfolio', branch='main';
+
+    async function gh(path, opts, token){
+      const r = await fetch(`https://api.github.com${path}`, {
+        ...opts,
+        headers: {
+          'Accept': 'application/vnd.github+json',
+          ...(opts && opts.headers || {}),
+          'Authorization': 'token ' + token
+        }
+      });
+      return r;
+    }
+    async function getSha(file, token){
+      const r = await gh(`/repos/${owner}/${repo}/contents/${file}?ref=${branch}`, {}, token);
+      if (!r.ok) throw new Error('Не удалось прочитать ' + file);
+      const j = await r.json();
+      return j.sha;
+    }
+    function toB64(obj){
+      const s = JSON.stringify(obj, null, 2);
+      return btoa(unescape(encodeURIComponent(s)));
+    }
+    async function saveFile(file, obj, message, token){
+      const sha = await getSha(file, token);
+      const body = { message, content: toB64(obj), sha, branch };
+      const r = await gh(`/repos/${owner}/${repo}/contents/${file}`, {
+        method:'PUT',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(body)
+      }, token);
+      if (!r.ok) throw new Error('Ошибка сохранения ' + file + ': ' + (await r.text()));
+    }
+
+    $('btnTest').addEventListener('click', async () => {
+      const token = get('token');
+      if (!token) return alert('Вставьте токен.');
+      try{
+        const r = await gh(`/rate_limit`, {}, token);
+        $('status').textContent = r.ok ? 'Связь с GitHub OK' : 'Нет доступа (проверьте токен и права)';
+        $('status').className = r.ok ? 'hint ok' : 'hint err';
+      }catch{
+        $('status').textContent = 'Не удалось проверить соединение';
+        $('status').className = 'hint err';
+      }
+    });
+
+    $('btnSave').addEventListener('click', async () => {
+      const token = get('token');
+      if (!token) return alert('Вставьте GitHub-токен или используйте «Скачать JSON-файлы».');
+
+      collect();
+      $('status').textContent = 'Сохраняю...'; $('status').className = 'hint';
+
+      try{
+        await saveFile('data/site.json', site, 'chore(editor): update site.json via in-site editor', token);
+        await saveFile('data/home.json', home, 'chore(editor): update home.json via in-site editor', token);
+        $('status').textContent = 'Сохранено в GitHub ✅';
+        $('status').className = 'hint ok';
+      }catch(e){
+        $('status').textContent = e.message;
+        $('status').className = 'hint err';
+      }
+    });
+  </script>
+  <script type="module" src="js/blocks-core.js"></script>
+  <script type="module" src="js/editor-pro.js"></script>
+</body>
+</html>

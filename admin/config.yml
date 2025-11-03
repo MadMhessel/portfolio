@@ -1,0 +1,49 @@
+backend:
+  # Для Netlify Identity + Git Gateway
+  name: git-gateway
+  branch: main
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: site
+    label: Настройки сайта
+    files:
+      - file: "data/site.json"
+        name: settings
+        label: Тема и контакты
+        format: json
+        fields:
+          - label: Тема
+            name: theme
+            widget: object
+            fields:
+              - { label: Цвет фона,         name: c_bg,            widget: color }
+              - { label: Цвет текста,       name: c_text,          widget: color }
+              - { label: Основной цвет,     name: c_primary,       widget: color }
+              - { label: Ховер основного,   name: c_primary_hover, widget: color, required: false }
+              - { label: Цвет фокуса,       name: c_focus,         widget: color, required: false }
+              - { label: Радиус,            name: radius,          widget: string, required: false }
+              - { label: Максимальная ширина, name: maxw,          widget: string, required: false }
+          - label: Контакты
+            name: contacts
+            widget: object
+            fields:
+              - { label: Телефон,   name: phone,    widget: string }
+              - { label: Email,     name: email,    widget: string }
+              - { label: WhatsApp,  name: whatsapp, widget: string, hint: "Только цифры, без +" }
+              - { label: Telegram,  name: telegram, widget: string, hint: "Ник без @" }
+
+  - name: home
+    label: Главная
+    files:
+      - file: "data/home.json"
+        name: home
+        label: Тексты главной
+        format: json
+        fields:
+          - { label: Подзаголовок (маленький текст над H1), name: hero_subtitle, widget: string }
+          - { label: Заголовок (H1),                        name: hero_title,    widget: string }
+          - { label: Текст кнопки,                          name: cta_text,      widget: string }
+
