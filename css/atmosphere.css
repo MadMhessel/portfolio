@@ -213,7 +213,7 @@ figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
 .list-checked li::before{content:"";position:absolute;left:0;top:4px;inline-size:20px;block-size:20px;background:var(--check-icon) no-repeat center/contain}
 
 /* fix: формы */
-.form{display:grid;gap:var(--space-4);max-width:560px}
+.form{display:grid;gap:var(--space-3);max-width:560px}
 .form label{display:grid;gap:var(--space-2);font-weight:600}
 .form input,.form textarea,.form select{padding:var(--space-3);border-radius:12px;border:1px solid var(--c-border-strong);background:#fff;font:inherit}
 .form input:focus-visible,.form textarea:focus-visible,.form select:focus-visible{border-color:var(--c-primary)}
