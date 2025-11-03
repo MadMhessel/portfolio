@@ -41,7 +41,7 @@ let syncTimer = null;
 
 const loadJSON = path => fetch(path, { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}));
 
-// ---- load libs from unpkg (CSP allows)  ✅ UMD-версии, а не ESM
+// ---- load libs from unpkg (CSP allows)  ✅ используем UMD, не ESM
 async function use(url){
   return new Promise((ok, bad)=>{
     const s = document.createElement('script');
@@ -52,7 +52,7 @@ async function use(url){
   });
 }
 async function ensureLibs(){
-  // UMD: создаёт глобальные window.Sortable, window.JSZip, window.saveAs
+  // Эти UMD-версии создают глобальные window.Sortable, window.JSZip, window.saveAs
   await use('https://unpkg.com/sortablejs@1.15.0/Sortable.min.js');   // ⬅ вместо modular/*.esm*.js
   await use('https://unpkg.com/jszip@3.10.1/dist/jszip.min.js');
   await use('https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js');
@@ -731,10 +731,12 @@ async function init() {
     console.error('Libs load failed', e);
   }
 
+  // Панель редактора должна появиться в любом случае
   wrap = inspectorUI();
   body = wrap.querySelector('#atm-body');
   updateHistoryButtons();
 
+  // Данные
   state.site = await loadJSON('data/site.json');
   state.home = await loadJSON('data/home.json');
 
@@ -752,13 +754,16 @@ async function init() {
     renderBlocks(state.ast, editRoot);
   }
 
+  // Применяем «на лету»
   applyTheme();
   applyContacts();
 
+  // Включаем DnD только если Sortable реально загрузился
   if (libsOk && typeof Sortable !== 'undefined') {
     enableSortables();
   }
 
+  // Клики для выбора + стартовая вкладка
   enableClicks();
   setupInputs();
   setupMiniToolbar();
