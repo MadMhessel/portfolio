@@ -41,17 +41,19 @@ let syncTimer = null;
 
 const loadJSON = path => fetch(path, { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}));
 
-async function use(url) {
-  return new Promise((resolve, reject) => {
+// ---- load libs from unpkg (CSP allows)  ✅ UMD-версии, а не ESM
+async function use(url){
+  return new Promise((ok, bad)=>{
     const s = document.createElement('script');
     s.src = url;
-    s.onload = resolve;
-    s.onerror = reject;
+    s.onload = ok;
+    s.onerror = bad;
     document.head.append(s);
   });
 }
-async function ensureLibs() {
-  await use('https://unpkg.com/sortablejs@1.15.0/modular/sortable.esm.poly.js');
+async function ensureLibs(){
+  // UMD: создаёт глобальные window.Sortable, window.JSZip, window.saveAs
+  await use('https://unpkg.com/sortablejs@1.15.0/Sortable.min.js');   // ⬅ вместо modular/*.esm*.js
   await use('https://unpkg.com/jszip@3.10.1/dist/jszip.min.js');
   await use('https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js');
 }
@@ -583,6 +585,7 @@ function applyContacts() {
 }
 
 function enableSortables() {
+  if (typeof Sortable === 'undefined') return;
   const selectors = ['.portfolio-grid', '.testimonials-list', '.case-overview__grid'];
   selectors.forEach(sel => {
     $all(sel).forEach(container => {
@@ -719,7 +722,15 @@ function setupSlashMenu() {
 
 async function init() {
   if (!isEdit) return;
-  await ensureLibs();
+
+  let libsOk = true;
+  try {
+    await ensureLibs();
+  } catch (e) {
+    libsOk = false;
+    console.error('Libs load failed', e);
+  }
+
   wrap = inspectorUI();
   body = wrap.querySelector('#atm-body');
   updateHistoryButtons();
@@ -743,7 +754,11 @@ async function init() {
 
   applyTheme();
   applyContacts();
-  enableSortables();
+
+  if (libsOk && typeof Sortable !== 'undefined') {
+    enableSortables();
+  }
+
   enableClicks();
   setupInputs();
   setupMiniToolbar();
