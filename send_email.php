@@ -59,16 +59,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addReplyTo('atmstr-portfolio@atmstr-portfolio.ru', 'Сайт Atmosphere');
 
         // Content
-        $mail->isHTML(false);                                    // Set email format to plain text
+        $mail->isHTML(true);                                    // Set email format to HTML
         $mail->Subject = "Новая заявка с сайта Atmosphere";
-        $email_content = "Новая заявка с сайта Atmosphere:\n\n";
-        $email_content .= "Имя: " . $name . "\n";
-        $email_content .= "Телефон: " . $phone . "\n";
-        $email_content .= "Площадь: " . $area . " м²\n";
-        $email_content .= "Город: " . $city . "\n\n";
-        $email_content .= "Комментарий:\n" . $comment . "\n\n";
-        $email_content .= "Согласие на обработку данных: " . $consent . "\n";
-        $mail->Body    = $email_content;
+
+        $html_email_content = '
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+                .header { background-color: #f4f4f4; padding: 10px; text-align: center; border-bottom: 1px solid #ddd; }
+                .content { padding: 20px 0; }
+                table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+                th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
+                th { background-color: #f9f9f9; }
+                .footer { margin-top: 20px; font-size: 0.9em; color: #777; text-align: center; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h2>Новая заявка с сайта Atmosphere</h2>
+                </div>
+                <div class="content">
+                    <p>Получена новая заявка с формы обратной связи:</p>
+                    <table>
+                        <tr><th>Имя и фамилия</th><td>' . $name . '</td></tr>
+                        <tr><th>Телефон</th><td>' . $phone . '</td></tr>
+                        <tr><th>Площадь проекта</th><td>' . $area . ' м²</td></tr>
+                        <tr><th>Город</th><td>' . $city . '</td></tr>
+                        <tr><th>Согласие на обработку данных</th><td>' . $consent . '</td></tr>
+                    </table>
+                    <p><strong>Комментарий:</strong></p>
+                    <p>' . nl2br($comment) . '</p>
+                </div>
+                <div class="footer">
+                    <p>Это автоматическое сообщение, пожалуйста, не отвечайте на него.</p>
+                </div>
+            </div>
+        </body>
+        </html>';
+
+        $mail->Body    = $html_email_content;
+        $mail->AltBody = "Новая заявка с сайта Atmosphere:\n\n" .
+                         "Имя: " . $name . "\n" .
+                         "Телефон: " . $phone . "\n" .
+                         "Площадь: " . $area . " м²\n" .
+                         "Город: " . $city . "\n" .
+                         "Согласие на обработку данных: " . $consent . "\n\n" .
+                         "Комментарий:\n" . $comment . "\n\n" .
+                         "Это автоматическое сообщение, пожалуйста, не отвечайте на него.";
         $mail->CharSet = 'UTF-8';
 
         $mail->send();
