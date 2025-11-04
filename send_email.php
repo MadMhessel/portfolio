@@ -43,24 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                "X-Mailer: PHP/" . phpversion();
 
     // Email body
-    $email_content = "Новая заявка с сайта Atmosphere:
-
-";
-    $email_content .= "Имя: " . $name . "
-";
-    $email_content .= "Телефон: " . $phone . "
-";
-    $email_content .= "Площадь: " . $area . " м²
-";
-    $email_content .= "Город: " . $city . "
-
-";
-    $email_content .= "Комментарий:
-" . $comment . "
-
-";
-    $email_content .= "Согласие на обработку данных: " . $consent . "
-";
+    $email_content = "Тестовая заявка с формы. Если вы получили это письмо, значит, проблема была в содержимом.\n\n";
+    $email_content .= "Имя: " . $name . "\n";
+    $email_content .= "Телефон: " . $phone . "\n";
 
     // Send the email
     if (mail($to, $subject, $email_content, $headers)) {
