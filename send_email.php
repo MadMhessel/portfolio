@@ -28,9 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "crazymhessel@gmail.com";
     $subject = "Новая заявка с сайта Atmosphere";
     
-    // Get domain from server to create a valid From address
-    $server_name = $_SERVER['SERVER_NAME'];
-    $from_email = "noreply@" . $server_name;
+    // Use the verified mail domain for the From address
+    $from_email = "noreply@atmstr-portfolio.ru";
 
     $headers = "From: " . $from_email . "
 " .
