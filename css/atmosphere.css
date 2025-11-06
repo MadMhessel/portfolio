@@ -317,3 +317,42 @@ section[aria-labelledby="services"] .card .card-title::before {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.case-intro {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.case-intro__image {
+  margin: 0;
+}
+
+.case-intro__image img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.case-intro__image figcaption {
+  margin-top: var(--space-2);
+  font-size: 14px;
+  color: var(--c-muted);
+  line-height: 1.4;
+}
+
+.case-intro__text h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    color: var(--c-primary);
+    font-weight: 700;
+}
+
+.case-intro__text p {
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .case-intro {
+    grid-template-columns: 1fr 2fr;
+  }
+}
