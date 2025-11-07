@@ -353,6 +353,6 @@ section[aria-labelledby="services"] .card .card-title::before {
 
 @media (min-width: 768px) {
   .case-intro {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
