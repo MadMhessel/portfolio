@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Квартира «Академия Блохиной»",
+    "meta": "Нижний Новгород · 96 м²",
+    "url": "proekt-akademia-blohinoy.html",
+    "image": "Render/Akademia Blohinoy/1.png",
+    "alt": "Квартира «Академия Блохиной» — превью"
+  },
+  {
+    "title": "Дом на улице Крутой",
+    "meta": "Нижний Новгород · 142 м²",
+    "url": "proekt-d-krutay.html",
+    "image": "Render/d Krutay/гостиная 1.png",
+    "alt": "Дом на улице Крутой — превью"
+  },
+  {
+    "title": "ЖК «Новая Кузнечиха»",
+    "meta": "Нижний Новгород · 82 м²",
+    "url": "proekt-jk-novay-kuznechiha.html",
+    "image": "Render/JK Novay Kuznechiha/photo_2025-09-16_14-08-35.png",
+    "alt": "ЖК «Новая Кузнечиха» — превью"
+  },
+  {
+    "title": "ЖК «Заречье»",
+    "meta": "Нижний Новгород · 74 м²",
+    "url": "proekt-jk-zareche.html",
+    "image": "Render/JK Zareche/photo_2025-07-20_17-49-06.png",
+    "alt": "ЖК «Заречье» — превью"
+  },
+  {
+    "title": "ЖК «Зенит»",
+    "meta": "Казань · 68 м²",
+    "url": "proekt-jk-zenit.html",
+    "image": "Render/JK Zenit/1.png",
+    "alt": "ЖК «Зенит» — превью"
+  }
+]

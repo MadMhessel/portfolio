@@ -20,31 +20,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="css/atmosphere.css" as="style">
 <link rel="stylesheet" href="css/atmosphere.css">
-<!-- fix: критические стили для быстрого рендера -->
-<style>
-:root{--c-bg:#f7f7f5;--c-surface:#ffffff;--c-text:#0d1514;--c-muted:#3d4b49;--c-primary:#0b5c55;--c-primary-hover:#0a4d48;--c-focus:#1aa599;--radius:16px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--maxw:1200px}
-body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text)}
-.container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--space-4)}
-.site-header{position:sticky;top:0;z-index:60;background:rgba(247,247,245,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,21,20,.08)}
-.site-header__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:72px}
-.brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;font-weight:600;color:var(--c-text)}
-.brand img{inline-size:140px}
-.nav-toggle{display:inline-flex;align-items:center;justify-content:center;inline-size:48px;block-size:48px;border-radius:50%;border:1px solid rgba(13,21,20,.1);background:var(--c-surface)}
-.nav-desktop{display:none;align-items:center;gap:var(--space-5)}
-.nav-desktop a{text-decoration:none;font-weight:500;color:var(--c-text);padding:var(--space-2) 0;border-radius:6px}
-.hero{display:grid;gap:var(--space-6);padding-block:var(--space-8);align-items:center}
-.hero-copy{display:grid;gap:var(--space-4);max-width:560px}
-.hero h1{margin:0;font-size:40px;line-height:1.1}
-.hero p{margin:0;color:var(--c-muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:999px;border:1px solid rgba(13,21,20,.16);background:var(--c-surface);font-weight:600;text-decoration:none;color:var(--c-text)}
-.btn-primary{background:var(--c-primary);border-color:var(--c-primary);color:#fff}
-.portfolio-grid{display:grid;gap:var(--space-5)}
-.card{background:var(--c-surface);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 28px rgba(13,21,20,.08);display:grid;gap:var(--space-4);padding:var(--space-4)}
-.card .thumb{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:rgba(13,21,20,.05)}
-.card-title{margin:0;font-size:24px}
-.card-meta{margin:0;color:var(--c-muted)}
-@media (min-width:1024px){.nav-toggle{display:none}.nav-desktop{display:flex}.hero{grid-template-columns:1fr 1fr}}
-</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atmosphere","url":"https://madmhessel.github.io/portfolio/","telephone":"+7 (999) 000-00-00","image":"https://madmhessel.github.io/portfolio/img/og/og-index.svg","address":{"@type":"PostalAddress","addressLocality":"Нижний Новгород","addressCountry":"RU"},"founder":{"@type":"Person","name":"Елена","jobTitle":"Основатель и ведущий дизайнер"},"sameAs":["https://www.behance.net/atmosphere","https://www.instagram.com/atmosphere"]}
 </script>
@@ -93,11 +68,11 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
 <main id="main">
   <section class="hero container">
     <div class="hero-copy reveal-in">
-      <p class="subtitle">Дизайн и реализация интерьеров</p>
-      <h1>Создаём атмосферу, в которой хочется жить</h1>
+      <p class="subtitle"></p>
+      <h1></h1>
       <p>Сопровождаем проекты от идеи до финальной реализации: прозрачная смета, авторский надзор и предсказуемые сроки.</p>
       <div>
-        <a class="btn btn-primary" href="contact.html#quote">Оставить заявку</a>
+        <a class="btn btn-primary" href="contact.html#quote"></a>
       </div>
       <div class="quick-contacts" data-theme="light" aria-label="Быстрые контакты">
         <a class="contact-button" href="https://wa.me/79027874400" target="_blank" rel="noopener" title="Написать в WhatsApp" aria-label="WhatsApp">
@@ -129,76 +104,6 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
       <p class="subtitle">Продуманная архитектура, натуральные материалы и контроль качества на каждом этапе.</p>
     </div>
     <div class="portfolio-grid" role="list">
-      <article class="card reveal-in" role="listitem">
-        <a class="card-link" href="proekt-akademia-blohinoy.html" rel="bookmark" aria-label="Квартира «Академия Блохиной» — подробнее">
-          <div class="thumb">
-            <picture>
-              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
-              <img src="Render/Akademia%20Blohinoy/1.png" width="960" height="640" alt="Квартира «Академия Блохиной» — превью" loading="lazy" decoding="async" data-no-upscale>
-            </picture>
-          </div>
-          <div>
-            <h3 class="card-title">Квартира «Академия Блохиной»</h3>
-            <p class="card-meta">Нижний Новгород · 96 м²</p>
-          </div>
-        </a>
-      </article>
-      <article class="card reveal-in" role="listitem">
-        <a class="card-link" href="proekt-d-krutay.html" rel="bookmark" aria-label="Дом на улице Крутой — подробнее">
-          <div class="thumb">
-            <picture>
-              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
-              <img src="Render/d%20Krutay/гостиная%201.png" width="960" height="640" alt="Дом на улице Крутой — превью" loading="lazy" decoding="async" data-no-upscale>
-            </picture>
-          </div>
-          <div>
-            <h3 class="card-title">Дом на улице Крутой</h3>
-            <p class="card-meta">Нижний Новгород · 142 м²</p>
-          </div>
-        </a>
-      </article>
-      <article class="card reveal-in" role="listitem">
-        <a class="card-link" href="proekt-jk-novay-kuznechiha.html" rel="bookmark" aria-label="ЖК «Новая Кузнечиха» — подробнее">
-          <div class="thumb">
-            <picture>
-              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
-              <img src="Render/JK%20Novay%20Kuznechiha/photo_2025-09-16_14-08-35.png" width="960" height="640" alt="ЖК «Новая Кузнечиха» — превью" loading="lazy" decoding="async" data-no-upscale>
-            </picture>
-          </div>
-          <div>
-            <h3 class="card-title">ЖК «Новая Кузнечиха»</h3>
-            <p class="card-meta">Нижний Новгород · 82 м²</p>
-          </div>
-        </a>
-      </article>
-      <article class="card reveal-in" role="listitem">
-        <a class="card-link" href="proekt-jk-zareche.html" rel="bookmark" aria-label="ЖК «Заречье» — подробнее">
-          <div class="thumb">
-            <picture>
-              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
-              <img src="Render/JK%20Zareche/photo_2025-07-20_17-49-06.png" width="960" height="640" alt="ЖК «Заречье» — превью" loading="lazy" decoding="async" data-no-upscale>
-            </picture>
-          </div>
-          <div>
-            <h3 class="card-title">ЖК «Заречье»</h3>
-            <p class="card-meta">Нижний Новгород · 74 м²</p>
-          </div>
-        </a>
-      </article>
-      <article class="card reveal-in" role="listitem">
-        <a class="card-link" href="proekt-jk-zenit.html" rel="bookmark" aria-label="ЖК «Зенит» — подробнее">
-          <div class="thumb">
-            <picture>
-              <!-- TODO: добавить версии превью проекта в форматах .avif и .webp; сейчас доступен только PNG -->
-              <img src="Render/JK%20Zenit/1.png" width="960" height="640" alt="ЖК «Зенит» — превью" loading="lazy" decoding="async" data-no-upscale>
-            </picture>
-          </div>
-          <div>
-            <h3 class="card-title">ЖК «Зенит»</h3>
-            <p class="card-meta">Казань · 68 м²</p>
-          </div>
-        </a>
-      </article>
     </div>
   </section>
 
@@ -336,5 +241,6 @@ body{margin:0;font:400 16px/1.6 "Segoe UI",system-ui,-apple-system,BlinkMacSyste
 <script type="module" src="js/nav.js" defer></script>
 <script type="module" src="js/effects.js" defer></script>
 <script type="module" src="js/cta.js" defer></script>
+<script type="module" src="js/content.js" defer></script>
 </body>
 </html>
