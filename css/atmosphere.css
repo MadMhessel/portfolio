@@ -59,7 +59,7 @@ h3.card-title{margin-block:var(--space-16) var(--space-8)}
 
 /* media: prevent aggressive stretching of content imagery */
 .card__media,.card.gallery,figure.card,.ba .ba-media{width:auto}
-img.fill-height,.card__media img,.gallery img,.card .thumb img{object-fit:contain}
+img.fill-height,.card__media img,.gallery img,.card .thumb img{object-fit:cover}
 .media-max-1280{max-width:1280px}
 
 /* fix: шапка и навигация */
@@ -105,7 +105,7 @@ figure.card{margin:0;padding:var(--space-16);display:grid;gap:var(--space-8)}
 .card:not(.gallery) .thumb{aspect-ratio:4/3}
 .card.gallery .thumb{display:flex;align-items:center;justify-content:center}
 .thumb.placeholder{aspect-ratio:4/3;border:2px dashed rgba(13,21,20,.2);background:rgba(13,21,20,.03);border-radius:var(--radius)}
-.card .thumb img{width:100%;height:auto}
+.card .thumb img{width:100%;height:100%}
 .case-hero{display:grid;gap:var(--space-5);background:var(--c-surface);padding:var(--space-5);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
 .case-hero__copy{display:grid;gap:var(--space-4)}
 .case-hero__media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:#fff}
