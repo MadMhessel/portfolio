@@ -31,5 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 projectsGrid.innerHTML += projectCard;
             });
+
+            // Let other scripts know that new content has been added
+            const event = new Event('new-content-added');
+            document.dispatchEvent(event);
         });
 });

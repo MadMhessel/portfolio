@@ -1,39 +1,48 @@
 /* fix: плавное появление блоков с поддержкой reduced motion */
-const revealElements = document.querySelectorAll('.reveal-in');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let observer;
 
-if(revealElements.length){
-  const showImmediately = () => {
-    revealElements.forEach((el) => el.classList.add('is-visible'));
-  };
-
-  if(reduceMotion.matches){
-    showImmediately();
-  }else{
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {threshold:0.05});
-
-    revealElements.forEach((el) => observer.observe(el));
+const handleNewElements = (elements) => {
+  if (reduceMotion.matches) {
+    elements.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    if (!observer) {
+      observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+    }
+    elements.forEach((el) => observer.observe(el));
   }
+};
+
+const initialRevealElements = document.querySelectorAll('.reveal-in');
+if (initialRevealElements.length) {
+  handleNewElements(initialRevealElements);
 
   const handleReduceChange = (event) => {
-    if(event.matches){
-      showImmediately();
+    if (event.matches) {
+      handleNewElements(document.querySelectorAll('.reveal-in:not(.is-visible)'));
     }
   };
 
-  if(typeof reduceMotion.addEventListener === 'function'){
+  if (typeof reduceMotion.addEventListener === 'function') {
     reduceMotion.addEventListener('change', handleReduceChange);
-  }else if(typeof reduceMotion.addListener === 'function'){
+  } else if (typeof reduceMotion.addListener === 'function') {
     reduceMotion.addListener(handleReduceChange);
   }
 }
+
+document.addEventListener('new-content-added', () => {
+  const newRevealElements = document.querySelectorAll('.reveal-in:not(.is-visible)');
+  if (newRevealElements.length) {
+    handleNewElements(newRevealElements);
+  }
+});
 
 /* fix: слайдер до/после с aria */
 document.querySelectorAll('.ba').forEach((wrapper) => {
