@@ -414,7 +414,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.hero h1').textContent = data.hero_title;
             document.querySelector('.hero p').textContent = data.hero_paragraph;
             document.querySelector('.hero .btn-primary').textContent = data.cta_text;
-        });
+        })
+        .catch(error => console.error('Error fetching home data:', error));
 
     fetch('data/projects.json')
         .then(response => response.json())
@@ -445,7 +446,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const event = new Event('new-content-added');
                 document.dispatchEvent(event);
             }
-        });
+        })
+        .catch(error => console.error('Error fetching projects data:', error));
 });
 
 /* --- lightbox.js --- */
