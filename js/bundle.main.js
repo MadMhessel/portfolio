@@ -420,29 +420,31 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             const projectsGrid = document.querySelector('.portfolio-grid');
-            projectsGrid.innerHTML = ''; // Clear existing projects
-            data.forEach(project => {
-                const projectCard = `
-                    <article class="card reveal-in" role="listitem">
-                        <a class="card-link" href="${project.url}" rel="bookmark" aria-label="${project.title} — подробнее">
-                            <div class="thumb">
-                                <picture>
-                                    <img src="${project.image}" width="960" height="640" alt="${project.alt}" loading="lazy" decoding="async" data-no-upscale>
-                                </picture>
-                            </div>
-                            <div>
-                                <h3 class="card-title">${project.title}</h3>
-                                <p class="card-meta">${project.meta}</p>
-                            </div>
-                        </a>
-                    </article>
-                `;
-                projectsGrid.innerHTML += projectCard;
-            });
+            if (projectsGrid && projectsGrid.innerHTML.trim() === '') {
+                projectsGrid.innerHTML = ''; // Clear existing projects
+                data.forEach(project => {
+                    const projectCard = `
+                        <article class="card reveal-in" role="listitem">
+                            <a class="card-link" href="${project.url}" rel="bookmark" aria-label="${project.title} — подробнее">
+                                <div class="thumb">
+                                    <picture>
+                                        <img src="${project.image}" width="960" height="640" alt="${project.alt}" loading="lazy" decoding="async" data-no-upscale>
+                                    </picture>
+                                </div>
+                                <div>
+                                    <h3 class="card-title">${project.title}</h3>
+                                    <p class="card-meta">${project.meta}</p>
+                                </div>
+                            </a>
+                        </article>
+                    `;
+                    projectsGrid.innerHTML += projectCard;
+                });
 
-            // Let other scripts know that new content has been added
-            const event = new Event('new-content-added');
-            document.dispatchEvent(event);
+                // Let other scripts know that new content has been added
+                const event = new Event('new-content-added');
+                document.dispatchEvent(event);
+            }
         });
 });
 
