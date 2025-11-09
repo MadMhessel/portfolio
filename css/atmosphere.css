@@ -1,32 +1,5 @@
 /* fix: глобальный сброс и токены дизайна */
-:root{
-  --space-8:.5rem;
-  --space-16:1rem;
-  --space-24:1.5rem;
-  --space-32:2rem;
-
-  --c-bg:#f7f7f5;
-  --c-surface:#ffffff;
-  --c-text:#3d4b49;
-  --c-muted:#6e7372;
-  --c-primary:#0b5c55;
-  --c-primary-hover:#0a4d48;
-  --c-focus:#0b5c55;
-  --c-border-strong:#6e7372;
-  --c-border-strong-inverse:#21c2b4;
-  --radius:1rem;
-  --space-1:calc(var(--space-8)/2);
-  --space-2:var(--space-8);
-  --space-3:calc(var(--space-8) * 1.5);
-  --space-4:var(--space-16);
-  --space-5:var(--space-24);
-  --space-6:var(--space-32);
-  --space-7:calc(var(--space-32) * 1.5);
-  --space-64:calc(var(--space-32) * 2);
-  --maxw:1200px;
-  --shadow-soft:0 18px 46px rgba(13,21,20,.12);
-  --check-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230B5C55' d='M8.1 13.3L4.7 10l1.1-1.1 2.3 2.3 6-6 1.1 1.1-7.1 7.1a1 1 0 01-1.1.2z'/%3E%3C/svg%3E");
-}
+:root{--c-bg:#f7f7f5;--c-surface:#ffffff;--c-text:#0d1514;--c-muted:#3d4b49;--c-primary:#0b5c55;--c-primary-hover:#0a4d48;--c-focus:#1aa599;--radius:16px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--maxw:1200px;--shadow-soft:0 18px 46px rgba(13,21,20,.12);--check-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230B5C55' d='M8.1 13.3L4.7 10l1.1-1.1 2.3 2.3 6-6 1.1 1.1-7.1 7.1a1 1 0 01-1.1.2z'/%3E%3C/svg%3E")}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font:400 16px/1.7 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text);text-rendering:optimizeLegibility}
