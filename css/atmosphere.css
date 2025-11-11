@@ -269,6 +269,7 @@ section[aria-labelledby="services"] {
 
 section[aria-labelledby="services"] .card p {
   margin-block-start: 0;
+  min-block-size: 90px;
 }
 
 section[aria-labelledby="services"] .grid {
