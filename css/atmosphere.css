@@ -3,7 +3,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font:400 16px/1.7 "Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:var(--c-bg);color:var(--c-text);text-rendering:optimizeLegibility}
-img{display:block;max-inline-size:100%;block-size:auto;border-radius:inherit;image-rendering:auto}
+img{display:block;max-inline-size:100%;block-size:auto;border-radius:inherit;image-rendering:auto;image-rendering:-webkit-optimize-contrast;-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0)}
 picture{display:block}
 a{color:inherit}
 a,button{cursor:pointer}
